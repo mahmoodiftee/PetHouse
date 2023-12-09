@@ -50,8 +50,8 @@ const Nav = () => {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        {/* <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <Popover className="relative">
+        <Popover.Group className="hidden lg:flex lg:gap-x-12">
+          {/* <Popover className="relative">
             <Popover.Button className="flex items-center border-none gap-x-1 text-sm font-semibold leading-6">
               Product
               <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
@@ -100,7 +100,7 @@ const Nav = () => {
                 </div>
               </Popover.Panel>
             </Transition>
-          </Popover>
+          </Popover> */}
 
           <a href="#" className="text-sm font-semibold leading-6 ">
             Features
@@ -111,7 +111,7 @@ const Nav = () => {
           <a href="#" className="text-sm font-semibold leading-6 ">
             Company
           </a>
-        </Popover.Group> */}
+        </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 ">
             Log in <span aria-hidden="true">&rarr;</span>
