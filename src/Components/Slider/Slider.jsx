@@ -4,9 +4,11 @@ import "swiper/css/zoom";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Zoom, Navigation } from "swiper/modules";
-import SliderCard from "../Cards/SliderCard";
+import SliderCard from "./SliderCard";
 
 const Slider = ({ cards }) => {
+  console.log(cards);
+
   return (
     <Swiper
       style={{

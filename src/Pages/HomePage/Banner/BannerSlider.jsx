@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import Slider from "../../../Components/Slider/Slider";
-
-const Testimonials = () => {
+import json from '../../../assets/data.json'
+const BannerSlider = () => {
     const [cards, setCards] = useState([]);
+    console.log(cards);
     useEffect(() => {
-        fetch("testimonials.json")
-            .then((res) => res.json())
-            .then((data) => setCards(data));
+        setCards(json);
     }, []);
-
+    
     return (
         <div className="">
             <div className="h-[400px]">
@@ -18,4 +17,4 @@ const Testimonials = () => {
     );
 };
 
-export default Testimonials;
+export default BannerSlider;

@@ -1,3 +1,4 @@
+import BannerSlider from "./BannerSlider";
 
 const Banner = () => {
     return (
@@ -7,7 +8,7 @@ const Banner = () => {
                     Home For<span className="text-orange block ml-10">Every Paw</span>
                 </h1>
             </div>
-            <div className="flex-1 h-96 border"></div>
+            <div className="flex-1 h-96 border"><BannerSlider></BannerSlider></div>
         </div>
 
     );
