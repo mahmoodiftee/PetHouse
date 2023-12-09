@@ -1,0 +1,165 @@
+[
+    {
+      "id": 1,
+      "img": "https://i.ibb.co/fdDzV49/1.png",
+      "age": "5 months",
+      "desc": "Meet Sparky, a lively and adorable 5-month-old puppy ready to fill your home with joy."
+    },
+    {
+      "id": 2,
+      "img": "https://i.ibb.co/Ksqrjt8/2.png",
+      "age": "7 months",
+      "desc": "Mittens is a sweet 7-month-old kitten with a playful spirit, perfect for cuddle sessions."
+    },
+    {
+      "id": 3,
+      "img": "https://i.ibb.co/hDrWVCJ/3.png",
+      "age": "1 year",
+      "desc": "Max is a friendly 1-year-old puppy, always ready for new adventures and companionship."
+    },
+    {
+      "id": 4,
+      "img": "https://i.ibb.co/PzZWbhD/4.png",
+      "age": "2 years",
+      "desc": "Whiskers, the wise 2-year-old kitten, is seeking a loving family for his next chapter."
+    },
+    {
+      "id": 5,
+      "img": "https://i.ibb.co/9NdRgFy/5.png",
+      "age": "8 months",
+      "desc": "Bella, the charismatic 8-month-old puppy, brings boundless energy and charm to any home."
+    },
+    {
+      "id": 6,
+      "img": "https://i.ibb.co/sqm5XTP/6.png",
+      "age": "1.5 years",
+      "desc": "Charlie, a 1.5-year-old kitty, loves lounging in the sun and playing with feather toys."
+    },
+    {
+      "id": 7,
+      "img": "https://i.ibb.co/qMMgGZ5/7.png",
+      "age": "6 months",
+      "desc": "Oliver, a playful 6-month-old puppy, is on a quest for a forever family to call his own."
+    },
+    {
+      "id": 8,
+      "img": "https://i.ibb.co/jwWSLjv/8.png",
+      "age": "9 months",
+      "desc": "Luna, a delightful 9-month-old kitten, will fill your home with purrs and affection."
+    },
+    {
+      "id": 9,
+      "img": "https://i.ibb.co/whSRwvG/9.png",
+      "age": "1.5 years",
+      "desc": "Rocky, the adventurous 1.5-year-old puppy, is ready for hikes, fetch, and endless fun."
+    },
+    {
+      "id": 10,
+      "img": "https://i.ibb.co/XDYhrk3/10.png",
+      "age": "2 years",
+      "desc": "Misty, a wise 2-year-old kitty, will be your loving companion through thick and thin."
+    },
+    {
+      "id": 11,
+      "img": "https://i.ibb.co/bR5pCgG/11.png",
+      "age": "7 months",
+      "desc": "Cooper, the mischievous 7-month-old puppy, is searching for a playmate and forever home."
+    },
+    {
+      "id": 12,
+      "img": "https://i.ibb.co/Kbxj3ss/12.png",
+      "age": "1 year",
+      "desc": "Sunny, a cheerful 1-year-old kitten, will brighten your days with her joyful antics."
+    },
+    {
+      "id": 13,
+      "img": "https://i.ibb.co/qMMgGZ5/7.png",
+      "age": "10 months",
+      "desc": "Teddy, the cuddly 10-month-old puppy, is looking for someone to share a lifetime of love."
+    },
+    {
+      "id": 14,
+      "img": "https://i.ibb.co/G7nThj5/14.png",
+      "age": "8 months",
+      "desc": "Cleo, an elegant 8-month-old kitty, is ready to grace your home with her regal presence."
+    },
+    {
+      "id": 15,
+      "img": "https://i.ibb.co/JxrWqGN/15.png",
+      "age": "1.5 years",
+      "desc": "Maximus, a 1.5-year-old puppy, is not just a pet; he's a loyal friend for life."
+    },
+    {
+      "id": 16,
+      "img": "https://i.ibb.co/dfnWBKX/16.png",
+      "age": "2 years",
+      "desc": "Whisk, the curious 2-year-old kitty, is ready to explore the world from the comfort of your home."
+    },
+    {
+      "id": 17,
+      "img": "https://i.ibb.co/VSHFyKN/17.png",
+      "age": "6 months",
+      "desc": "Cocoa, a playful 6-month-old puppy, promises to bring sweetness and joy into your life."
+    },
+    {
+      "id": 18,
+      "img": "https://i.ibb.co/BynXZ3d/18.png",
+      "age": "1 year",
+      "desc": "Mocha, a gentle 1-year-old kitty, will add warmth and comfort to your home."
+    },
+    {
+      "id": 19,
+      "img": "https://i.ibb.co/wSvTRGV/19.png",
+      "age": "9 months",
+      "desc": "Bailey, the spirited 9-month-old puppy, is ready to embark on new adventures by your side."
+    },
+    {
+      "id": 20,
+      "img": "https://i.ibb.co/Gpbr98y/20.png",
+      "age": "1.5 years",
+      "desc": "Lily, a charming 1.5-year-old kitty, will blossom into a lifelong companion in your loving home."
+    },
+    {
+      "id": 21,
+      "img": "https://i.ibb.co/88zzks9/21.png",
+      "age": "7 months",
+      "desc": "Rusty, a playful 7-month-old puppy, is seeking a forever family to share joyous moments and laughter."
+    },
+    {
+      "id": 22,
+      "img": "https://i.ibb.co/S68byt7/22.png",
+      "age": "1.5 years",
+      "desc": "Mittens, a 1.5-year-old kitty, will grace your home with elegance and a soft purr."
+    },
+    {
+      "id": 23,
+      "img": "https://i.ibb.co/80c01fj/23.png",
+      "age": "8 months",
+      "desc": "Rocky, the energetic 8-month-old puppy, is ready to be your loyal companion on every adventure."
+    },
+    {
+      "id": 24,
+      "img": "https://i.ibb.co/NZWgGSJ/24.png",
+      "age": "1 year",
+      "desc": "Shadow, a mysterious 1-year-old kitty, is looking for a cozy spot to call home."
+    },
+    {
+      "id": 25,
+      "img": "https://i.ibb.co/yXwdKJD/25.png",
+      "age": "10 months",
+      "desc": "Charlie, the charismatic 10-month-old puppy, is searching for a family to share his love and enthusiasm."
+    },
+    {
+      "id": 26,
+      "img": "https://i.ibb.co/z7sFZ78/26.png",
+      "age": "1.5 years",
+      "desc": "Smokey, a charming 1.5-year-old kitty, will bring a touch of mystery and affection to your home."
+    },
+    {
+      "id": 27,
+      "img": "https://i.ibb.co/jVpdXZC/27.png",
+      "age": "6 months",
+      "desc": "Simba, a playful 6-month-old puppy, is ready to be the king of your heart and home."
+    }
+  ]
+  
