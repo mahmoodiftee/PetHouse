@@ -3,7 +3,7 @@ import Title from "../../../Components/Title/Title";
 import cat from '../../../assets/2.png'
 const About = () => {
     return (
-        <div className="relative overflow-hidden my-6 md:my-20">
+        <div className="relative overflow-hidden my-6 md:mb-10 md:mt-20">
             <Title head1={'About'} head2={'Us'}></Title>
             <div className="my-4 md:my-10">
                 <div className="relative mx-auto px-4 sm:static flex flex-col-reverse md:flex-row-reverse items-center">

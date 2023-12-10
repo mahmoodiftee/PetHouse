@@ -1,3 +1,4 @@
+import Available from "../Available/Available";
 import About from "./About/About";
 import Banner from "./Banner/Banner";
 
@@ -6,6 +7,7 @@ const Home = () => {
         <>
             <Banner></Banner>
             <About></About>
+            <Available></Available>
         </>
     );
 };
