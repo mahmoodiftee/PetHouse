@@ -12,7 +12,7 @@ const About = () => {
                             Providing Shelter, Love & Hope to Every Paw in Need
                         </h1>
                         <p className="mt-2 md:mt-4 tracking-tight text-white text-sm ">
-                        At Pet House, our commitment is to be a beacon of compassion for animals in distress. With unwavering dedication, we strive to create a haven where every paw, furry or feathered, finds a loving home. Our mission goes beyond sheltering – it's about restoring hope, healing wounds, and creating a brighter future for every four-legged companion. Join us in our journey to make the world a better place, one paw at a time.
+                            At Pet House, our commitment is to be a beacon of compassion for animals in distress. With unwavering dedication, we strive to create a haven where every paw, furry or feathered, finds a loving home. Our mission goes beyond sheltering – it's about restoring hope, healing wounds, and creating a brighter future for every four-legged companion. Join us in our journey to make the world a better place, one paw at a time.
                         </p>
                         <Button text={'Learn More..'} />
                     </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Title from "../../Components/Title/Title";
-import json from "../../assets/data.json";
+import Title from "../../../Components/Title/Title";
+import json from "../../../assets/data.json";
 const Available = () => {
     const [pets, setPets] = useState([]);
     useEffect(() => {
@@ -23,7 +23,7 @@ const Available = () => {
                             <article className="flex my-2 max-w-xl flex-col items-start justify-between">
                                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
                                     <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">Puppy</p>
-                                    <time datetime="2020-03-16" className="text-orange">Mar 16, 2020</time>
+                                    <time datetime="2020-03-16" className="text-orange">{pet.date}</time>
                                 </div>
                                 <div className="group relative">
                                     <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">

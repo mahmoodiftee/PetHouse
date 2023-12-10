@@ -1,4 +1,5 @@
-import Available from "../Available/Available";
+import Modal from "../../Components/Modals/Modal";
+import Available from "./Available/Available";
 import About from "./About/About";
 import Banner from "./Banner/Banner";
 
@@ -7,6 +8,7 @@ const Home = () => {
         <>
             <Banner></Banner>
             <About></About>
+            <Modal></Modal>
             <Available></Available>
         </>
     );
