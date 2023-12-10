@@ -7,6 +7,20 @@ const Available = () => {
     const [pets, setPets] = useState([]);
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
+    const [visibleItems, setVisibleItems] = useState(8);
+
+    const visiblePets = pets.slice(0, visibleItems)
+    const showMore = () => {
+        console.log('Show More clicked');
+        setVisibleItems((prevVisibleItems) => {
+            console.log('Previous Visible Items:', prevVisibleItems);
+            return prevVisibleItems + 8;
+        });
+    };
+    const showLess = () => {
+        setVisibleItems(8);
+    };
+
     function closeModal() {
         setIsOpen(false)
     }
@@ -27,7 +41,7 @@ const Available = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center mt-6 md:mt-10">
                 {
-                    pets.map((pet) => (
+                   visiblePets.map((pet) => (
                         <div key={pet.id} onClick={() => openModal(pet)} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
                             <div className="h-[45%] overflow-hidden w-full">
                                 <img src={pet.img} alt="" className="h-full cursor-pointer mx-auto object-contain transition-transform transform-gpu hover:scale-150" />
@@ -62,6 +76,14 @@ const Available = () => {
                     ))
                 }
             </div>
+            <div className="w-full flex justify-center items-center my-6">
+                {visibleItems < pets.length ? (
+                    <Button text={'Show More'} onClick={showMore} />
+                ) : (
+                    <Button text={'Show Less'} onClick={showLess} />
+                )}
+            </div>
+
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
                     <Transition.Child

@@ -1,12 +1,10 @@
-
-const Button = ({text}) => {
+const Button = ({ text, onClick }) => {
     return (
-        <div>
-            <a className="Button buttonA">
-                <span className="Button__inner"> {text} </span>
-            </a>
-        </div>
+      <button className="Button buttonA" onClick={onClick}>
+        <span className="Button__inner">{text}</span>
+      </button>
     );
-};
-
-export default Button;
+  };
+  
+  export default Button;
+  
