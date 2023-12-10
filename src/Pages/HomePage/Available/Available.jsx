@@ -21,14 +21,14 @@ const Available = () => {
     console.log(pets);
 
     return (
-        <div className="my-6 md:my-10 px-6">
-            <div className="w-[30%] mx-auto">
+        <div className="my-6 md:my-10 px-2 md:px-6">
+            <div className="md:w-[30%] w-[80%] mx-auto">
                 <Title head1={'Available'} head2={'For Adoption'}></Title>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center mt-6 md:mt-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center mt-6 md:mt-10">
                 {
                     pets.map((pet) => (
-                        <div key={pet.id} onClick={() => openModal(pet)} className="overflow-hidden cursor-pointer h-96 w-full rounded-lg bg-[#171717] mx-auto p-6">
+                        <div key={pet.id} onClick={() => openModal(pet)} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
                             <div className="h-[45%] overflow-hidden w-full">
                                 <img src={pet.img} alt="" className="h-full cursor-pointer mx-auto object-contain transition-transform transform-gpu hover:scale-150" />
                             </div>
@@ -45,10 +45,10 @@ const Available = () => {
                                         </p>
                                     </h3>
                                     <div className="h-[75px] mb-2">
-                                        <p className="mt-2 text-sm leading-6 hidden md:block text-gray-400">{pet.desc.split(' ').slice(0, 30).join(' ')}..</p>
+                                        <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{pet.desc.split(' ').slice(0, 30).join(' ')}..</p>
                                     </div>
                                 </div>
-                                <div className="relative mt-3 flex items-center gap-x-4">
+                                <div className="relative md:mt-3 flex items-center gap-x-4">
                                     <img src="https://tailwindcss.com/_next/static/media/guillermo-rauch.8a24ab88.jpg" alt="" className="h-8 w-8 rounded-full bg-black" />
                                     <div className="text-sm leading-6">
                                         <p className="font-semibold text-[12px] text-orange">
