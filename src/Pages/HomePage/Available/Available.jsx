@@ -1,6 +1,6 @@
 import { useEffect, useState, Fragment } from "react";
 import Title from "../../../Components/Title/Title";
-import json from "../../../assets/data.json";
+import json from "../../../assets/jsons/data.json";
 import { Dialog, Transition } from '@headlessui/react'
 import Button from "../../../Components/Button/Button";
 const Available = () => {

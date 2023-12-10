@@ -1,29 +1,81 @@
+import { FaFacebookSquare, FaGlobe, FaWhatsapp } from "react-icons/fa";
+import { IoMailOpenOutline } from "react-icons/io5";
 import Title from "../../../Components/Title/Title";
-import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 const Contact = () => {
     return (
         <>
             <Title head1={'Contact'} head2={'Us'} />
-            <div className="relative isolate overflow-hidden rounded-xl mx-2 md:mx-6 bg-dark py-16 md:py-44">
+            <div className="relative isolate overflow-hidden rounded-xl mx-2 md:mx-6 bg-dark py-16 md:py-20 ">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-                        <div className="max-w-xl lg:max-w-lg">
-                            <div className="mt-6 flex max-w-md gap-x-4">
+                    <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-4xl lg:grid-cols-2">
+
+                        <div className="max-w-xl  lg:max-w-lg">
+                            <div className=" flex max-w-md gap-x-4">
                                 <label htmlFor="email-address" className="sr-only">
                                     Your Name
                                 </label>
                                 <input
-                                    id="email-address"
+                                    name="name"
+                                    type="text"
+                                    autoComplete="name"
+                                    required
+                                    className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6"
+                                    placeholder="Your Name"
+                                />
+                            </div>
+                            <div className="mt-6 flex max-w-md gap-x-4">
+                                <label htmlFor="email-address" className="sr-only">
+                                    Name
+                                </label>
+                                <input
                                     name="email"
                                     type="email"
                                     autoComplete="email"
                                     required
                                     className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6"
-                                    placeholder="Enter your email"
+                                    placeholder="Email Address"
                                 />
                             </div>
+                            <div className="mt-6 flex max-w-md gap-x-4">
+                                <label htmlFor="email-address" className="sr-only">
+                                    Contact Info
+                                </label>
+                                <input
+                                    name="number"
+                                    type="number"
+                                    autoComplete="number"
+                                    required
+                                    className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6"
+                                    placeholder="Contact Number"
+                                />
+                            </div>
+                            <div>
+                                <div className="rounded-md cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
+                                    <IoMailOpenOutline className="h-6 w-6 text-orange" aria-hidden="true" /> Contact
+                                </div>
+                            </div>
                         </div>
-
+                        <dl className="grid grid-cols-1 gap-y-10 lg:pt-2">
+                            <div className="flex flex-row gap-x-4 text-gray-400 items-center">
+                                <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                                    <FaWhatsapp className="h-4 w-4md:h-6 md:w-6 text-white" aria-hidden="true" />
+                                </div>
+                                <h1>+880 1234567890</h1>
+                            </div>
+                            <div className="flex flex-row gap-x-4 text-gray-400 items-center">
+                                <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                                    <FaGlobe className="h-4 w-4md:h-6 md:w-6 text-white" aria-hidden="true" />
+                                </div>
+                                <h1>www.pethouse.com</h1>
+                            </div>
+                            <div className="flex flex-row gap-x-4 text-gray-400 items-center">
+                                <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                                    <FaFacebookSquare className="h-4 w-4md:h-6 md:w-6 text-white" aria-hidden="true" />
+                                </div>
+                                <h1 className="hidden md:flex">www.facebook.com/pethouse.com.bd</h1>
+                                <h1 className="flex md:hidden text-gray-400">www.fb.com/pethouse.com.bd</h1>
+                            </div>
+                        </dl>
                     </div>
                 </div>
                 <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
