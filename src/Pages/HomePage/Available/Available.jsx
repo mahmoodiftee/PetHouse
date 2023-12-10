@@ -95,16 +95,16 @@ const Available = () => {
                                         </div>
                                         <div className="flex-1 text-white flex justify-center items-center">
                                             <div>
-                                                <h3 className=" text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
+                                                <h3 className="text-2xl md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
                                                     {modal.desc?.split(' ')[0]}
                                                 </h3>
-                                                <p className="text-lg mb-2 font-light">
-                                                    <span className="text-xl font-bold">Age :</span> {modal?.age}
+                                                <p className="text-sm md:text-xl mb-2 font-light">
+                                                    <span className="text-[16px] md:text-xl font-bold">Age :</span> {modal?.age}
                                                 </p>
-                                                <p className="text-[16px] mb-2 font-light">
-                                                    <span className="text-xl font-bold">Description: </span> {modal?.desc}
+                                                <p className="text-[12px] md:text-[16px] mb-2 font-light">
+                                                    <span className="text-[16px] md:text-xl font-bold">Description: </span> {modal?.desc}
                                                 </p>
-                                                <div className="flex flex-col md:flex-row justify-start gap-4">
+                                                <div className="flex justify-start gap-4">
                                                     <Button text={'Conditions'} />
                                                     <Button text={'Adopt'} />
                                                 </div>
