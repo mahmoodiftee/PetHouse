@@ -11,12 +11,9 @@ const Available = () => {
 
     const visiblePets = pets.slice(0, visibleItems)
     const showMore = () => {
-        console.log('Show More clicked');
-        setVisibleItems((prevVisibleItems) => {
-            console.log('Previous Visible Items:', prevVisibleItems);
-            return prevVisibleItems + 8;
-        });
+        setVisibleItems((prevVisibleItems) => prevVisibleItems + 8);
     };
+
     const showLess = () => {
         setVisibleItems(8);
     };
@@ -41,7 +38,7 @@ const Available = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center mt-6 md:mt-10">
                 {
-                   visiblePets.map((pet) => (
+                    visiblePets.map((pet) => (
                         <div key={pet.id} onClick={() => openModal(pet)} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
                             <div className="h-[45%] overflow-hidden w-full">
                                 <img src={pet.img} alt="" className="h-full cursor-pointer mx-auto object-contain transition-transform transform-gpu hover:scale-150" />
