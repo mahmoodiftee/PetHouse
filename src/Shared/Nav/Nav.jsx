@@ -27,7 +27,7 @@ const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="text-white">
+    <header className="text-white md:px-4">
       <nav className="w-full flex items-center justify-between px-2 lg:px-0 py-6" aria-label="Global">
         <div className="flex gap-3 items-center lg:flex-1">
           {/* <a href="#" className="-m-1.5 p-1.5">
