@@ -2,6 +2,7 @@ import { useEffect, useState, Fragment } from "react";
 import Title from "../../../Components/Title/Title";
 import json from "../../../assets/data.json";
 import { Dialog, Transition } from '@headlessui/react'
+import Button from "../../../Components/Button/Button";
 const Available = () => {
     const [pets, setPets] = useState([]);
     const [isOpen, setIsOpen] = useState(false)
@@ -86,30 +87,29 @@ const Available = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-4xl h-[500px] transform overflow-hidden rounded-2xl bg-[#171717] p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="w-full max-w-4xl h-[500px] transform overflow-hidden rounded-2xl bg-[#171717] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
 
-                                    <div className="flex gap-10">
-                                        <div className="flex-1 flex-shrink-0">
-                                            <img src={modal.img} className="w-full h-full object-cover" />
+                                    <div className="flex h-full gap-10">
+                                        <div className="flex-1 h-full w-full flex-shrink-0">
+                                            <img src={modal.img} className=" h-full mx-auto object-contain" />
                                         </div>
-                                        <div className="flex-1 gap-4">
-                                            <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
-                                                Name: {modal.desc?.split(' ')[0]}
-                                            </h3>
-                                            <p className="text-sm mb-4  font-thin">
-                                                <span className="text-sm font-bold">Age:</span> {modal?.age}
-                                            </p>
-                                            <p className="text-sm mb-4 max-w-[650px]  font-thin">
-                                                <span className="text-sm font-bold">Description: </span> {modal?.desc}
-                                            </p>
-                                            <div className="flex flex-col md:flex-row justify-start gap-4">
-                                                <button
-                                                    className="bg-black rounded-none flex justify-center items-center gap-2 hover:shadow-inner text-white hover:bg-base-200 font-semibold hover:text-gray-600 border-none btn btn-sm lg:btn-md lg:btn-wide">
-                                                    ADD TO CART</button>
-                                                <button
-                                                    className="bg-black rounded-none hover:shadow-inner text-white hover:bg-base-200 font-semibold hover:text-gray-600 border-none btn btn-sm lg:btn-md lg:btn-wide">
-                                                    DELETE modal</button>
+                                        <div className="flex-1 text-white flex justify-center items-center">
+                                            <div>
+                                                <h3 className=" text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
+                                                    {modal.desc?.split(' ')[0]}
+                                                </h3>
+                                                <p className="text-lg mb-2 font-light">
+                                                    <span className="text-xl font-bold">Age :</span> {modal?.age}
+                                                </p>
+                                                <p className="text-[16px] mb-2 font-light">
+                                                    <span className="text-xl font-bold">Description: </span> {modal?.desc}
+                                                </p>
+                                                <div className="flex flex-col md:flex-row justify-start gap-4">
+                                                    <Button text={'Conditions'} />
+                                                    <Button text={'Adopt'} />
+                                                </div>
                                             </div>
+
 
                                         </div>
                                     </div>
