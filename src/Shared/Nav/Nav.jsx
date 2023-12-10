@@ -33,7 +33,7 @@ const Nav = () => {
           {/* <a href="#" className="-m-1.5 p-1.5">
             <img className="h-12 w-auto" src={logo} alt="" />
           </a> */}
-          <p className="text-xl font-bold">PetHouse</p>
+          <p className="text-xl font-semibold">Pet<span className='text-orange'>House</span></p>
         </div>
         <div className="flex lg:hidden">
           <button
