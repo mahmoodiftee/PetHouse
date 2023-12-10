@@ -11,11 +11,11 @@ const Available = () => {
 
     const visiblePets = pets.slice(0, visibleItems)
     const showMore = () => {
-        setVisibleItems((prevVisibleItems) => prevVisibleItems + 8);
+        setVisibleItems((e) => e + 8);
     };
 
     const showLess = () => {
-        setVisibleItems(8);
+        setVisibleItems(4);
     };
 
     function closeModal() {
