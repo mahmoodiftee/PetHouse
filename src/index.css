@@ -3,9 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    font-family: 'Poppins', sans-serif;
-    background-color: black;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: black;
 }
 
 
@@ -80,14 +80,16 @@ body{
   cursor: pointer;
   overflow: hidden;
   will-change: transform;
-  padding:3px 15px;
+  padding: 3px 15px;
   display: inline-block;
   margin-top: clamp(1px, 5.3333333333vw, 10.96px);
 }
 
 @media screen and (min-width: 768px) {
   .Button {
-      padding: 10px 50px; 
+    padding: 10px 50px;
+    font-size: 20px;
+
   }
 }
 
@@ -124,7 +126,7 @@ body{
   z-index: 0;
 }
 
-.Button > * {
+.Button>* {
   position: relative;
   z-index: 1;
 }
