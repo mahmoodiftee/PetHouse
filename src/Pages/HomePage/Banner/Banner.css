@@ -1,0 +1,28 @@
+/* Banner.css */
+
+.banner-container {
+    position: relative;
+}
+
+.banner-container::before,
+.banner-container::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), transparent 30%);
+}
+
+.banner-container::before {
+    top: 0;
+}
+
+.banner-container::after {
+    bottom: 0;
+}
+
+.banner-video {
+    position: relative;
+    z-index: 1; /* Ensure the video stays on top of the overlay */
+}
