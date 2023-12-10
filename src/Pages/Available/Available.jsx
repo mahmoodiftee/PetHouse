@@ -16,8 +16,8 @@ const Available = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center mt-6 md:mt-10">
                 {
                     pets.map((pet) => (
-                        <div key={pet.id} className="overflow-hidden w-full rounded-lg bg-[#171717] mx-auto p-6">
-                            <div className="h-[80%] overflow-hidden w-full">
+                        <div key={pet.id} className="overflow-hidden h-96 w-full rounded-lg bg-[#171717] mx-auto p-6">
+                            <div className="h-[45%] overflow-hidden w-full">
                                 <img src={pet.img} alt="" className="h-full cursor-pointer mx-auto object-contain transition-transform transform-gpu hover:scale-150" />
                             </div>
                             <article className="flex my-2 max-w-xl flex-col items-start justify-between">
@@ -32,13 +32,15 @@ const Available = () => {
                                             {pet.desc.split(' ')[0]}
                                         </p>
                                     </h3>
-                                    <p className="mt-2 text-sm leading-6 hidden md:block text-gray-400">{pet.desc.split(' ').slice(0, 30).join(' ')}..</p>
+                                    <div className="h-[75px] mb-2"> 
+                                        <p className="mt-2 text-sm leading-6 hidden md:block text-gray-400">{pet.desc.split(' ').slice(0, 30).join(' ')}..</p>
+                                    </div>
                                 </div>
                                 <div className="relative mt-3 flex items-center gap-x-4">
                                     <img src="https://tailwindcss.com/_next/static/media/guillermo-rauch.8a24ab88.jpg" alt="" className="h-8 w-8 rounded-full bg-black" />
                                     <div className="text-sm leading-6">
                                         <p class="font-semibold text-[12px] text-orange">
-                                                John Doe 
+                                            John Doe
                                         </p>
                                     </div>
                                 </div>
