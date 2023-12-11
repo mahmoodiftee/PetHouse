@@ -55,7 +55,7 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        <dl className="grid grid-cols-1 gap-y-10 lg:pt-2">
+                        <dl className="grid grid-cols-1 gap-y-[30px] md:-mt-4">
                             <div className="flex flex-row gap-x-4 text-gray-400 items-center">
                                 <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                                     <FaWhatsapp className="h-4 w-4md:h-6 md:w-6 text-white" aria-hidden="true" />
