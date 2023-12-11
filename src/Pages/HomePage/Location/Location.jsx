@@ -66,7 +66,7 @@ const Location = () => {
                             </dl>
                         </div>
                         <dl className="grid grid-cols-1 ">
-                            <MapContainer center={position} scrollWheelZoom={false} zoom={13} style={{ height: '100%', borderRadius: '12px', width: '100%', margin: 'auto' }}>
+                            <MapContainer center={position} scrollWheelZoom={true} zoom={13} style={{ height: '100%', borderRadius: '12px', width: '100%', margin: 'auto' }}>
                                 <TileLayer
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
