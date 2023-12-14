@@ -3,7 +3,7 @@ import Nav from "../Shared/Nav/Nav";
 
 const MainLayout = () => {
     return (
-        <div className="bg-black">
+        <div className="bg-black text-white">
             <Nav></Nav>
             <Outlet></Outlet>
         </div>
