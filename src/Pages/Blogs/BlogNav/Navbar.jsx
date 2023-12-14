@@ -7,9 +7,9 @@ function classNames(...classes) {
 const Navbar = () => {
 
     const links = [
-        <NavLink to={'/'}><p className="text-sm font-semibold">Blogs</p></NavLink>,
-        <NavLink to={'/blogs'}><p className="text-sm font-semibold">Adoption Post</p></NavLink>,
-        <NavLink to={'/Consultation'}><p className="text-sm font-semibold">Help Post</p></NavLink>,
+        <NavLink to={'/blogs'}><p className="text-sm font-semibold">Blogs</p></NavLink>,
+        <NavLink to={'/adoption-post'}><p className="text-sm font-semibold">Adoption Post</p></NavLink>,
+        <NavLink to={'/help-post'}><p className="text-sm font-semibold">Help Post</p></NavLink>,
     ]
     return (
         <div className="h-70px flex justify-center items-center py-2 md:hidden">
@@ -17,9 +17,9 @@ const Navbar = () => {
                 <Tab.Group>
                     <Tab.List className="flex space-x-1 rounded-xl bg-[#111111] p-1">
 
-                        {links.map((link, index) => (
+                        {links.map((link) => (
                             <Tab
-                                key={index}
+                                key={link.props.to}
                                 className={({ selected }) =>
                                     classNames(
                                         'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
