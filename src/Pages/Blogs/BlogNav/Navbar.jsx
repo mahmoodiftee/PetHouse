@@ -1,5 +1,4 @@
 import { Tab } from '@headlessui/react'
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -8,8 +7,8 @@ const Navbar = () => {
 
     const links = [
         <NavLink to={'/blogs'}><p className="text-sm font-semibold">Blogs</p></NavLink>,
-        <NavLink to={'/adoption-post'}><p className="text-sm font-semibold">Adoption Post</p></NavLink>,
-        <NavLink to={'/help-post'}><p className="text-sm font-semibold">Help Post</p></NavLink>,
+        <NavLink to={'adoption-post'}><p className="text-sm font-semibold">Adoption Post</p></NavLink>,
+        <NavLink to={'help-post'}><p className="text-sm font-semibold">Help Post</p></NavLink>,
     ]
     return (
         <div className="h-70px flex justify-center items-center py-2 md:hidden">
