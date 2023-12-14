@@ -1,6 +1,6 @@
 import Button from "../../../Components/Button/Button";
 import Title from "../../../Components/Title/Title";
-import cat from '../../../assets/2.png'
+import cat from '../../../assets/about2.png'
 const About = () => {
     return (
         <div className="relative overflow-hidden my-6 md:mb-10 md:mt-20">
@@ -16,7 +16,7 @@ const About = () => {
                         </p>
                         <Button text={'Learn More..'} />
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 mt-4 md:mt-0">
                         <img className="h-full" src={cat} alt="" />
                     </div>
                     {/* <div className="mt-10 ml-10">
