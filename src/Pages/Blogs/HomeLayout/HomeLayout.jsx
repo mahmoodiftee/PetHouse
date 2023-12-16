@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../BlogNav/Navbar";
 import Options from "./Options";
 
 const HomeLayout = () => {
