@@ -12,14 +12,14 @@ const Options = () => {
                 <Disclosure>
                     {({ open }) => (
                         <>
-                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#202020] px-4 py-2 text-left text-sm font-medium text-white hover:bg-[#202020] focus:outline-none focus-visible:ring focus-visible:ring-white/75">
+                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#202020] px-4 py-2 text-left text-sm font-medium text-gray-300 hover:bg-[#202020] focus:outline-none focus-visible:ring focus-visible:ring-white/75">
                                 <span className='font-bold tracking-wider'>Blog Section</span>
                                 <ChevronUpIcon
                                     className={`${open ? 'rotate-180 transform' : ''
-                                        } h-5 w-5 text-white`}
+                                        } h-5 w-5 text-gray-300`}
                                 />
                             </Disclosure.Button>
-                            <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-white">
+                            <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-300">
                                 <div className="flex items-center justify-start mb-4">
                                     <label htmlFor="default-checkbox" className="text-sm font-medium text-gray-900 dark:text-gray-300">
                                         All Post
@@ -65,14 +65,14 @@ const Options = () => {
                 <Disclosure as="div" className="mt-2">
                     {({ open }) => (
                         <>
-                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#202020] px-4 py-2 text-left text-sm font-medium text-white hover:bg-[#202020] focus:outline-none focus-visible:ring focus-visible:ring-white/75">
+                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#202020] px-4 py-2 text-left text-sm font-medium text-gray-300 hover:bg-[#202020] focus:outline-none focus-visible:ring focus-visible:ring-white/75">
                                 <span className='font-bold tracking-wider'>Adoption Section</span>
                                 <ChevronUpIcon
                                     className={`${open ? 'rotate-180 transform' : ''
-                                        } h-5 w-5 text-white`}
+                                        } h-5 w-5 text-gray-300`}
                                 />
                             </Disclosure.Button>
-                            <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-white">
+                            <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-300">
                                 <div className="flex items-center justify-start mb-4">
                                     <label htmlFor="default-checkbox" className="text-sm font-medium text-gray-900 dark:text-gray-300">
                                         Adoption Post
@@ -91,14 +91,14 @@ const Options = () => {
                 <Disclosure as="div" className="mt-2">
                     {({ open }) => (
                         <>
-                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#202020] px-4 py-2 text-left text-sm font-medium text-white hover:bg-[#202020] focus:outline-none focus-visible:ring focus-visible:ring-white/75">
+                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#202020] px-4 py-2 text-left text-sm font-medium text-gray-300 hover:bg-[#202020] focus:outline-none focus-visible:ring focus-visible:ring-white/75">
                                 <span className='font-bold tracking-wider'>Help Section</span>
                                 <ChevronUpIcon
                                     className={`${open ? 'rotate-180 transform' : ''
-                                        } h-5 w-5 text-white`}
+                                        } h-5 w-5 text-gray-300`}
                                 />
                             </Disclosure.Button>
-                            <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-white">
+                            <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-300">
                                 <div className="flex items-center justify-start mb-4">
                                     <label htmlFor="default-checkbox" className="text-sm font-medium text-gray-900 dark:text-gray-300">
                                         Help Post
