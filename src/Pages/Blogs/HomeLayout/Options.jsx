@@ -12,7 +12,7 @@ const Options = () => {
                 <Disclosure>
                     {({ open }) => (
                         <>
-                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-orange px-4 py-2 text-left text-sm font-medium text-white hover:bg-orange focus:outline-none focus-visible:ring focus-visible:ring-white/75">
+                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#202020] px-4 py-2 text-left text-sm font-medium text-white hover:bg-[#202020] focus:outline-none focus-visible:ring focus-visible:ring-white/75">
                                 <span className='font-bold tracking-wider'>Blog Section</span>
                                 <ChevronUpIcon
                                     className={`${open ? 'rotate-180 transform' : ''
@@ -65,7 +65,7 @@ const Options = () => {
                 <Disclosure as="div" className="mt-2">
                     {({ open }) => (
                         <>
-                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-orange px-4 py-2 text-left text-sm font-medium text-white hover:bg-orange focus:outline-none focus-visible:ring focus-visible:ring-white/75">
+                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#202020] px-4 py-2 text-left text-sm font-medium text-white hover:bg-[#202020] focus:outline-none focus-visible:ring focus-visible:ring-white/75">
                                 <span className='font-bold tracking-wider'>Adoption Section</span>
                                 <ChevronUpIcon
                                     className={`${open ? 'rotate-180 transform' : ''
@@ -91,7 +91,7 @@ const Options = () => {
                 <Disclosure as="div" className="mt-2">
                     {({ open }) => (
                         <>
-                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-orange px-4 py-2 text-left text-sm font-medium text-white hover:bg-orange focus:outline-none focus-visible:ring focus-visible:ring-white/75">
+                            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-[#202020] px-4 py-2 text-left text-sm font-medium text-white hover:bg-[#202020] focus:outline-none focus-visible:ring focus-visible:ring-white/75">
                                 <span className='font-bold tracking-wider'>Help Section</span>
                                 <ChevronUpIcon
                                     className={`${open ? 'rotate-180 transform' : ''
