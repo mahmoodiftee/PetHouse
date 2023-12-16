@@ -5,8 +5,7 @@ import MainLayout from "./Layout/MainLayout";
 import Home from "./Pages/HomePage/Home";
 import HomeLayout from "./Pages/Blogs/HomeLayout/HomeLayout";
 import Blogs from "./Pages/Blogs/Home/Blogs";
-import AdoptionPost from "./Pages/Blogs/Home/AdoptionPost";
-import HelpPost from "./Pages/Blogs/Home/HelpPost";
+
 
 export const router = createBrowserRouter([
     {
@@ -25,15 +24,7 @@ export const router = createBrowserRouter([
                     {
                         path: "/blogs",
                         element: <Blogs />,
-                    },
-                    {
-                        path: "/blogs/adoption-post",
-                        element: <AdoptionPost/>,
-                    },
-                    {
-                        path: "/blogs/help-post",
-                        element: <HelpPost/>,
-                    },
+                    }
                 ]
             }
         ]
