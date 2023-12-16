@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 const Options = () => {
-    const [Selected, setSelected] = useState('All Post');
-    console.log(Selected);
     const handleSelectedOption = (value) => {
         setSelected(value);
     }
@@ -27,8 +25,8 @@ const Options = () => {
                                     </label>
                                     <input
                                         type='radio'
-                                        onChange={() => handleSelectedOption('All Post')}
-                                        checked={Selected === 'All Post'}
+                                        onChange={() => handleSelectedOption('all')}
+                                        checked={Selected === 'all'}
                                         className="ms-2 w-4 h-4 cursor-pointer text-orange bg-gray-100-gray-300 rounded focus:ring-orange dark:focus:ring-orange dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark-gray-600"
                                     />
                                 </div>
@@ -36,8 +34,8 @@ const Options = () => {
                                     <label htmlFor="default-checkbox" className="text-sm font-medium text-gray-900 dark:text-gray-300">Cat & Kitten</label>
                                     <input
                                         type='radio'
-                                        onChange={() => handleSelectedOption('Cat & Kitten')}
-                                        checked={Selected === 'Cat & Kitten'}
+                                        onChange={() => handleSelectedOption('cat')}
+                                        checked={Selected === 'cat'}
                                         className="ms-2 w-4 h-4 cursor-pointer text-orange bg-gray-100-gray-300 rounded focus:ring-orange dark:focus:ring-orange dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark-gray-600"
                                     />
                                 </div>
@@ -45,8 +43,8 @@ const Options = () => {
                                     <label htmlFor="default-checkbox" className="text-sm font-medium text-gray-900 dark:text-gray-300">Dog & Puppy</label>
                                     <input
                                         type='radio'
-                                        onChange={() => handleSelectedOption('Dog & Puppy')}
-                                        checked={Selected === 'Dog & Puppy'}
+                                        onChange={() => handleSelectedOption('dog')}
+                                        checked={Selected === 'dog'}
                                         className="ms-2 w-4 h-4 cursor-pointer text-orange bg-gray-100-gray-300 rounded focus:ring-orange dark:focus:ring-orange dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark-gray-600"
                                     />
                                 </div>
@@ -54,7 +52,7 @@ const Options = () => {
                                     <label htmlFor="default-checkbox" className="text-sm font-medium text-gray-900 dark:text-gray-300">Questions</label>
                                     <input
                                         type='radio'
-                                        onChange={() => handleSelectedOption('Questions')}
+                                        onChange={() => handleSelectedOption('questions')}
                                         checked={Selected === 'Questions'}
                                         className="ms-2 w-4 h-4 cursor-pointer text-orange bg-gray-100-gray-300 rounded focus:ring-orange dark:focus:ring-orange dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark-gray-600"
                                     />
@@ -80,8 +78,8 @@ const Options = () => {
                                     </label>
                                     <input
                                         type='radio'
-                                        onChange={() => handleSelectedOption('Adoption')}
-                                        checked={Selected === 'Adoption'}
+                                        onChange={() => handleSelectedOption('adoption')}
+                                        checked={Selected === 'adoption'}
                                         className="ms-2 w-4 h-4 cursor-pointer text-orange bg-gray-100-gray-300 rounded focus:ring-orange dark:focus:ring-orange dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark-gray-600"
                                     />
                                 </div>
@@ -106,8 +104,8 @@ const Options = () => {
                                     </label>
                                     <input
                                         type='radio'
-                                        onChange={() => handleSelectedOption('Help')}
-                                        checked={Selected === 'Help'}
+                                        onChange={() => handleSelectedOption('help')}
+                                        checked={Selected === 'help'}
                                         className="ms-2 w-4 h-4 cursor-pointer text-orange bg-gray-100-gray-300 rounded focus:ring-orange dark:focus:ring-orange dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark-gray-600"
                                     />
                                 </div>
