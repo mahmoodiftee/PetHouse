@@ -8,7 +8,7 @@ const Options = () => {
         setSelected(value);
     }
     return (<>
-        <div className="w-full pt-16">
+        <div className="w-full pt-6">
             <div className="mx-auto w-full max-w-md rounded-2xl p-2">
                 <Disclosure>
                     {({ open }) => (

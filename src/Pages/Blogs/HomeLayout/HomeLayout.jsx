@@ -7,11 +7,11 @@ const HomeLayout = () => {
             <div className="hidden p-6 md:block h-full md:col-span-3 w-full md:border-2 md:border-[#292929] md:bg-[#161616] rounded-lg">
                 <Options />
             </div>
-            <div className="h-full py-6 md:col-span-6 w-full md:border-2 md:border-[#292929] md:bg-[#161616] rounded-lg">
+            <div className="h-full py-12 md:col-span-6 w-full md:border-2 md:border-[#292929] md:bg-[#161616] rounded-lg">
                 <Outlet></Outlet>
             </div>
             <div className="hidden p-6 md:block h-full md:col-span-3 w-full md:border-2 md:border-[#292929] md:bg-[#161616] rounded-lg">
-                <div className="pt-16">
+                <div className="pt-6">
                     Right Side
                 </div>
             </div>
