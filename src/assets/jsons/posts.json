@@ -2,7 +2,7 @@
     {
       "id": 1,
       "image": "https://i.ibb.co/fdDzV49/1.png",
-      "category": "All Post",
+      "category": "dog",
       "name": "Sparky",
       "author": "Author 1",
       "author_img": "https://i.ibb.co/fdDzV49/1.png",
@@ -11,7 +11,7 @@
     {
       "id": 2,
       "image": "https://i.ibb.co/Ksqrjt8/2.png",
-      "category": "Cat & Kitten",
+      "category": "cat",
       "name": "Mittens",
       "author": "Author 2",
       "author_img": "https://i.ibb.co/Ksqrjt8/2.png",
@@ -20,7 +20,7 @@
     {
       "id": 3,
       "image": "https://i.ibb.co/hDrWVCJ/3.png",
-      "category": "Dog & Puppy",
+      "category": "dog",
       "name": "Max",
       "author": "Author 3",
       "author_img": "https://i.ibb.co/hDrWVCJ/3.png",
@@ -29,7 +29,7 @@
     {
       "id": 4,
       "image": "https://i.ibb.co/PzZWbhD/4.png",
-      "category": "Questions",
+      "category": "questions",
       "name": "Whiskers",
       "author": "Author 4",
       "author_img": "https://i.ibb.co/PzZWbhD/4.png",
@@ -38,7 +38,7 @@
     {
       "id": 5,
       "image": "https://i.ibb.co/9NdRgFy/5.png",
-      "category": "Adoption Post",
+      "category": "adoption",
       "name": "Bella",
       "author": "Author 5",
       "author_img": "https://i.ibb.co/9NdRgFy/5.png",
@@ -56,7 +56,7 @@
     {
       "id": 7,
       "image": "https://i.ibb.co/qMMgGZ5/7.png",
-      "category": "All Post",
+      "category": "questions",
       "name": "Oliver",
       "author": "Author 7",
       "author_img": "https://i.ibb.co/qMMgGZ5/7.png",
@@ -65,7 +65,7 @@
     {
       "id": 8,
       "image": "https://i.ibb.co/jwWSLjv/8.png",
-      "category": "Cat & Kitten",
+      "category": "cat",
       "name": "Luna",
       "author": "Author 8",
       "author_img": "https://i.ibb.co/jwWSLjv/8.png",
@@ -74,7 +74,7 @@
     {
       "id": 9,
       "image": "https://i.ibb.co/whSRwvG/9.png",
-      "category": "Dog & Puppy",
+      "category": "dog",
       "name": "Rocky",
       "author": "Author 9",
       "author_img": "https://i.ibb.co/whSRwvG/9.png",
@@ -83,7 +83,7 @@
     {
       "id": 10,
       "image": "https://i.ibb.co/XDYhrk3/10.png",
-      "category": "Questions",
+      "category": "questions",
       "name": "Misty",
       "author": "Author 10",
       "author_img": "https://i.ibb.co/XDYhrk3/10.png",
@@ -92,7 +92,7 @@
     {
       "id": 11,
       "image": "https://i.ibb.co/bR5pCgG/11.png",
-      "category": "Adoption Post",
+      "category": "adoption",
       "name": "Cooper",
       "author": "Author 11",
       "author_img": "https://i.ibb.co/bR5pCgG/11.png",
@@ -119,7 +119,7 @@
     {
       "id": 14,
       "image": "https://i.ibb.co/G7nThj5/14.png",
-      "category": "Cat & Kitten",
+      "category": "cat",
       "name": "Cleo",
       "author": "Author 14",
       "author_img": "https://i.ibb.co/G7nThj5/14.png",
@@ -128,7 +128,7 @@
     {
       "id": 15,
       "image": "https://i.ibb.co/JxrWqGN/15.png",
-      "category": "Dog & Puppy",
+      "category": "dog",
       "name": "Maximus",
       "author": "Author 15",
       "author_img": "https://i.ibb.co/JxrWqGN/15.png",
@@ -137,7 +137,7 @@
     {
       "id": 16,
       "image": "https://i.ibb.co/dfnWBKX/16.png",
-      "category": "Questions",
+      "category": "questions",
       "name": "Whisk",
       "author": "Author 16",
       "author_img": "https://i.ibb.co/dfnWBKX/16.png",
@@ -146,7 +146,7 @@
     {
       "id": 17,
       "image": "https://i.ibb.co/VSHFyKN/17.png",
-      "category": "Adoption Post",
+      "category": "adoption",
       "name": "Cocoa",
       "author": "Author 17",
       "author_img": "https://i.ibb.co/VSHFyKN/17.png",
@@ -164,7 +164,7 @@
     {
       "id": 19,
       "image": "https://i.ibb.co/wSvTRGV/19.png",
-      "category": "All Post",
+      "category": "Help",
       "name": "Bailey",
       "author": "Author 19",
       "author_img": "https://i.ibb.co/wSvTRGV/19.png",
@@ -173,7 +173,7 @@
     {
       "id": 20,
       "image": "https://i.ibb.co/Gpbr98y/20.png",
-      "category": "Cat & Kitten",
+      "category": "cat",
       "name": "Lily",
       "author": "Author 20",
       "author_img": "https://i.ibb.co/Gpbr98y/20.png",
