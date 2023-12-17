@@ -6,7 +6,7 @@ import Button from "../../../Components/Button/Button";
 import { Dialog, Transition } from '@headlessui/react'
 
 const Blogs = () => {
-    const { Selected } = useCategory();
+    const { Selected, searchedItem } = useCategory();
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     const [posts, setposts] = useState([]);
@@ -16,9 +16,16 @@ const Blogs = () => {
     }, [])
 
     useEffect(() => {
-        const filteredData = posts?.filter(post => post.category.toLowerCase() === Selected.toLowerCase());
+        const filteredData = posts?.filter((post) => post.category.toLowerCase() === Selected.toLowerCase());
         setBlogs(filteredData || []);
     }, [posts, Selected]);
+
+    useEffect(() => {
+        const searchedData = posts?.filter((post) => post.category.toLowerCase() === searchedItem.toLowerCase());
+        setBlogs(searchedData || []);
+    }, [posts, searchedItem]);
+
+
     console.log(blogs);
     function closeModal() {
         setIsOpen(false)
@@ -34,10 +41,10 @@ const Blogs = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="flex flex-col m-10  justify-center items-center gap-6">
+            <div className="flex flex-col m-10 justify-center items-center gap-6">
                 {
                     blogs.map((blog) => (
-                        <div key={blog.id} className="overflow-hidden h-[480px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
+                        <div key={blog.id} className="overflow-hidden h-[450px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
                             <div className="h-[60%] bg-[#0e0d0d] rounded-xl overflow-hidden w-full">
                                 <img src={blog?.image} alt="" className="h-full w-full mx-auto object-contain" />
                             </div>
@@ -54,7 +61,7 @@ const Blogs = () => {
                                         </p>
                                     </h3>
                                     <div className="">
-                                        <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{blog.desc.split(' ').slice(0, 30).join(' ')}..</p>
+                                        <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{blog.desc.split(' ').slice(0, 25).join(' ')}..</p>
                                     </div>
                                 </div>
                                 <div className="w-full  flex pr-10 mb-2 justify-end items-end">

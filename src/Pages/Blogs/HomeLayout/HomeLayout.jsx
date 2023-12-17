@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Options from "./Options";
+import Search from "./Search";
 
 const HomeLayout = () => {
     return (
@@ -12,7 +13,7 @@ const HomeLayout = () => {
             </div>
             <div className="hidden p-6 md:block h-full md:col-span-3 w-full md:border-2 md:border-[#292929] md:bg-[#161616] rounded-lg">
                 <div className="pt-6">
-                    Right Side
+                    <Search/>
                 </div>
             </div>
         </div>
