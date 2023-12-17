@@ -1,8 +1,8 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import { useCategory } from '../../../Hooks/CategoryProvider';
+import { useCustomHook } from '../../../Hooks/CategoryProvider';
 const Options = () => {
-    const { setSelected, Selected } = useCategory();
+    const { setSelected, Selected } = useCustomHook();
     const handleSelectedOption = (value) => {
         setSelected(value);
     }

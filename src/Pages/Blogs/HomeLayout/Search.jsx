@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useCategory } from "../../../Hooks/CategoryProvider";
+import { useCustomHook } from "../../../Hooks/CategoryProvider";
 
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const { setSearchedItem } = useCategory();
+    const { setSearchedItem } = useCustomHook();
     const handleSearch = () => {
         setSearchedItem(searchTerm);
     };

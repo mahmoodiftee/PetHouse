@@ -1,10 +1,10 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { useCategory } from '../../../Hooks/CategoryProvider'
+import { useCustomHook } from '../../../Hooks/CategoryProvider'
 
 const Navbar = () => {
-    const { setSelected, setSearchedItem } = useCategory();
+    const { setSelected, setSearchedItem } = useCustomHook();
     const [searchTerm, setSearchTerm] = useState('');
     const handleSelectedOption = (value) => {
         setSelected(value);

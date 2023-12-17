@@ -1,12 +1,12 @@
 import { useEffect, useState, Fragment } from "react";
 import Navbar from "../BlogNav/Navbar";
-import { useCategory } from "../../../Hooks/CategoryProvider";
+import { useCustomHook } from "../../../Hooks/CategoryProvider";
 import json from '../../../assets/jsons/posts.json'
 import Button from "../../../Components/Button/Button";
 import { Dialog, Transition } from '@headlessui/react'
 
 const Blogs = () => {
-    const { Selected, searchedItem } = useCategory();
+    const { Selected, searchedItem } = useCustomHook();
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     const [posts, setposts] = useState([]);
