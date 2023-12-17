@@ -54,7 +54,7 @@ const Options = () => {
                                     <label htmlFor="default-checkbox" className="text-sm font-medium text-gray-900 dark:text-gray-300">Questions</label>
                                     <input
                                         type='radio'
-                                        onChange={() => handleSelectedOption('dog')}
+                                        onChange={() => handleSelectedOption('questions')}
                                         checked={Selected === 'questions'}
                                         className="ms-2 w-4 h-4 cursor-pointer text-orange bg-gray-100-gray-300 rounded focus:ring-orange dark:focus:ring-orange dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark-gray-600"
                                     />

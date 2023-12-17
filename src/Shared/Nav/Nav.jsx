@@ -11,7 +11,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const links = <>
   <NavLink to={'/'}><p className="text-sm  font-semibold">Home </p></NavLink>
@@ -66,9 +66,10 @@ const Nav = () => {
 
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 ">
+          <Link
+            to={'/login'} className="text-sm font-semibold leading-6 ">
             Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          </Link>
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -100,12 +101,12 @@ const Nav = () => {
                 {links}
               </div>
               <div className="py-6">
-                <a
-                  href="#"
+                <Link
+                  to={'/login'}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
-                </a>
+                </Link>
               </div>
             </div>
           </div>

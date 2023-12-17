@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import auth from "../Pages/Authentication/firebase.config";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
-const CategoryContext = createContext();
-const GoogleProvider = new GoogleAuthProvider();
+import { auth } from '../Pages/Authentication/firebase.config';
+export const CategoryContext = createContext();
 
-export const CategoryProvider = ({ children }) => {
+const CategoryProvider = ({ children }) => {
+  const GoogleProvider = new GoogleAuthProvider();
   const [Selected, setSelected] = useState('all');
   const [searchedItem, setSearchedItem] = useState('all');
   const [user, setUser] = useState({});
@@ -54,6 +54,7 @@ export const CategoryProvider = ({ children }) => {
     </CategoryContext.Provider>
   );
 };
+export default CategoryProvider;
 
 export const useCustomHook = () => {
   return useContext(CategoryContext);

@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import { router } from './Routes';
-import { CategoryProvider } from './Hooks/CategoryProvider';
+import CategoryProvider from './Hooks/CategoryProvider';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
