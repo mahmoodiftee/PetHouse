@@ -16,12 +16,12 @@ const Blogs = () => {
     }, [])
 
     useEffect(() => {
-        const filteredData = posts?.filter((post) => post.category.toLowerCase() === Selected.toLowerCase());
+        const filteredData = Selected === 'all' ? posts : posts?.filter((post) => post.category.toLowerCase() === Selected.toLowerCase());
         setBlogs(filteredData || []);
     }, [posts, Selected]);
 
     useEffect(() => {
-        const searchedData = posts?.filter((post) => post.category.toLowerCase() === searchedItem.toLowerCase());
+        const searchedData = searchedItem === 'all' ? posts : posts?.filter((post) => post.category.toLowerCase() === searchedItem.toLowerCase());
         setBlogs(searchedData || []);
     }, [posts, searchedItem]);
 
