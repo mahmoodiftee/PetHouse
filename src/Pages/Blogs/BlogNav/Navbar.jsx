@@ -244,21 +244,21 @@ const Navbar = () => {
         <div className="h-70px flex justify-center items-center py-2 md:hidden">
             <div className="w-full flex items-center justify-between gap-2 max-w-md px-2 sm:px-0">
                 <div className="relative w-full">
-                    <input className="block p-2.5 w-full z-20 text-sm text-gray-300 bg-[#202020] rounded-xl border-2 border-[#2c2c2c] focus:ring-[#424242] focus:border-[#424242]" placeholder="Search..." required/>
-                        <button type="submit" className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-gray-300 bg-[#2c2c2c] rounded-r-xl  border border-[#2c2c2c] hover:bg-orange transition-all duration-300 hover:text-white focus:ring-[#161616]">
-                            <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                            </svg>
-                            <span className="sr-only">Search</span>
-                        </button>
+                    <input className="block p-2.5 w-full z-20 text-sm text-gray-300 bg-[#202020] rounded-xl border-2 border-[#2c2c2c] focus:ring-[#424242] focus:border-[#424242]" placeholder="Search..." required />
+                    <button type="submit" className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-gray-300 bg-[#2c2c2c] rounded-r-xl  border border-[#2c2c2c] hover:bg-orange transition-all duration-300 hover:text-white focus:ring-[#161616]">
+                        <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                        <span className="sr-only">Search</span>
+                    </button>
                 </div>
                 <div className="w-56 text-right">
                     <Menu as="div" className="relative inline-block text-left">
                         <div>
-                            <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+                            <Menu.Button className="inline-flex w-full justify-center rounded-md bg-[#202020] px-4 py-2 text-sm font-medium text-gray-300 hover:bg-[#202020] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2c2c2c]">
                                 Options
                                 <ChevronDownIcon
-                                    className="-mr-1 ml-2 h-5 w-5 text-violet-200 hover:text-violet-100"
+                                    className="-mr-1 ml-2 h-5 w-5 text-gray-300 hover:text-white"
                                     aria-hidden="true"
                                 />
                             </Menu.Button>
@@ -272,12 +272,12 @@ const Navbar = () => {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+                            <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-[#202020] shadow-lg ring-1 ring-black/5 focus:outline-none">
                                 <div className="px-1 py-1 ">
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
-                                                className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                                                className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
                                                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                             >
                                                 {active ? (
@@ -298,7 +298,7 @@ const Navbar = () => {
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
-                                                className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                                                className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
                                                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                             >
                                                 {active ? (
@@ -321,7 +321,7 @@ const Navbar = () => {
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
-                                                className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                                                className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
                                                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                             >
                                                 {active ? (
@@ -342,7 +342,7 @@ const Navbar = () => {
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
-                                                className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                                                className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
                                                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                             >
                                                 {active ? (
@@ -365,7 +365,7 @@ const Navbar = () => {
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
-                                                className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                                                className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
                                                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                             >
                                                 {active ? (
