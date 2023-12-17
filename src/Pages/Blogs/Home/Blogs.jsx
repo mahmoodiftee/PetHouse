@@ -18,16 +18,16 @@ console.log(blogs);
     return (
         <div>
             <Navbar></Navbar>
-            <div>
+            <div className="flex flex-col m-10  justify-center items-center gap-6">
                 {
                     blogs.map((blog) => (
-                        <div key={blog.id} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
-                            <div className="h-full overflow-hidden w-full">
+                        <div key={blog.id} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#000000] p-6 mx-auto">
+                            <div className="h-[80%] bg-[#131313] rounded-xl overflow-hidden w-full">
                                 <img src={blog?.image} alt="" className="h-full mx-auto object-contain" />
                             </div>
                             <article className="flex my-2 max-w-xl flex-col items-start justify-between">
                                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
-                                    <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{blog?.author}</p>
+                                    <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{blog?.category}</p>
                                     <p className="text-orange">{blog?.date}</p>
                                 </div>
                                 <div className="group relative">
