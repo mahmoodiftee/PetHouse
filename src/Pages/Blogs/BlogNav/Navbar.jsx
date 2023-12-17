@@ -1,251 +1,25 @@
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-function EditInactiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                d="M4 13V16H7L16 7L13 4L4 13Z"
-                fill="#EDE9FE"
-                stroke="#A78BFA"
-                strokeWidth="2"
-            />
-        </svg>
-    )
-}
+import { useCategory } from '../../../Hooks/CategoryProvider'
 
-function EditActiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                d="M4 13V16H7L16 7L13 4L4 13Z"
-                fill="#8B5CF6"
-                stroke="#C4B5FD"
-                strokeWidth="2"
-            />
-        </svg>
-    )
-}
-
-function DuplicateInactiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                d="M4 4H12V12H4V4Z"
-                fill="#EDE9FE"
-                stroke="#A78BFA"
-                strokeWidth="2"
-            />
-            <path
-                d="M8 8H16V16H8V8Z"
-                fill="#EDE9FE"
-                stroke="#A78BFA"
-                strokeWidth="2"
-            />
-        </svg>
-    )
-}
-
-function DuplicateActiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                d="M4 4H12V12H4V4Z"
-                fill="#8B5CF6"
-                stroke="#C4B5FD"
-                strokeWidth="2"
-            />
-            <path
-                d="M8 8H16V16H8V8Z"
-                fill="#8B5CF6"
-                stroke="#C4B5FD"
-                strokeWidth="2"
-            />
-        </svg>
-    )
-}
-
-function ArchiveInactiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <rect
-                x="5"
-                y="8"
-                width="10"
-                height="8"
-                fill="#EDE9FE"
-                stroke="#A78BFA"
-                strokeWidth="2"
-            />
-            <rect
-                x="4"
-                y="4"
-                width="12"
-                height="4"
-                fill="#EDE9FE"
-                stroke="#A78BFA"
-                strokeWidth="2"
-            />
-            <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
-        </svg>
-    )
-}
-
-function ArchiveActiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <rect
-                x="5"
-                y="8"
-                width="10"
-                height="8"
-                fill="#8B5CF6"
-                stroke="#C4B5FD"
-                strokeWidth="2"
-            />
-            <rect
-                x="4"
-                y="4"
-                width="12"
-                height="4"
-                fill="#8B5CF6"
-                stroke="#C4B5FD"
-                strokeWidth="2"
-            />
-            <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
-        </svg>
-    )
-}
-
-function MoveInactiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path d="M10 4H16V10" stroke="#A78BFA" strokeWidth="2" />
-            <path d="M16 4L8 12" stroke="#A78BFA" strokeWidth="2" />
-            <path d="M8 6H4V16H14V12" stroke="#A78BFA" strokeWidth="2" />
-        </svg>
-    )
-}
-
-function MoveActiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path d="M10 4H16V10" stroke="#C4B5FD" strokeWidth="2" />
-            <path d="M16 4L8 12" stroke="#C4B5FD" strokeWidth="2" />
-            <path d="M8 6H4V16H14V12" stroke="#C4B5FD" strokeWidth="2" />
-        </svg>
-    )
-}
-
-function DeleteInactiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <rect
-                x="5"
-                y="6"
-                width="10"
-                height="10"
-                fill="#EDE9FE"
-                stroke="#A78BFA"
-                strokeWidth="2"
-            />
-            <path d="M3 6H17" stroke="#A78BFA" strokeWidth="2" />
-            <path d="M8 6V4H12V6" stroke="#A78BFA" strokeWidth="2" />
-        </svg>
-    )
-}
-
-function DeleteActiveIcon(props) {
-    return (
-        <svg
-            {...props}
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <rect
-                x="5"
-                y="6"
-                width="10"
-                height="10"
-                fill="#8B5CF6"
-                stroke="#C4B5FD"
-                strokeWidth="2"
-            />
-            <path d="M3 6H17" stroke="#C4B5FD" strokeWidth="2" />
-            <path d="M8 6V4H12V6" stroke="#C4B5FD" strokeWidth="2" />
-        </svg>
-    )
-}
 const Navbar = () => {
-    // const [categories] = useState({
-    //     Blogs: [
-    //         {
-    //             name: 'Blogs',
-    //             link: '/blogs',
-    //         },
-    //         {
-    //             name: 'Adoption',
-    //             link: '/blogs/adoption-post',
-    //         },
-    //         {
-    //             name: 'Help',
-    //             link: '/blogs/help-post',
-    //         },
-    //     ],
-    // });
+    const { setSelected, setSearchedItem } = useCategory();
+    const [searchTerm, setSearchTerm] = useState('');
+    const handleSelectedOption = (value) => {
+        setSelected(value);
+    }
+    const handleSearch = () => {
+        setSearchedItem(searchTerm);
+    };
+
 
     return (
         <div className="h-70px flex justify-center items-center py-2 md:hidden">
             <div className="w-full flex items-center justify-between gap-2 max-w-md px-2 sm:px-0">
                 <div className="relative w-full">
-                    <input className="block p-2.5 w-full z-20 text-sm text-gray-300 bg-[#202020] rounded-xl border-2 border-[#2c2c2c] focus:ring-[#424242] focus:border-[#424242]" placeholder="Search..." required />
-                    <button type="submit" className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-gray-300 bg-[#2c2c2c] rounded-r-xl  border border-[#2c2c2c] hover:bg-orange transition-all duration-300 hover:text-white focus:ring-[#161616]">
+                    <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="block p-2.5 w-full z-20 text-sm text-gray-300 bg-[#202020] rounded-xl border-2 border-[#2c2c2c] focus:ring-[#424242] focus:border-[#424242]" placeholder="Search..." required />
+                    <button onClick={handleSearch} type="submit" className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-gray-300 bg-[#2c2c2c] rounded-r-xl  border border-[#2c2c2c] hover:bg-orange transition-all duration-300 hover:text-white focus:ring-[#161616]">
                         <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
@@ -256,7 +30,7 @@ const Navbar = () => {
                     <Menu as="div" className="relative inline-block text-left">
                         <div>
                             <Menu.Button className="inline-flex w-full justify-center rounded-md bg-[#202020] px-4 py-2 text-sm font-medium text-gray-300 hover:bg-[#202020] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2c2c2c]">
-                                Options
+                                Categories
                                 <ChevronDownIcon
                                     className="-mr-1 ml-2 h-5 w-5 text-gray-300 hover:text-white"
                                     aria-hidden="true"
@@ -277,109 +51,66 @@ const Navbar = () => {
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
+                                                onClick={() => handleSelectedOption('all')}
                                                 className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
                                                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                             >
-                                                {active ? (
-                                                    <EditActiveIcon
-                                                        className="mr-2 h-5 w-5"
-                                                        aria-hidden="true"
-                                                    />
-                                                ) : (
-                                                    <EditInactiveIcon
-                                                        className="mr-2 h-5 w-5"
-                                                        aria-hidden="true"
-                                                    />
-                                                )}
-                                                Edit
+                                                All Post
                                             </button>
                                         )}
                                     </Menu.Item>
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
+                                                onClick={() => handleSelectedOption('cat')}
                                                 className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
                                                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                             >
-                                                {active ? (
-                                                    <DuplicateActiveIcon
-                                                        className="mr-2 h-5 w-5"
-                                                        aria-hidden="true"
-                                                    />
-                                                ) : (
-                                                    <DuplicateInactiveIcon
-                                                        className="mr-2 h-5 w-5"
-                                                        aria-hidden="true"
-                                                    />
-                                                )}
-                                                Duplicate
-                                            </button>
-                                        )}
-                                    </Menu.Item>
-                                </div>
-                                <div className="px-1 py-1">
-                                    <Menu.Item>
-                                        {({ active }) => (
-                                            <button
-                                                className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
-                                                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                            >
-                                                {active ? (
-                                                    <ArchiveActiveIcon
-                                                        className="mr-2 h-5 w-5"
-                                                        aria-hidden="true"
-                                                    />
-                                                ) : (
-                                                    <ArchiveInactiveIcon
-                                                        className="mr-2 h-5 w-5"
-                                                        aria-hidden="true"
-                                                    />
-                                                )}
-                                                Archive
+                                                Cat & Kitten
                                             </button>
                                         )}
                                     </Menu.Item>
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
+                                                onClick={() => handleSelectedOption('dog')}
                                                 className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
                                                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                             >
-                                                {active ? (
-                                                    <MoveActiveIcon
-                                                        className="mr-2 h-5 w-5"
-                                                        aria-hidden="true"
-                                                    />
-                                                ) : (
-                                                    <MoveInactiveIcon
-                                                        className="mr-2 h-5 w-5"
-                                                        aria-hidden="true"
-                                                    />
-                                                )}
-                                                Move
+                                                Dog & Puppy
                                             </button>
                                         )}
                                     </Menu.Item>
-                                </div>
-                                <div className="px-1 py-1">
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
+                                                onClick={() => handleSelectedOption('questions')}
                                                 className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
                                                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                             >
-                                                {active ? (
-                                                    <DeleteActiveIcon
-                                                        className="mr-2 h-5 w-5 text-violet-400"
-                                                        aria-hidden="true"
-                                                    />
-                                                ) : (
-                                                    <DeleteInactiveIcon
-                                                        className="mr-2 h-5 w-5 text-violet-400"
-                                                        aria-hidden="true"
-                                                    />
-                                                )}
-                                                Delete
+                                                Questions
+                                            </button>
+                                        )}
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        {({ active }) => (
+                                            <button
+                                                onClick={() => handleSelectedOption('adoption')}
+                                                className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
+                                                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                            >
+                                                Adoption Post
+                                            </button>
+                                        )}
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        {({ active }) => (
+                                            <button
+                                                onClick={() => handleSelectedOption('help')}
+                                                className={`${active ? 'bg-gray-300 text-white' : 'text-gray-300'
+                                                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                            >
+                                                Help Post
                                             </button>
                                         )}
                                     </Menu.Item>
