@@ -41,7 +41,7 @@ const Blogs = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="flex flex-col m-10 justify-center items-center gap-6">
+            <div className="flex flex-col md:m-10 justify-center items-center gap-6">
                 {
                     blogs.map((blog) => (
                         <div key={blog.id} className="overflow-hidden h-[450px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
@@ -97,11 +97,11 @@ const Blogs = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-4xl h-[500px] transform overflow-hidden rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="w-full max-w-4xl h-[500px] transform overflow-y-auto rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
 
-                                    <div className="flex w-full h-full gap-10">
+                                    <div className="flex flex-col md:flex-row w-full h-full gap-10">
                                         <div className="flex-1 h-full w-full flex-shrink-0">
-                                            <img src={modal.image} className=" h-full mx-auto object-contain" />
+                                            <img src={modal.image} className="h-full mx-auto object-contain" />
                                         </div>
                                         <div className="flex-1 w-full text-white flex justify-center py-16">
                                             <div className="w-full">
