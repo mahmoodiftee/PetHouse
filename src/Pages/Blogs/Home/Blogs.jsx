@@ -13,8 +13,8 @@ const Blogs = () => {
     useEffect(() => {
         const filteredData = posts?.filter(post => post.category.toLowerCase() === Selected.toLowerCase());
         setBlogs(filteredData || []);
-    }, [posts, selectedCategory]);
-
+    }, [posts, Selected]);
+console.log(blogs);
     return (
         <div>
             <Navbar></Navbar>
@@ -22,8 +22,8 @@ const Blogs = () => {
                 {
                     blogs.map((blog) => (
                         <div key={blog.id} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
-                            <div className="h-[45%] overflow-hidden w-full">
-                                <img src={blog?.img} alt="" className="h-full cursor-pointer mx-auto object-contain transition-transform transform-gpu hover:scale-150" />
+                            <div className="h-full overflow-hidden w-full">
+                                <img src={blog?.image} alt="" className="h-full mx-auto object-contain" />
                             </div>
                             <article className="flex my-2 max-w-xl flex-col items-start justify-between">
                                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
@@ -34,7 +34,7 @@ const Blogs = () => {
                                     <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
                                         <p href="#">
                                             <span className="absolute inset-0"></span>
-                                            {blog?.desc.split(' ')[0]}
+                                            {blog?.name}
                                         </p>
                                     </h3>
                                 </div>
