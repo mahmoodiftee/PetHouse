@@ -1,6 +1,6 @@
 import Button from "../../../Components/Button/Button";
 import Title from "../../../Components/Title/Title";
-import cat from '../../../assets/about1.png'
+import cat from '../../../assets/about2.png'
 const About = () => {
     return (
         <div className="relative overflow-hidden my-6 md:mb-10 md:mt-20">
