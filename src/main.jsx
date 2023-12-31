@@ -6,9 +6,11 @@ import {
 import "./index.css";
 import { router } from './Routes';
 import CategoryProvider from './Hooks/CategoryProvider';
+import { Toaster } from 'react-hot-toast';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <Toaster />
     <CategoryProvider>
       <div className='max-w-screen-xl mx-auto md:px-4'>
         <RouterProvider router={router} />

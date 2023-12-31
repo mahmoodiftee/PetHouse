@@ -1,17 +1,25 @@
-import { IoMailOpenOutline } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+import { Link, useNavigate } from 'react-router-dom';
+import useCustomHook from "../../Hooks/CategoryProvider";
 
 const Login = () => {
-    const handleSubmit = (e) => {
+    const { LoginUser } = useCustomHook;
+    const navigate = useNavigate();
+    const handleSignIn = async (e) => {
         e.preventDefault();
-        const firstName = e.target.firstName.value;
-        const lastName = e.target.lastName.value;
-        const name = `${firstName} ${lastName}`;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        const phoneNumber = e.target.phoneNumber.value;
 
-        console.log({ name, firstName, lastName, email, password, phoneNumber });
+        try {
+            await LoginUser(email, password);
+            toast.success('User logged in successfully');
+            navigate('/');
+        } catch (error) {
+            toast.error(error.message || 'An error occurred');
+            console.error('Firebase Authentication Error:', error.code, error.message);
+
+        }
     };
 
     return (
@@ -31,7 +39,7 @@ const Login = () => {
             <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Login</h2>
             </div>
-            <form onSubmit={handleSubmit} className="mx-auto mt-4 max-w-xl">
+            <form onSubmit={handleSignIn} className="mx-auto mt-4 max-w-xl">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                     <div className="sm:col-span-2">
                         <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
@@ -76,9 +84,13 @@ const Login = () => {
                         </p>
                     </div>
                 </div>
-                <div className="sm:col-span-2 flex justify-center items-center">
-                    <button className="rounded-md cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
-                        <IoMailOpenOutline className="h-6 w-6 text-orange" aria-hidden="true" /> Login
+                <div className="sm:col-span-2 flex gap-2 justify-center items-center">
+                    <button className="rounded-md px-10 cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
+                        Login
+                    </button>
+                    <div className="h-10 border-gray-500 rounded-full border-2"></div>
+                    <button className="rounded-full cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
+                        <FcGoogle className="h-6 w-6 text-orange" aria-hidden="true" />
                     </button>
                 </div>
             </form>

@@ -32,21 +32,15 @@ const CategoryProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    const unSubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
-      console.log('Logged in User', currentUser);
-
-      if (currentUser) {
-        await updateUserData(currentUser);
-      }
-
-      setLoading(false);
+      console.log('Observing Current User', currentUser);
+      setLoading(false); 
     });
-
     return () => {
       unSubscribe();
     }
-  }, []);
+  }, [])
 
   return (
     <CategoryContext.Provider value={{ loading, GoogleSignIn, SignOut, createUser, LoginUser, user, Selected, setSelected, searchedItem, setSearchedItem }}>

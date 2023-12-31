@@ -1,17 +1,74 @@
-import { IoMailOpenOutline } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
+import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { updateProfile } from 'firebase/auth';
+import { auth } from './firebase.config';
+import useCustomHook from "../../Hooks/CategoryProvider";
 
 const Register = () => {
-    const handleSubmit = (e) => {
+    const { GoogleSignIn, createUser, loading } = useCustomHook;
+    console.log(typeof GoogleSignIn);
+    console.log(typeof createUser);
+    console.log(typeof loading);
+    const navigate = useNavigate();
+    const handleLogin = (media) => {
+        media()
+            .then((response) => {
+                toast.success(`Welcome ${response.user.displayName}`);
+                // const userData = {
+                //     displayName: response?.user?.displayName || '',
+                //     email: response?.user?.email || '',
+                //     photoURL: response?.user?.photoURL || '',
+                //     role: 'user',
+                // };
+
+                // return axios.post("https://ims-server-kappa.vercel.app/users", userData);
+            })
+            .then(() => {
+                // navigate(location?.state ? location.state : "/");
+                navigate("/");
+            })
+            .catch((err) => {
+                console.error("Login Error:", err.message);
+                toast.error(err.message || "An error occurred.");
+            });
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const firstName = e.target.firstName.value;
         const lastName = e.target.lastName.value;
         const name = `${firstName} ${lastName}`;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const photoURL = e.target.photoURL.value;
         const phoneNumber = e.target.phoneNumber.value;
 
-        console.log({ name, firstName, lastName, email, password, phoneNumber });
+        console.log({ name, firstName, photoURL, lastName, email, password, phoneNumber });
+        if (password.length < 6) {
+            toast.error('Password must be at least 6 characters');
+            return;
+        }
+
+        try {
+            await createUser(email, password);
+            await updateProfile(auth.currentUser, {
+                displayName: name,
+                photoURL: photoURL,
+            });
+            const userData = {
+                displayName: name,
+                email: email,
+                photoURL: photoURL,
+            };
+            toast.success(`Welcome ${name}`);
+            navigate('/');
+            // await axios.post('https://ims-server-kappa.vercel.app/users', userData);
+
+        } catch (error) {
+            toast.error(`${error.message}`);
+            console.error('Firebase Authentication Error:', error.code, error.message);
+        }
     };
 
     return (
@@ -98,12 +155,28 @@ const Register = () => {
 
                     <div className="sm:col-span-2">
                         <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-white">
+                            Photo Url
+                        </label>
+                        <div className="relative mt-2.5">
+                            <input
+                                required
+                                type="text"
+                                name="photoURL"
+                                id="Photo url"
+                                autoComplete="url"
+                                className="block w-full border-white bg-white bg-opacity-10 rounded-md border-0 px-3.5 py-2 text-white font-bold shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="sm:col-span-2">
+                        <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-white">
                             Phone number
                         </label>
                         <div className="relative mt-2.5">
                             <input
                                 required
-                                type="tel"
+                                type="number"
                                 name="phoneNumber"
                                 id="phone-number"
                                 autoComplete="tel"
@@ -122,9 +195,13 @@ const Register = () => {
                         </p>
                     </div>
                 </div>
-                <div className="sm:col-span-2 flex justify-center items-center">
-                    <button className="rounded-md cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
-                        <IoMailOpenOutline className="h-6 w-6 text-orange" aria-hidden="true" /> Register
+                <div className="sm:col-span-2 flex gap-2 justify-center items-center">
+                    <button className="rounded-md px-10 cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
+                        Register
+                    </button>
+                    <div className="h-10 border-gray-500 rounded-full border-2"></div>
+                    <button onClick={() => handleLogin(GoogleSignIn)} className="rounded-full cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
+                        <FcGoogle className="h-6 w-6 text-orange" aria-hidden="true" />
                     </button>
                 </div>
             </form>
