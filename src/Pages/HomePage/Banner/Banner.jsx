@@ -4,23 +4,29 @@ import image from '../../../assets/1.png';
 
 const Banner = () => {
     return (
-        <div className="flex flex-col md:flex-row">
-            <div className="flex md:ml-20 justify-center items-center text-white">
-                <div>
-                    <h1 className="text-3xl md:text-7xl italic font-extrabold">
+        <div className="flex flex-col my-4 md:my-0 overflow-hidden md:flex-row gap-2">
+            <div className='w-[60%] md:hidden mx-auto'>
+                <h1 className="text-3xl md:text-7xl italic font-extrabold">
+                    Home For<span className="text-orange block ml-10">Every Paw</span>
+                </h1>
+                <div className="flex justify-end items-center">
+                    <Button text={'Adopt'} />
+                </div>
+            </div>
+            <div className="md:h-[400px] relative mx-auto w-full ">
+                <video className="h-full absolute left-[10%] mx-auto object-contain w-full hidden lg:flex" autoPlay muted loop>
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <img className="w-full object-cover flex lg:hidden" src={image} alt="" />
+                <div className='absolute hidden md:block left-5 top-10'>
+                    <h1 className="text-3xl  md:text-7xl italic font-extrabold">
                         Home For<span className="text-orange block ml-10">Every Paw</span>
                     </h1>
                     <div className="flex justify-end items-center">
                         <Button text={'Adopt'} />
                     </div>
                 </div>
-            </div>
-            <div className="flex-1 flex justify-center items-center h-full w-full ">
-                <video className="w-full hidden lg:flex object-cover" autoPlay muted loop>
-                    <source src={video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <img className="w-full object-cover flex lg:hidden" src={image} alt="" />
             </div>
         </div>
     );

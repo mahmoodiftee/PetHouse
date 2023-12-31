@@ -1,3 +1,4 @@
+import { IoMailOpenOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
@@ -122,8 +123,8 @@ const Register = () => {
                     </div>
                 </div>
                 <div className="sm:col-span-2 flex justify-center items-center">
-                    <button type='submit' className="ButtonL">
-                        <span className="Button__inner">Register</span>
+                    <button className="rounded-md cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
+                        <IoMailOpenOutline className="h-6 w-6 text-orange" aria-hidden="true" /> Register
                     </button>
                 </div>
             </form>

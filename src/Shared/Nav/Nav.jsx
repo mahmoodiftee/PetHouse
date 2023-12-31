@@ -1,16 +1,10 @@
 import { Fragment, useState } from 'react'
-import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
-import logo from '../../assets/logo.png'
+import { Dialog, Popover, Transition } from '@headlessui/react'
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+
 import { Link, NavLink } from 'react-router-dom'
 
 const links = <>
@@ -27,7 +21,7 @@ const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="text-white md:px-4">
+    <header className="text-white md:px-4 relative md:z-20">
       <nav className="w-full flex items-center justify-between px-2 lg:px-0 py-6" aria-label="Global">
         <div className="flex gap-3 items-center lg:flex-1">
           {/* <a href="#" className="-m-1.5 p-1.5">
