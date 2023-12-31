@@ -5,7 +5,7 @@ import image from '../../../assets/1.png';
 const Banner = () => {
     return (
         <div className="flex flex-col md:flex-row">
-            <div className="flex ml-20 justify-center items-center text-white">
+            <div className="flex md:ml-20 justify-center items-center text-white">
                 <div>
                     <h1 className="text-3xl md:text-7xl italic font-extrabold">
                         Home For<span className="text-orange block ml-10">Every Paw</span>
