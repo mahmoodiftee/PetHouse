@@ -70,7 +70,7 @@ const Register = () => {
     };
 
     return (
-        <div className="isolate pb-10 px-6">
+        <div className="isolate  pb-10 px-6">
             <div
                 className="max-w-5xl mx-auto absolute inset-x-0 sm:left-[60rem] sm:top-[-5rem] top-[5rem] md:overflow-visible overflow-hidden -z-10 transform-gpu  blur-3xl "
                 aria-hidden="true"
