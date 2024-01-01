@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Hooks/AuthProvider";
 
 const Login = () => {
-    const { LoginUser } = useContext(AuthContext);
+    const { LoginUser, googleLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleSignIn = async (e) => {
         e.preventDefault();

@@ -55,15 +55,14 @@ const Register = () => {
                 displayName: name,
                 photoURL: photoURL,
             });
-            const userData = {
-                displayName: name,
-                email: email,
-                photoURL: photoURL,
-            };
+            // const userData = {
+            //     displayName: name,
+            //     email: email,
+            //     photoURL: photoURL,
+            // };
             toast.success(`Welcome ${name}`);
             navigate('/');
             // await axios.post('https://ims-server-kappa.vercel.app/users', userData);
-
         } catch (error) {
             toast.error(`${error.message}`);
             console.error('Firebase Authentication Error:', error.code, error.message);
