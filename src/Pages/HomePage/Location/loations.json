@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "location": "Gulshan 1",
+        "details": "Next to Jame Mosque, towards Green Oasis Park.",
+        "position": [23.772458, 90.404479]
+    },
+    {
+        "id": 2,
+        "location": "Mirpur 12",
+        "details": "Adjacent to Mirpur Local Market, heading to Silver Plaza.",
+        "position": [23.827810, 90.361319]
+    },
+    {
+        "id": 3,
+        "location": "Banani",
+        "details": "Near Banani Naval Base, going towards Blue Horizon Mall.",
+        "position": [23.796090, 90.405062]
+    },
+    {
+        "id": 4,
+        "location": "Uttara Sector 11",
+        "details": "Close to Central Park, towards Diamond Plaza.",
+        "position": [23.876111, 90.391947]
+    }
+]

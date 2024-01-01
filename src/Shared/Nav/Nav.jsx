@@ -1,5 +1,5 @@
-import { Fragment, useContext } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import {  useContext } from 'react'
+import { Popover } from '@headlessui/react'
 import { HiOutlineLogout } from "react-icons/hi";
 import { IoMdArrowDropright } from "react-icons/io";
 import { TiThMenu } from "react-icons/ti";
