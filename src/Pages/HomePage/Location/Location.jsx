@@ -1,12 +1,10 @@
-import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
-import Title from "../../../Components/Title/Title";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 const Location = () => {
     const position = [23.772458, 90.404479];
     return (
         <>
-            <div className="relative isolate overflow-hidden rounded-xl mx-2 md:mx-0 py-16 md:py-20 ">
+            <div className="relative isolate rounded-xl mx-2 md:mx-0 py-16 md:py-20 ">
                 <div className="mx-auto max-w-7xl px-2 md:px-6">
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
                         <div className="max-w-xl lg:max-w-lg md:pb-6">
