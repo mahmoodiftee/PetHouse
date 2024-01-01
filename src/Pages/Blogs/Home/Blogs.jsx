@@ -26,7 +26,6 @@ const Blogs = () => {
     }, [posts, searchedItem]);
 
 
-    console.log(blogs);
     function closeModal() {
         setIsOpen(false)
     }

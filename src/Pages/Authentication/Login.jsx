@@ -1,10 +1,11 @@
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from 'react-router-dom';
-import useCustomHook from "../../Hooks/CategoryProvider";
+import { useContext } from "react";
+import { AuthContext } from "../../Hooks/AuthProvider";
 
 const Login = () => {
-    const { LoginUser } = useCustomHook;
+    const { LoginUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleSignIn = async (e) => {
         e.preventDefault();
@@ -20,6 +21,29 @@ const Login = () => {
             console.error('Firebase Authentication Error:', error.code, error.message);
 
         }
+    };
+
+    const handleLogin = (media) => {
+        media()
+            .then((response) => {
+                toast.success(`Welcome ${response.user.displayName}`);
+                // const userData = {
+                //     displayName: response?.user?.displayName || '',
+                //     email: response?.user?.email || '',
+                //     photoURL: response?.user?.photoURL || '',
+                //     role: 'user',
+                // };
+
+                // return axios.post("https://ims-server-kappa.vercel.app/users", userData);
+            })
+            .then(() => {
+                // navigate(location?.state ? location.state : "/");
+                navigate("/");
+            })
+            .catch((err) => {
+                console.error("Login Error:", err.message);
+                toast.error(err.message || "An error occurred.");
+            });
     };
 
     return (
@@ -89,7 +113,7 @@ const Login = () => {
                         Login
                     </button>
                     <div className="h-10 border-gray-500 rounded-full border-2"></div>
-                    <button className="rounded-full cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
+                    <button onClick={() => handleLogin(googleLogin)} className="rounded-full cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
                         <FcGoogle className="h-6 w-6 text-orange" aria-hidden="true" />
                     </button>
                 </div>

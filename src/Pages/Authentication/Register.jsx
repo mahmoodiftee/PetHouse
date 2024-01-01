@@ -4,12 +4,11 @@ import toast from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
 import { auth } from './firebase.config';
 import useCustomHook from "../../Hooks/CategoryProvider";
+import { useContext } from 'react';
+import { AuthContext } from '../../Hooks/AuthProvider';
 
 const Register = () => {
-    const { GoogleSignIn, createUser, loading } = useCustomHook;
-    console.log(typeof GoogleSignIn);
-    console.log(typeof createUser);
-    console.log(typeof loading);
+    const { googleLogin, createUser, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleLogin = (media) => {
         media()
@@ -44,7 +43,7 @@ const Register = () => {
         const photoURL = e.target.photoURL.value;
         const phoneNumber = e.target.phoneNumber.value;
 
-        console.log({ name, firstName, photoURL, lastName, email, password, phoneNumber });
+        // console.log({ name, firstName, photoURL, lastName, email, password, phoneNumber });
         if (password.length < 6) {
             toast.error('Password must be at least 6 characters');
             return;
@@ -176,7 +175,7 @@ const Register = () => {
                         <div className="relative mt-2.5">
                             <input
                                 required
-                                type="number"
+                                type="tel"
                                 name="phoneNumber"
                                 id="phone-number"
                                 autoComplete="tel"
@@ -200,7 +199,7 @@ const Register = () => {
                         Register
                     </button>
                     <div className="h-10 border-gray-500 rounded-full border-2"></div>
-                    <button onClick={() => handleLogin(GoogleSignIn)} className="rounded-full cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
+                    <button onClick={() => handleLogin(googleLogin)} className="rounded-full cursor-pointer flex justify-center text-orange items-center gap-2 max-w-md my-4 bg-white/5 p-2 ring-1 ring-white/10">
                         <FcGoogle className="h-6 w-6 text-orange" aria-hidden="true" />
                     </button>
                 </div>

@@ -29,7 +29,6 @@ const Available = () => {
     useEffect(() => {
         setPets(json);
     }, [])
-    console.log(pets);
 
     return (
         <div className="my-6 md:my-10 px-2 md:px-6">
