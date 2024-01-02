@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "type": "Kitten",
     "status": "available",
     "img": "https://i.ibb.co/fdDzV49/1.png",
@@ -9,7 +8,6 @@
     "date": "2023-04-10"
   },
   {
-    "id": 2,
     "type": "Puppy",
     "status": "available",
     "img": "https://i.ibb.co/Ksqrjt8/2.png",
@@ -18,7 +16,6 @@
     "date": "2023-06-22"
   },
   {
-    "id": 3,
     "type": "Puppy",
     "status": "available",
     "img": "https://i.ibb.co/hDrWVCJ/3.png",
@@ -27,7 +24,6 @@
     "date": "2023-01-15"
   },
   {
-    "id": 4,
     "type": "Puppy",
     "status": "available",
     "img": "https://i.ibb.co/PzZWbhD/4.png",
@@ -36,7 +32,6 @@
     "date": "2023-11-08"
   },
   {
-    "id": 5,
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/9NdRgFy/5.png",
@@ -45,7 +40,6 @@
     "date": "2023-09-14"
   },
   {
-    "id": 6,
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/sqm5XTP/6.png",
@@ -54,7 +48,6 @@
     "date": "2023-03-30"
   },
   {
-    "id": 7,
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/qMMgGZ5/7.png",
@@ -63,7 +56,6 @@
     "date": "2023-07-18"
   },
   {
-    "id": 8,
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/jwWSLjv/8.png",
@@ -72,7 +64,6 @@
     "date": "2023-02-25"
   },
   {
-    "id": 9,
     "type": "kittens",
     "status": "available",
     "img": "https://i.ibb.co/whSRwvG/9.png",
@@ -81,7 +72,6 @@
     "date": "2023-08-12"
   },
   {
-    "id": 10,
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/XDYhrk3/10.png",
@@ -90,7 +80,6 @@
     "date": "2023-05-03"
   },
   {
-    "id": 11,
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/bR5pCgG/11.png",
@@ -99,7 +88,6 @@
     "date": "2023-10-19"
   },
   {
-    "id": 12,
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/M1crZ2H/12.png",
@@ -108,7 +96,6 @@
     "date": "2023-04-05"
   },
   {
-    "id": 13,
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/qMMgGZ5/7.png",
@@ -117,7 +104,6 @@
     "date": "2023-12-01"
   },
   {
-    "id": 14,
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/G7nThj5/14.png",
@@ -126,7 +112,6 @@
     "date": "2023-09-08"
   },
   {
-    "id": 15,
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/JxrWqGN/15.png",
@@ -135,7 +120,6 @@
     "date": "2023-06-28"
   },
   {
-    "id": 16,
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/dfnWBKX/16.png",
@@ -144,7 +128,6 @@
     "date": "2023-01-17"
   },
   {
-    "id": 17,
     "type": "Puppy",
     "status": "available",
     "img": "https://i.ibb.co/VSHFyKN/17.png",
@@ -153,7 +136,6 @@
     "date": "2023-11-29"
   },
   {
-    "id": 18,
     "type": "Puppy",
     "status": "available",
     "img": "https://i.ibb.co/BynXZ3d/18.png",
@@ -162,7 +144,6 @@
     "date": "2023-07-14"
   },
   {
-    "id": 19,
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/wSvTRGV/19.png",
@@ -171,7 +152,6 @@
     "date": "2023-05-20"
   },
   {
-    "id": 20,
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/Gpbr98y/20.png",
@@ -180,7 +160,6 @@
     "date": "2023-03-12"
   },
   {
-    "id": 21,
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/88zzks9/21.png",
@@ -189,7 +168,6 @@
     "date": "2023-08-27"
   },
   {
-    "id": 22,
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/S68byt7/22.png",
@@ -198,7 +176,6 @@
     "date": "2023-04-18"
   },
   {
-    "id": 23,
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/80c01fj/23.png",
@@ -207,7 +184,6 @@
     "date": "2023-10-03"
   },
   {
-    "id": 24,
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/NZWgGSJ/24.png",
@@ -216,7 +192,6 @@
     "date": "2023-06-16"
   },
   {
-    "id": 25,
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/yXwdKJD/25.png",
@@ -225,7 +200,6 @@
     "date": "2023-02-09"
   },
   {
-    "id": 26,
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/z7sFZ78/26.png",
@@ -234,7 +208,6 @@
     "date": "2023-09-01"
   },
   {
-    "id": 27,
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/jVpdXZC/27.png",

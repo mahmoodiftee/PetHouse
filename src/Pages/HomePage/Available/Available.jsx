@@ -3,6 +3,7 @@ import Title from "../../../Components/Title/Title"
 import json from "../../../assets/jsons/data.json"
 import { Dialog, Transition } from "@headlessui/react"
 import Button from "../../../Components/Button/Button"
+import axios from "axios"
 const Available = () => {
     const [pets, setPets] = useState([]);
     const [isOpen, setIsOpen] = useState(false)
@@ -27,8 +28,15 @@ const Available = () => {
         setIsOpen(true)
     }
     useEffect(() => {
-        setPets(json);
-    }, [])
+        axios.get('http://localhost:5000/avaiable-pets')
+            .then((res) => {
+                const data = res.data;
+                setPets(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
     return (
         <div className="my-6 md:my-10 px-2 md:px-6">
