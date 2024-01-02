@@ -1,8 +1,8 @@
-import { useEffect, useState, Fragment } from "react";
-import Title from "../../../Components/Title/Title";
-import json from "../../../assets/jsons/data.json";
-import { Dialog, Transition } from '@headlessui/react'
-import Button from "../../../Components/Button/Button";
+import { useEffect, useState, Fragment } from "react"
+import Title from "../../../Components/Title/Title"
+import json from "../../../assets/jsons/data.json"
+import { Dialog, Transition } from "@headlessui/react"
+import Button from "../../../Components/Button/Button"
 const Available = () => {
     const [pets, setPets] = useState([]);
     const [isOpen, setIsOpen] = useState(false)
@@ -44,7 +44,7 @@ const Available = () => {
                             </div>
                             <article className="flex my-2 max-w-xl flex-col items-start justify-between">
                                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
-                                    <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">Puppy</p>
+                                    <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{pet.type}</p>
                                     <p className="text-orange">{pet.date}</p>
                                 </div>
                                 <div className="group relative">
@@ -68,7 +68,6 @@ const Available = () => {
                                 </div>
                             </article>
                         </div>
-
                     ))
                 }
             </div>

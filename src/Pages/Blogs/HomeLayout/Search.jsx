@@ -30,7 +30,7 @@ const Search = () => {
                     <div className='flex-shrink-0 border-[.5px] px-2 py-1 rounded-lg border-opacity-[15%] border-gray-200 text-gray-300 text-[12px]'>dog</div>
                     <div className='flex-shrink-0 border-[.5px] px-2 py-1 rounded-lg border-opacity-[15%] border-gray-200 text-gray-300 text-[12px]'>help</div>
                     <div className='flex-shrink-0 border-[.5px] px-2 py-1 rounded-lg border-opacity-[15%] border-gray-200 text-gray-300 text-[12px]'>adoption</div>
-                    <div className='flex-shrink-0 border-[.5px] px-2 py-1 rounded-lg border-opacity-[15%] border-gray-200 text-gray-300 text-[12px]'>questions</div>
+                    <div className='flex-shrink-0 border-[.5px] px-2 py-1 rounded-lg border-opacity-[15%] border-gray-200 text-gray-300 text-[12px]'>question</div>
                 </div>
             </div>
         </div>

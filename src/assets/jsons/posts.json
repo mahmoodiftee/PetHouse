@@ -2,7 +2,7 @@
   {
       "id": 1,
       "image": "https://i.ibb.co/fdDzV49/1.png",
-      "category": "dog",
+      "category": "cat",
       "name": "Sparky",
       "author": "Sparky's Companion",
       "author_img": "https://i.ibb.co/fdDzV49/1.png",
@@ -12,7 +12,7 @@
   {
       "id": 2,
       "image": "https://i.ibb.co/Ksqrjt8/2.png",
-      "category": "cat",
+      "category": "dog",
       "name": "Mittens",
       "author": "Mittens' Admirer",
       "author_img": "https://i.ibb.co/Ksqrjt8/2.png",
@@ -32,12 +32,12 @@
   {
       "id": 4,
       "image": "https://i.ibb.co/PzZWbhD/4.png",
-      "category": "questions",
+      "category": "question",
       "name": "Whiskers",
       "author": "Whiskers' Inquirer",
       "author_img": "https://i.ibb.co/PzZWbhD/4.png",
       "date": "2023-11-08",
-      "desc": "Embark on an insightful exploration with Whiskers, the feline guru whose whisker twitches and curious meows reveal the mysteries of cat behavior. As Whiskers' inquirer, I delve into the fascinating universe of our whiskered friends, answering burning questions with wit and wisdom. Join the conversation and enhance your understanding of the quirks and charms of our beloved feline companions."
+      "desc": "Embark on an insightful exploration with Whiskers, the feline guru whose whisker twitches and curious meows reveal the mysteries of cat behavior. As Whiskers' inquirer, I delve into the fascinating universe of our whiskered friends, answering burning question with wit and wisdom. Join the conversation and enhance your understanding of the quirks and charms of our beloved feline companions."
   },
   {
       "id": 5,
@@ -62,7 +62,7 @@
   {
       "id": 7,
       "image": "https://i.ibb.co/qMMgGZ5/7.png",
-      "category": "questions",
+      "category": "question",
       "name": "Oliver",
       "author": "Oliver's Inquirer",
       "author_img": "https://i.ibb.co/qMMgGZ5/7.png",
@@ -82,7 +82,7 @@
   {
       "id": 9,
       "image": "https://i.ibb.co/whSRwvG/9.png",
-      "category": "dog",
+      "category": "cat",
       "name": "Rocky",
       "author": "Rocky's Companion",
       "author_img": "https://i.ibb.co/whSRwvG/9.png",
@@ -92,7 +92,7 @@
   {
       "id": 10,
       "image": "https://i.ibb.co/XDYhrk3/10.png",
-      "category": "questions",
+      "category": "question",
       "name": "Misty",
       "author": "Misty's Inquirer",
       "author_img": "https://i.ibb.co/XDYhrk3/10.png",
@@ -142,7 +142,7 @@
   {
       "id": 15,
       "image": "https://i.ibb.co/JxrWqGN/15.png",
-      "category": "dog",
+      "category": "cat",
       "name": "Maximus",
       "author": "Maximus' Companion",
       "author_img": "https://i.ibb.co/JxrWqGN/15.png",
@@ -152,7 +152,7 @@
   {
       "id": 16,
       "image": "https://i.ibb.co/dfnWBKX/16.png",
-      "category": "questions",
+      "category": "question",
       "name": "Whisk",
       "author": "Whisk's Inquirer",
       "author_img": "https://i.ibb.co/dfnWBKX/16.png",
@@ -182,7 +182,7 @@
     {
       "id": 20,
       "image": "https://i.ibb.co/Gpbr98y/20.png",
-      "category": "cat",
+      "category": "dog",
       "name": "Lily",
       "author": "Author 20",
       "author_img": "https://i.ibb.co/Gpbr98y/20.png",
