@@ -2,7 +2,6 @@ import { useEffect, useState, Fragment } from "react";
 import Navbar from "../BlogNav/Navbar";
 import { useCustomHook } from "../../../Hooks/CategoryProvider";
 import json from '../../../assets/jsons/posts.json'
-import Button from "../../../Components/Button/Button";
 import { Dialog, Transition } from '@headlessui/react'
 
 const Blogs = () => {
@@ -40,10 +39,10 @@ const Blogs = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="flex flex-col md:m-10 justify-center items-center gap-6">
+            <div className="flex flex-col md:m-10 justify-center items-center px-4 gap-6">
                 {
                     blogs.map((blog) => (
-                        <div key={blog.id} className="overflow-hidden h-[450px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
+                        <div key={blog.id} className="overflow-hidden md:h-[450px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
                             <div className="h-[60%] bg-[#0e0d0d] rounded-xl overflow-hidden w-full">
                                 <img src={blog?.image} alt="" className="h-full w-full mx-auto object-contain" />
                             </div>
@@ -82,7 +81,7 @@ const Blogs = () => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 bg-black/25" />
+                        <div className="fixed inset-0 bg-black/90" />
                     </Transition.Child>
 
                     <div className="fixed inset-0 overflow-y-auto">
