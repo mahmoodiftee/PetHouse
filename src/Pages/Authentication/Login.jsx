@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from "react";
-import { AuthContext } from "../../Hooks/AuthProvider";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
     const { LoginUser, googleLogin } = useContext(AuthContext);

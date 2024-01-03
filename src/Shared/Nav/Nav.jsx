@@ -4,7 +4,7 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { IoMdArrowDropright } from "react-icons/io";
 import { TiThMenu } from "react-icons/ti";
 import { Link, NavLink } from 'react-router-dom'
-import { AuthContext } from '../../Hooks/AuthProvider'
+import { AuthContext } from '../../Providers/AuthProvider'
 import toast from 'react-hot-toast';
 
 const links = <>

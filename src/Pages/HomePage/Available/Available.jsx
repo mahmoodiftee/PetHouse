@@ -46,7 +46,7 @@ const Available = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center mt-6 md:mt-10">
                 {
                     visiblePets.map((pet) => (
-                        <div key={pet.id} onClick={() => openModal(pet)} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
+                        <div key={pet._id} onClick={() => openModal(pet)} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
                             <div className="h-[45%] overflow-hidden w-full">
                                 <img src={pet.img} alt="" className="h-full cursor-pointer mx-auto object-contain transition-transform transform-gpu hover:scale-150" />
                             </div>

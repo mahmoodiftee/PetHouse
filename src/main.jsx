@@ -5,9 +5,9 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import { router } from './Routes';
-import CategoryProvider from './Hooks/CategoryProvider';
 import { Toaster } from 'react-hot-toast';
-import AuthProvider from './Hooks/AuthProvider';
+import CategoryProvider from './Providers/CategoryProvider';
+import AuthProvider from './Providers/AuthProvider';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

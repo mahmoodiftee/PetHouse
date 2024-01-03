@@ -40,11 +40,11 @@ const Location = () => {
                                 )
                             }
                         </div>
-                        <div className="h-96 lg:h-full max-w-full lg:max-w-lg">
-                            <MapContainer key={position.toString()} center={position} scrollWheelZoom={true} zoom={16} style={{ height: '100%', borderRadius: '12px', width: '100%', margin: 'auto' }}>
+                        <div className="h-96 lg:h-full max-w-full">
+                            <MapContainer key={position.toString()} center={position} scrollWheelZoom={true} zoom={13} style={{ height: '100%', borderRadius: '12px', width: '100%', margin: 'auto' }}>
                                 <TileLayer
-                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                 />
                                 <Marker position={position}>
                                     <Popup>

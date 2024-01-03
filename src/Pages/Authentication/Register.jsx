@@ -3,9 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
 import { auth } from './firebase.config';
-import useCustomHook from "../../Hooks/CategoryProvider";
+import useCustomHook from "../../Providers/CategoryProvider";
 import { useContext } from 'react';
-import { AuthContext } from '../../Hooks/AuthProvider';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
     const { googleLogin, createUser, loading } = useContext(AuthContext);

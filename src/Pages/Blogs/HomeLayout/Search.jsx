@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCustomHook } from "../../../Hooks/CategoryProvider";
+import { useCustomHook } from "../../../Providers/CategoryProvider";
 
 
 const Search = () => {

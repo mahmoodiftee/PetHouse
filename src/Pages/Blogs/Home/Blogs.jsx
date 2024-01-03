@@ -1,6 +1,6 @@
 import { useEffect, useState, Fragment } from "react";
 import Navbar from "../BlogNav/Navbar";
-import { useCustomHook } from "../../../Hooks/CategoryProvider";
+import { useCustomHook } from "../../../Providers/CategoryProvider";
 import json from '../../../assets/jsons/posts.json'
 import { Dialog, Transition } from '@headlessui/react'
 
