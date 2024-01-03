@@ -3,15 +3,18 @@ import Navbar from "../BlogNav/Navbar";
 import { useCustomHook } from "../../../Providers/CategoryProvider";
 import { Dialog, Transition } from '@headlessui/react'
 import useAxios from "../../../Hooks/useAxios";
+import { useLoadingContext } from "../../../Hooks/useLoading";
 
 const Blogs = () => {
     const { Selected, searchedItem } = useCustomHook();
+    const { loading, showLoading, hideLoading } = useLoadingContext();
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     const [posts, setposts] = useState([]);
     const [blogs, setBlogs] = useState([]);
     const useAxiosHook = useAxios();
     useEffect(() => {
+        showLoading();
         useAxiosHook.get('/blogs')
             .then((res) => {
                 const data = res.data;
@@ -19,8 +22,11 @@ const Blogs = () => {
             })
             .catch((error) => {
                 console.log(error);
+            })
+            .finally(() => {
+                hideLoading();
             });
-    }, [])
+    }, []);
 
     useEffect(() => {
         const filteredData = Selected === 'all' ? posts : posts?.filter((post) => post.category.toLowerCase() === Selected.toLowerCase());
@@ -77,6 +83,7 @@ const Blogs = () => {
                         </div>
                     ))
                 }
+                {loading && <p>Loading...</p>}
             </div>
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
