@@ -13,7 +13,16 @@
         "type": "post",
         "category": "cat",
         "name": "New Cat Text Post 1",
-        "author": "Mahmood ",
+        "author": "Mahmood Iftee",
+        "author_img": "https://i.ibb.co/fdDzV49/1.png",
+        "date": "2023-04-10",
+        "desc": "Embark on a heartwarming journey with Sparky, a loyal canine companion who has filled my life with boundless joy. From playful antics in the backyard to quiet moments of shared reflection, Sparky's story is a celebration of the unique bond we share. Join us in experiencing the magic of unconditional love and the profound connection between humans and their canine friends."
+    },
+    {
+        "type": "post",
+        "category": "cat",
+        "name": "New Cat Text Post 2",
+        "author": "Mahmood Iftee",
         "author_img": "https://i.ibb.co/fdDzV49/1.png",
         "date": "2023-04-10",
         "desc": "Embark on a heartwarming journey with Sparky, a loyal canine companion who has filled my life with boundless joy. From playful antics in the backyard to quiet moments of shared reflection, Sparky's story is a celebration of the unique bond we share. Join us in experiencing the magic of unconditional love and the profound connection between humans and their canine friends."
@@ -28,6 +37,16 @@
         "date": "2023-06-22",
         "desc": "Indulge in the whimsical tales of Mittens, the charming cat who has brought immeasurable joy into my life. From mischievous escapades that leave us laughing to quiet moments of companionship, Mittens' story unfolds in a tapestry of delight. Join me in celebrating the enchanting magic that Mittens brings to every day, turning ordinary moments into extraordinary memories."
     },
+    {
+        "type": "post",
+        "category": "cat",
+        "name": "New Cat Text Post 3",
+        "author": "Mahmood Iftee",
+        "author_img": "https://i.ibb.co/fdDzV49/1.png",
+        "date": "2023-04-10",
+        "desc": "Embark on a heartwarming journey with Sparky, a loyal canine companion who has filled my life with boundless joy. From playful antics in the backyard to quiet moments of shared reflection, Sparky's story is a celebration of the unique bond we share. Join us in experiencing the magic of unconditional love and the profound connection between humans and their canine friends."
+    },
+
     {
         "type": "image",
         "image": "https://i.ibb.co/hDrWVCJ/3.png",

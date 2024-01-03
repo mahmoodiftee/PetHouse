@@ -6,6 +6,7 @@ import useAxios from "../../../Hooks/useAxios";
 import { useLoadingContext } from "../../../Hooks/useLoading";
 import Loader from "../../../Components/Loader/Loader";
 import BlogImageCard from "../../../Components/Cards/BlogImageCard";
+import BlogPostCard from "../../../Components/Cards/BlogPostCard";
 
 const Blogs = () => {
     const { Selected, searchedItem } = useCustomHook();
@@ -62,9 +63,7 @@ const Blogs = () => {
                             {blog.type === 'image' ? (
                                 <BlogImageCard blog={blog} openModal={openModal} />
                             ) : (
-                                <div>
-                                    post
-                                </div>
+                                <BlogPostCard blog={blog} openModal={openModal} />
                             )}
                         </React.Fragment>
                     ))

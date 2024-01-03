@@ -1,7 +1,7 @@
 
 const BlogImageCard = ({ blog, openModal }) => {
     return (
-        <div className="overflow-hidden md:h-[450px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
+        <div className="overflow-hidden md:h-[470px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
             <div className="h-[60%] bg-[#0e0d0d] rounded-xl overflow-hidden w-full">
                 <img src={blog?.image} alt="" className="h-full w-full mx-auto object-contain" />
             </div>
