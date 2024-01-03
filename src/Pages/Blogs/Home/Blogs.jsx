@@ -3,6 +3,7 @@ import Navbar from "../BlogNav/Navbar";
 import { useCustomHook } from "../../../Providers/CategoryProvider";
 import json from '../../../assets/jsons/posts.json'
 import { Dialog, Transition } from '@headlessui/react'
+import useAxios from "../../../Hooks/useAxios";
 
 const Blogs = () => {
     const { Selected, searchedItem } = useCustomHook();
@@ -10,8 +11,16 @@ const Blogs = () => {
     const [modal, setModal] = useState([]);
     const [posts, setposts] = useState([]);
     const [blogs, setBlogs] = useState([]);
+    const useAxiosHook = useAxios();
     useEffect(() => {
-        setposts(json);
+        useAxiosHook.get('/blogs')
+            .then((res) => {
+                const data = res.data;
+                setposts(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }, [])
 
     useEffect(() => {
@@ -42,7 +51,7 @@ const Blogs = () => {
             <div className="flex flex-col md:m-10 justify-center items-center px-4 gap-6">
                 {
                     blogs.map((blog) => (
-                        <div key={blog.id} className="overflow-hidden md:h-[450px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
+                        <div key={blog._id} className="overflow-hidden md:h-[450px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
                             <div className="h-[60%] bg-[#0e0d0d] rounded-xl overflow-hidden w-full">
                                 <img src={blog?.image} alt="" className="h-full w-full mx-auto object-contain" />
                             </div>

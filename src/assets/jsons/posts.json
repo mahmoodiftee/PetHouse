@@ -1,6 +1,5 @@
 [
   {
-      "id": 1,
       "image": "https://i.ibb.co/fdDzV49/1.png",
       "category": "cat",
       "name": "Sparky",
@@ -10,7 +9,6 @@
       "desc": "Embark on a heartwarming journey with Sparky, a loyal canine companion who has filled my life with boundless joy. From playful antics in the backyard to quiet moments of shared reflection, Sparky's story is a celebration of the unique bond we share. Join us in experiencing the magic of unconditional love and the profound connection between humans and their canine friends."
   },
   {
-      "id": 2,
       "image": "https://i.ibb.co/Ksqrjt8/2.png",
       "category": "dog",
       "name": "Mittens",
@@ -20,7 +18,6 @@
       "desc": "Indulge in the whimsical tales of Mittens, the charming cat who has brought immeasurable joy into my life. From mischievous escapades that leave us laughing to quiet moments of companionship, Mittens' story unfolds in a tapestry of delight. Join me in celebrating the enchanting magic that Mittens brings to every day, turning ordinary moments into extraordinary memories."
   },
   {
-      "id": 3,
       "image": "https://i.ibb.co/hDrWVCJ/3.png",
       "category": "dog",
       "name": "Max",
@@ -30,7 +27,6 @@
       "desc": "Join me on the heartfelt journey with Max, a friendly dog whose unwavering devotion has touched the lives of many. From outdoor adventures that fill our days with excitement to quiet moments of shared reflection, Max's story is a testament to the profound connection between humans and their canine companions. Experience the joy and warmth that Max brings into every aspect of our lives."
   },
   {
-      "id": 4,
       "image": "https://i.ibb.co/PzZWbhD/4.png",
       "category": "question",
       "name": "Whiskers",
@@ -40,7 +36,6 @@
       "desc": "Embark on an insightful exploration with Whiskers, the feline guru whose whisker twitches and curious meows reveal the mysteries of cat behavior. As Whiskers' inquirer, I delve into the fascinating universe of our whiskered friends, answering burning question with wit and wisdom. Join the conversation and enhance your understanding of the quirks and charms of our beloved feline companions."
   },
   {
-      "id": 5,
       "image": "https://i.ibb.co/9NdRgFy/5.png",
       "category": "adoption",
       "name": "Bella",
@@ -50,7 +45,6 @@
       "desc": "Experience the poignant journey of Bella, a soul seeking a forever home. As Bella's hopeful friend, I share the narrative of resilience and hope that defines Bella's story. Explore the transformative power of love as Bella embarks on a new chapter filled with warmth and care. Your heart can make a difference in Bella's life, providing the comfort and security she deserves."
   },
   {
-      "id": 6,
       "image": "https://i.ibb.co/sqm5XTP/6.png",
       "category": "Help",
       "name": "Charlie",
@@ -60,7 +54,6 @@
       "desc": "Extend a helping hand to Charlie, a furry friend in need. As Charlie's advocate, I narrate the poignant tale that reflects the resilience and hope found in every animal seeking assistance. Discover how your support can make a significant impact on Charlie's life, offering hope and healing. Join me in the mission to provide Charlie with the care and support needed for a brighter future."
   },
   {
-      "id": 7,
       "image": "https://i.ibb.co/qMMgGZ5/7.png",
       "category": "question",
       "name": "Oliver",
@@ -70,7 +63,6 @@
       "desc": "Explore the enigmatic world of Oliver, a cat with a penchant for mystery. As Oliver's inquirer, I share the captivating stories of unraveling feline secrets and decoding the language of whiskers. Join me in the fascinating journey of understanding and appreciating the unique charm that Oliver brings into the lives of those who seek to comprehend the world through a cat's perspective."
   },
   {
-      "id": 8,
       "image": "https://i.ibb.co/jwWSLjv/8.png",
       "category": "cat",
       "name": "Luna",
@@ -80,7 +72,6 @@
       "desc": "Embark on a celestial journey with Luna, the ethereal cat whose presence brings tranquility and magic into every day. As Luna's devotee, I share the enchanting tales of moonlit adventures and cozy moments spent in the company of this celestial feline. Join me in celebrating the mystical bond that Luna weaves, turning ordinary days into extraordinary cosmic escapades."
   },
   {
-      "id": 9,
       "image": "https://i.ibb.co/whSRwvG/9.png",
       "category": "cat",
       "name": "Rocky",
@@ -90,7 +81,6 @@
       "desc": "Join me in the spirited adventures of Rocky, a dynamic dog whose boundless energy and zest for life are contagious. As Rocky's companion, I share the laughter, joy, and occasional mischief that define our days together. Experience the heartwarming journey of companionship and discover the transformative power of a furry friend's presence in the tapestry of our lives."
   },
   {
-      "id": 10,
       "image": "https://i.ibb.co/XDYhrk3/10.png",
       "category": "question",
       "name": "Misty",
@@ -100,7 +90,6 @@
       "desc": "Embark on an inquisitive journey with Misty, the enigmatic cat whose every twitch and purr holds the key to unraveling feline mysteries. As Misty's inquirer, I delve into the world of whisker language, curious behavior, and the art of decoding feline expressions. Join me in the quest for understanding the subtle nuances that make Misty the intriguing and captivating companion that she is."
   },
   {
-      "id": 11,
       "image": "https://i.ibb.co/bR5pCgG/11.png",
       "category": "adoption",
       "name": "Cooper",
@@ -110,7 +99,6 @@
       "desc": "Embark on a heartwarming journey with Cooper, a soul seeking a forever home filled with love and care. As Cooper's hopeful friend, I share the poignant narrative of resilience and optimism that defines Cooper's story. Discover the transformative power of compassion as we open our hearts to provide Cooper with the warmth and security he deserves in his new home."
   },
   {
-      "id": 12,
       "image": "https://i.ibb.co/M1crZ2H/12.png",
       "category": "Help",
       "name": "Sunny",
@@ -120,7 +108,6 @@
       "desc": "Extend a helping hand to Sunny, a furry friend in need of support and care. As Sunny's advocate, I share the heartfelt tale of resilience and hope that defines Sunny's journey. Join me in the mission to provide Sunny with the care and attention needed for a brighter and happier future. Together, we can make a meaningful difference in Sunny's life and bring a ray of sunshine into the world of animal rescue."
   },
   {
-      "id": 13,
       "image": "https://i.ibb.co/qMMgGZ5/7.png",
       "category": "Adoption",
       "name": "Teddy",
@@ -130,7 +117,6 @@
       "desc": "Dive into the eclectic chronicles of Teddy, a charismatic companion whose tales span various aspects of life with animals. As Teddy's chronicler, I bring you a collection of heartwarming, humorous, and thought-provoking stories that showcase the diversity of experiences shared by animals and their human friends. Join me in exploring the rich tapestry of Teddy's world, where each post unveils a unique facet of the bond between humans and animals."
   },
   {
-      "id": 14,
       "image": "https://i.ibb.co/G7nThj5/14.png",
       "category": "cat",
       "name": "Cleo",
@@ -140,7 +126,6 @@
       "desc": "Indulge in the enchanting tales of Cleo, a regal cat whose elegance and charm define her presence. As Cleo's admirer, I share the delightful narratives of moonlit adventures, playful escapades, and the quiet moments of feline sophistication that grace our lives. Join me in celebrating the majestic allure of Cleo, turning each day into a royal procession of love and companionship."
   },
   {
-      "id": 15,
       "image": "https://i.ibb.co/JxrWqGN/15.png",
       "category": "cat",
       "name": "Maximus",
@@ -150,7 +135,6 @@
       "desc": "Embark on an exhilarating journey with Maximus, an energetic dog whose zest for life and adventure knows no bounds. As Maximus' companion, I share the tales of outdoor escapades, joyful moments, and the unbreakable bond that defines our friendship. Join me in experiencing the infectious enthusiasm that Maximus brings into every day, turning ordinary moments into extraordinary memories."
   },
   {
-      "id": 16,
       "image": "https://i.ibb.co/dfnWBKX/16.png",
       "category": "question",
       "name": "Whisk",
@@ -160,7 +144,6 @@
       "desc": "Embark on an inquisitive journey with Whisk, the cat with whiskers that hold the secrets of feline wisdom. As Whisk's inquirer, I delve into the world of cat behavior, decoding the language of purrs and understanding the nuances of whisker twitches. Join me in unraveling the mysteries that make Whisk the enigmatic and captivating companion that captivates the hearts of all who encounter this feline sage."
   },
   {
-      "id": 17,
       "image": "https://i.ibb.co/VSHFyKN/17.png",
       "category": "adoption",
       "name": "Cocoa",
@@ -170,7 +153,6 @@
       "desc": "Embark on a heartwarming journey with Cocoa, a soul seeking a forever home filled with love and warmth. As Cocoa's hopeful friend, I share the poignant narrative of resilience and optimism that defines Cocoa's story. Discover the transformative power of compassion as we open our hearts to provide Cocoa with the comfort and security he deserves in his new home."
   },
     {
-      "id": 19,
       "image": "https://i.ibb.co/wSvTRGV/19.png",
       "category": "Help",
       "name": "Bailey",
@@ -180,7 +162,6 @@
       "desc": "Extend a helping hand to Charlie, a furry friend in need. As Charlie's advocate, I narrate the poignant tale that reflects the resilience and hope found in every animal seeking assistance. Discover how your support can make a significant impact on Charlie's life, offering hope and healing. Join me in the mission to provide Charlie with the care and support needed for a brighter future."
     },
     {
-      "id": 20,
       "image": "https://i.ibb.co/Gpbr98y/20.png",
       "category": "dog",
       "name": "Lily",
