@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 const links = <>
   <NavLink to={'/'}><p className="text-sm  font-semibold">Home </p></NavLink>
   <NavLink to={'/blogs'}><p className="text-sm  font-semibold">Blogs</p></NavLink>
-  <NavLink to={'/Consultation'}><p className="text-sm  font-semibold">Consultation</p></NavLink>
+  <NavLink to={'/consultation'}><p className="text-sm  font-semibold">Consultation</p></NavLink>
 </>
 
 const Nav = () => {

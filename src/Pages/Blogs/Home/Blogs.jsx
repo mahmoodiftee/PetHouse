@@ -8,6 +8,7 @@ import BlogImageCard from "../../../Components/Cards/BlogImageCard";
 import BlogPostCard from "../../../Components/Cards/BlogPostCard";
 import Modal from "../../../Components/Modals/Modal";
 import Post from "./Post";
+import PostForm from "../../../Components/Modals/PostForm";
 
 const Blogs = () => {
     const { Selected, searchedItem } = useCustomHook();
@@ -53,13 +54,16 @@ const Blogs = () => {
         setModal(blog);
         setIsOpen(true)
     }
+    function openFormModal() {
+        setIsOpen(true)
+    }
 
     return (
         <div>
             <Navbar></Navbar>
             <div className="flex flex-col justify-center items-center p-4 gap-6 md:gap-2">
                 {/* Post Section */}
-                <Post />
+                <Post  openModal={openFormModal}/>
 
                 {/* Cards */}
 
@@ -93,6 +97,12 @@ const Blogs = () => {
                 modal={modal}
                 closeModal={closeModal}
             />
+            {/* Form Modal */}
+            {/* <PostForm
+                isOpen={isOpen}
+                Fragment={Fragment}
+                closeModal={closeModal}
+            /> */}
         </div>
     );
 };
