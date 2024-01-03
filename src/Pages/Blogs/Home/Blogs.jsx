@@ -4,6 +4,7 @@ import { useCustomHook } from "../../../Providers/CategoryProvider";
 import { Dialog, Transition } from '@headlessui/react'
 import useAxios from "../../../Hooks/useAxios";
 import { useLoadingContext } from "../../../Hooks/useLoading";
+import Loader from "../../../Components/Loader/Loader";
 
 const Blogs = () => {
     const { Selected, searchedItem } = useCustomHook();
@@ -83,7 +84,9 @@ const Blogs = () => {
                         </div>
                     ))
                 }
-                {loading && <p>Loading...</p>}
+                {loading &&
+                    <Loader />
+                }
             </div>
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
