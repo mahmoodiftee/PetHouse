@@ -26,6 +26,7 @@ const BlogImageCard = ({ blog, openModal }) => {
                 </div>
             </article>
         </div>
+        
     );
 };
 
