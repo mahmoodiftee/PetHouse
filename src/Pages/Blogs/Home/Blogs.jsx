@@ -16,6 +16,8 @@ const Blogs = () => {
     const [posts, setposts] = useState([]);
     const [blogs, setBlogs] = useState([]);
     const useAxiosHook = useAxios();
+   
+   //fetching data
     useEffect(() => {
         showLoading();
         useAxiosHook.get('/blogs')
@@ -31,27 +33,25 @@ const Blogs = () => {
             });
     }, []);
 
+    //Filtering the Filtered post
     useEffect(() => {
         const filteredData = Selected === 'all' ? posts : posts?.filter((post) => post.category.toLowerCase() === Selected.toLowerCase());
         setBlogs(filteredData || []);
     }, [posts, Selected]);
 
+    //Filtering the Searched post
     useEffect(() => {
         const searchedData = searchedItem === 'all' ? posts : posts?.filter((post) => post.category.toLowerCase() === searchedItem.toLowerCase());
         setBlogs(searchedData || []);
     }, [posts, searchedItem]);
 
-
     function closeModal() {
         setIsOpen(false)
     }
-
     function openModal(blog) {
         setModal(blog);
         setIsOpen(true)
     }
-
-
 
     return (
         <div>
@@ -61,9 +61,15 @@ const Blogs = () => {
                     blogs.map((blog) => (
                         <React.Fragment key={blog._id}>
                             {blog.type === 'image' ? (
-                                <BlogImageCard blog={blog} openModal={openModal} />
+                                <BlogImageCard
+                                    blog={blog}
+                                    openModal={openModal}
+                                />
                             ) : (
-                                <BlogPostCard blog={blog} openModal={openModal} />
+                                <BlogPostCard
+                                    blog={blog}
+                                    openModal={openModal}
+                                />
                             )}
                         </React.Fragment>
                     ))
@@ -72,8 +78,14 @@ const Blogs = () => {
                     <Loader />
                 }
             </div>
+
             {/* //Modal// */}
-            <Modal isOpen={isOpen} Fragment={Fragment} modal={modal} closeModal={closeModal}/>
+            <Modal
+                isOpen={isOpen}
+                Fragment={Fragment}
+                modal={modal}
+                closeModal={closeModal}
+            />
         </div>
     );
 };
