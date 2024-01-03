@@ -12,6 +12,7 @@ export default {
       colors: {
         'orange': '#fe9b60',
         'dark': '#171717',
+        'lite': '#161616',
       },
     },
   },

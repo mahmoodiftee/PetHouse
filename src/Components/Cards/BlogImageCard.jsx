@@ -1,11 +1,11 @@
 
 const BlogImageCard = ({ blog, openModal }) => {
     return (
-        <div className="overflow-hidden md:h-[470px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
+        <div className="overflow-hidden border-4 border-lite md:h-[470px] w-full rounded-2xl bg-[#000000] p-6 mx-auto">
             <div className="h-[60%] bg-[#0e0d0d] rounded-xl overflow-hidden w-full">
                 <img src={blog?.image} alt="" className="h-full w-full mx-auto object-contain" />
             </div>
-            <article className="flex my-2 max-w-xl flex-col items-start justify-between">
+            <article className="flex rounded-xl my-2 max-w-xl flex-col items-start justify-between">
                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
                     <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{blog?.category}</p>
                     <p className="text-orange">{blog?.date}</p>

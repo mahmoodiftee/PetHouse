@@ -7,6 +7,7 @@ import Loader from "../../../Components/Loader/Loader";
 import BlogImageCard from "../../../Components/Cards/BlogImageCard";
 import BlogPostCard from "../../../Components/Cards/BlogPostCard";
 import Modal from "../../../Components/Modals/Modal";
+import Post from "./Post";
 
 const Blogs = () => {
     const { Selected, searchedItem } = useCustomHook();
@@ -16,8 +17,8 @@ const Blogs = () => {
     const [posts, setposts] = useState([]);
     const [blogs, setBlogs] = useState([]);
     const useAxiosHook = useAxios();
-   
-   //fetching data
+
+    //fetching data
     useEffect(() => {
         showLoading();
         useAxiosHook.get('/blogs')
@@ -56,7 +57,12 @@ const Blogs = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="flex flex-col md:m-10 justify-center items-center px-4 gap-6">
+            <div className="flex flex-col justify-center items-center p-4 gap-6 md:gap-2">
+                {/* Post Section */}
+                <Post />
+
+                {/* Cards */}
+
                 {
                     blogs.map((blog) => (
                         <React.Fragment key={blog._id}>
@@ -77,6 +83,7 @@ const Blogs = () => {
                 {loading &&
                     <Loader />
                 }
+
             </div>
 
             {/* //Modal// */}
