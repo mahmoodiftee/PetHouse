@@ -8,16 +8,19 @@ import { router } from './Routes';
 import { Toaster } from 'react-hot-toast';
 import CategoryProvider from './Providers/CategoryProvider';
 import AuthProvider from './Providers/AuthProvider';
+import { LoadingProvider } from './Hooks/useLoading';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Toaster />
-    <CategoryProvider>
+    <LoadingProvider>
       <AuthProvider>
-        <div className='max-w-screen-xl mx-auto md:px-4'>
-          <RouterProvider router={router} />
-        </div>
+        <CategoryProvider>
+          <div className='max-w-screen-xl mx-auto md:px-4'>
+            <RouterProvider router={router} />
+          </div>
+        </CategoryProvider>
       </AuthProvider>
-    </CategoryProvider>
+    </LoadingProvider>
   </React.StrictMode>
 );
