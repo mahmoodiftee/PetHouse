@@ -1,16 +1,28 @@
 import { useEffect, useState, Fragment } from "react"
 import Title from "../../../Components/Title/Title"
-import json from "../../../assets/jsons/data.json"
 import { Dialog, Transition } from "@headlessui/react"
 import Button from "../../../Components/Button/Button"
-import axios from "axios"
+import useAxios from "../../../Hooks/useAxios";
 const Available = () => {
     const [pets, setPets] = useState([]);
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     const [visibleItems, setVisibleItems] = useState(8);
-
+    const useAxiosHook = useAxios();
     const visiblePets = pets.slice(0, visibleItems)
+    
+    useEffect(() => {
+        useAxiosHook.get('/avaiable-pets')
+            .then((res) => {
+                const data = res.data;
+                setPets(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+    
+    
     const showMore = () => {
         setVisibleItems((e) => e + 8);
     };
@@ -27,16 +39,7 @@ const Available = () => {
         setModal(pet);
         setIsOpen(true)
     }
-    useEffect(() => {
-        axios.get('http://localhost:5000/avaiable-pets')
-            .then((res) => {
-                const data = res.data;
-                setPets(data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
+
 
     return (
         <div className="my-6 md:my-10 px-2 md:px-6">
