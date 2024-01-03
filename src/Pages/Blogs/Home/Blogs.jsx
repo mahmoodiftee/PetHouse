@@ -1,10 +1,11 @@
-import { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import Navbar from "../BlogNav/Navbar";
 import { useCustomHook } from "../../../Providers/CategoryProvider";
 import { Dialog, Transition } from '@headlessui/react'
 import useAxios from "../../../Hooks/useAxios";
 import { useLoadingContext } from "../../../Hooks/useLoading";
 import Loader from "../../../Components/Loader/Loader";
+import BlogImageCard from "../../../Components/Cards/BlogImageCard";
 
 const Blogs = () => {
     const { Selected, searchedItem } = useCustomHook();
@@ -57,31 +58,15 @@ const Blogs = () => {
             <div className="flex flex-col md:m-10 justify-center items-center px-4 gap-6">
                 {
                     blogs.map((blog) => (
-                        <div key={blog._id} className="overflow-hidden md:h-[450px] w-full rounded-lg bg-[#000000] p-6 mx-auto">
-                            <div className="h-[60%] bg-[#0e0d0d] rounded-xl overflow-hidden w-full">
-                                <img src={blog?.image} alt="" className="h-full w-full mx-auto object-contain" />
-                            </div>
-                            <article className="flex my-2 max-w-xl flex-col items-start justify-between">
-                                <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
-                                    <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{blog?.category}</p>
-                                    <p className="text-orange">{blog?.date}</p>
+                        <React.Fragment key={blog._id}>
+                            {blog.type === 'image' ? (
+                                <BlogImageCard blog={blog} openModal={openModal} />
+                            ) : (
+                                <div>
+                                    post
                                 </div>
-                                <div className="group relative">
-                                    <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
-                                        <p href="#">
-                                            <span className="absolute inset-0"></span>
-                                            {blog?.name}
-                                        </p>
-                                    </h3>
-                                    <div className="">
-                                        <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{blog.desc.split(' ').slice(0, 25).join(' ')}..</p>
-                                    </div>
-                                </div>
-                                <div className="w-full  flex pr-10 mb-2 justify-end items-end">
-                                    <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10">🡕</button>
-                                </div>
-                            </article>
-                        </div>
+                            )}
+                        </React.Fragment>
                     ))
                 }
                 {loading &&
