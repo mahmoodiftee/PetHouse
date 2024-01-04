@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 
-const PostForm = ({isOpen, Fragment, closeModal}) => {
+const PostForm = ({ isOpen, Fragment, closeModal }) => {
     return (
         <div>
             <Transition appear show={isOpen} as={Fragment}>
@@ -17,7 +17,7 @@ const PostForm = ({isOpen, Fragment, closeModal}) => {
                         <div className="fixed inset-0 bg-black/90" />
                     </Transition.Child>
 
-                    <div className="fixed inset-0 overflow-y-auto">
+                    <div className="fixed inset-0 mt-24 overflow-y-auto">
                         <div className="flex min-h-full items-center justify-center p-4 text-center">
                             <Transition.Child
                                 as={Fragment}
@@ -28,62 +28,51 @@ const PostForm = ({isOpen, Fragment, closeModal}) => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                {
-                                    modal?.image ? (
-                                        <Dialog.Panel className="w-full max-w-4xl h-[500px] transform overflow-y-auto rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
-                                            <div className="flex flex-col md:flex-row w-full h-full gap-10">
-                                                <div className="flex-1 h-full w-full flex-shrink-0">
-                                                    <img src={modal?.image} className="h-full mx-auto object-contain" />
+                                <Dialog.Panel className="w-full max-w-4xl h-[500px] transform overflow-y-auto rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
+                                    <div className="isolate  pb-10 px-6">
+                                        <form className="mx-auto mt-4 max-w-xl">
+                                            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 mb-4">
+                                                <div>
+                                                    <label className="block text-sm font-semibold leading-6 text-white">
+                                                        Pet Name
+                                                    </label>
+                                                    <div className="mt-2.5">
+                                                        <input
+                                                            placeholder='name'
+                                                            required
+                                                            type="text"
+                                                            name="name"
+                                                            className="placeholder:text-white input input-bordered border-0 h-[42px] border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-lg textarea-sm w-full" />
+                                                    </div>
                                                 </div>
-                                                <div className="flex-1 w-full text-white flex justify-center py-16">
-                                                    <div className="w-full">
-                                                        <div className="flex justify-between items-center">
-                                                            <p href="#" className="relative z-10 rounded-full px-1.5 py-2px font-medium text-white bg-orange hover:bg-orange hover:text-white">{modal?.category}</p>
-                                                            <p className="text-orange md:pr-10">{modal?.date}</p>
-                                                        </div>
-                                                        <h3 className="text-2xl my-2 md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
-                                                            {modal?.name}
-                                                        </h3>
-                                                        <p className="text-sm md:text-sm mb-2 font-light">
-                                                            {modal?.desc}
-                                                        </p>
-                                                        <div className="relative md:mt-3 flex items-center gap-x-4">
-                                                            <img src="https://tailwindcss.com/_next/static/media/guillermo-rauch.8a24ab88.jpg" alt="" className="h-8 w-8 rounded-full bg-black" />
-                                                            <div className="text-sm leading-6">
-                                                                <p className="font-semibold text-[12px] text-orange">
-                                                                    {modal?.author}
-                                                                </p>
-                                                            </div>
-                                                        </div>
+                                                <div>
+                                                    <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-white">
+                                                        Category
+                                                    </label>
+                                                    <div className="mt-2.5">
+                                                        <select className="block w-full border-white bg-white bg-opacity-10  rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
+                                                            <option className='text-[#6b7280] font-normal bg-dark' disabled defaultValue >Choose one </option>
+                                                            <option className='text-white font-normal bg-dark'>Cat/Kitten</option>
+                                                            <option className='text-white font-normal bg-dark'>Dog/Puppy</option>
+                                                            <option className='text-white font-normal bg-dark'>Help</option>
+                                                            <option className='text-white font-normal bg-dark'>Adoption</option>
+                                                            <option className='text-white font-normal bg-dark'>Question</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </Dialog.Panel>
-                                    ) : (
-                                        <Dialog.Panel className="w-full max-w-4xl transform overflow-y-auto rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
-                                            <div className="w-full">
-                                                <div className="flex justify-between items-center">
-                                                    <p href="#" className="relative z-10 rounded-full px-1.5 py-2px font-medium text-white bg-orange hover:bg-orange hover:text-white">{modal?.category}</p>
-                                                    <p className="text-orange md:pr-10">{modal?.date}</p>
-                                                </div>
-                                                <h3 className="text-2xl my-2 md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
-                                                    {modal?.name}
-                                                </h3>
-                                                <p className="text-sm md:text-sm mb-2 font-light">
-                                                    {modal?.desc}
-                                                </p>
-                                                <div className="relative md:mt-3 flex items-center gap-x-4">
-                                                    <img src="https://tailwindcss.com/_next/static/media/guillermo-rauch.8a24ab88.jpg" alt="" className="h-8 w-8 rounded-full bg-black" />
-                                                    <div className="text-sm leading-6">
-                                                        <p className="font-semibold text-[12px] text-orange">
-                                                            {modal?.author}
-                                                        </p>
-                                                    </div>
+
+                                            <div className="">
+                                                <div>
+                                                    <textarea placeholder='Share Your Thoughts...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full mb-2"></textarea>
                                                 </div>
                                             </div>
-                                        </Dialog.Panel>
-                                    )
-                                }
+                                            <button className="rounded-md px-10 font-extrabold mx-auto cursor-pointer flex justify-center text-orange  transition-all duration-500 hover:text-white items-center gap-2 max-w-md my-4 bg-white/5 hover:bg-orange p-2 ring-1 ring-white/10 hover:ring-orange">
+                                                POST
+                                            </button>
+                                        </form>
+                                    </div>
+                                </Dialog.Panel>
                             </Transition.Child>
                         </div>
                     </div>

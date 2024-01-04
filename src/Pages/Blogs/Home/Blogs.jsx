@@ -54,16 +54,13 @@ const Blogs = () => {
         setModal(blog);
         setIsOpen(true)
     }
-    function openFormModal() {
-        setIsOpen(true)
-    }
 
     return (
         <div>
             <Navbar></Navbar>
             <div className="flex flex-col justify-center items-center p-4 gap-6 md:gap-2">
                 {/* Post Section */}
-                <Post  openModal={openFormModal}/>
+                <Post/>
 
                 {/* Cards */}
 
@@ -97,12 +94,7 @@ const Blogs = () => {
                 modal={modal}
                 closeModal={closeModal}
             />
-            {/* Form Modal */}
-            <PostForm
-                isOpen={isOpen}
-                Fragment={Fragment}
-                closeModal={closeModal}
-            />
+
         </div>
     );
 };
