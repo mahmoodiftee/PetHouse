@@ -98,11 +98,11 @@ const Blogs = () => {
                 closeModal={closeModal}
             />
             {/* Form Modal */}
-            {/* <PostForm
+            <PostForm
                 isOpen={isOpen}
                 Fragment={Fragment}
                 closeModal={closeModal}
-            /> */}
+            />
         </div>
     );
 };

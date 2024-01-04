@@ -22,7 +22,3 @@ const Post = ({openModal}) => {
 };
 
 export default Post;
-{/* <textarea placeholder={`${lastName}, Share Your Thoughts...`} className="textarea border-4 border-lite rounded-2xl textarea-sm w-full mb-2"></textarea> */ }
-
-// const { user } = useContext(AuthContext);
-// const lastName = user.displayName.split(' ').pop();
