@@ -8,7 +8,6 @@ import BlogImageCard from "../../../Components/Cards/BlogImageCard";
 import BlogPostCard from "../../../Components/Cards/BlogPostCard";
 import Modal from "../../../Components/Modals/Modal";
 import Post from "./Post";
-import PostForm from "../../../Components/Modals/PostForm";
 
 const Blogs = () => {
     const { Selected, searchedItem } = useCustomHook();
@@ -24,8 +23,8 @@ const Blogs = () => {
         showLoading();
         useAxiosHook.get('/blogs')
             .then((res) => {
-                const data = res.data;
-                setposts(data);
+                const fetchedData = res.data;
+                setposts(fetchedData.reverse());
             })
             .catch((error) => {
                 console.log(error);
@@ -60,7 +59,7 @@ const Blogs = () => {
             <Navbar></Navbar>
             <div className="flex flex-col justify-center items-center p-4 gap-6 md:gap-2">
                 {/* Post Section */}
-                <Post/>
+                <Post />
 
                 {/* Cards */}
 

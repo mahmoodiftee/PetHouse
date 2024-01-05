@@ -1,7 +1,7 @@
 
 const BlogPostCard = ({ blog, openModal }) => {
     return (
-        <div className="overflow-hidden border-4 border-lite md:h-56 w-full rounded-2xl bg-[#000000] p-6 mx-auto">
+        <div className="overflow-hidden border-4 border-lite md:min-h-56 w-full rounded-2xl bg-[#000000] p-6 mx-auto">
             <article className="flex rounded-xl my-2 max-w-xl flex-col items-start justify-between">
                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
                     <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{blog?.category}</p>
@@ -14,6 +14,12 @@ const BlogPostCard = ({ blog, openModal }) => {
                             {blog?.name}
                         </p>
                     </h3>
+                    <div className="">
+                        <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{blog.desc.split(' ').slice(0, 25).join(' ')}..</p>
+                    </div>
+                    <div className="">
+                        <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{blog.desc.split(' ').slice(0, 25).join(' ')}..</p>
+                    </div>
                     <div className="">
                         <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{blog.desc.split(' ').slice(0, 25).join(' ')}..</p>
                     </div>
