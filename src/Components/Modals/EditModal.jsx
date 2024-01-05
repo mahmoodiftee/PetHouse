@@ -1,16 +1,17 @@
 import { Dialog, Transition } from '@headlessui/react'
+import useAxios from '../../Hooks/useAxios';
+import usePost from '../../Hooks/usePost';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
-import useAxios from '../../Hooks/useAxios';
-import toast from 'react-hot-toast';
-import usePost from '../../Hooks/usePost';
 
-const PostForm = ({ isOpen, Fragment, closeModal }) => {
+const EditModal = ({ isOpen, Fragment, closeModal, modal }) => {
+  
+  
     const [currentDate, setCurrentDate] = useState('');
-    const { user } = useContext(AuthContext)
-    const { displayName, email, photoURL } = user;
-    const useAxiosPost = useAxios();
-    const [, refetch] = usePost();
+    // const { user } = useContext(AuthContext)
+    // const { displayName, email, photoURL } = user;
+    // const useAxiosPost = useAxios();
+    // const [, refetch] = usePost();
     
     useEffect(() => {
         const today = new Date();
@@ -21,14 +22,15 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
         const formattedDate = `${year}-${month}-${day}`;
         setCurrentDate(formattedDate);
     }, []);
+
     const handlePost = async (e) => {
         e.preventDefault();
         const type = "post";
         const category = e.target.category.value;
         const name = e.target.name.value;
-        const author = displayName;
-        const author_email = email;
-        const author_img = photoURL;
+        const author = modal?.author;
+        const author_email = modal?.author_email;
+        const author_img = modal?.author_img;
         const date = currentDate;
         const desc = e.target.desc.value;;
 
@@ -43,30 +45,9 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
             desc,
         };
         console.log(newPost);
-        try {
-            const response = await useAxiosPost.post('/blogs', newPost);
-            const data = response.data;
-            if (data.insertedId) {
-                toast('Posting Successful',
-                    {
-                        icon: '🐶',
-                        style: {
-                            borderRadius: '10px',
-                            background: '#333',
-                            color: '#fff',
-                        },
-                    }
-                );
-                refetch();
-                e.target.reset();
-                closeModal();
-            }
-        } catch (error) {
-            console.error('Error posting book:', error);
-            toast.error('Error posting. Please try again.');
-        }
     };
-
+  
+  
     return (
         <div>
             <Transition appear show={isOpen} as={Fragment}>
@@ -88,6 +69,7 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
                                                     </label>
                                                     <div className="mt-2.5">
                                                         <input
+                                                            defaultValue={modal?.name}
                                                             placeholder='name'
                                                             required
                                                             type="text"
@@ -100,7 +82,7 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
                                                         Category
                                                     </label>
                                                     <div className="mt-2.5">
-                                                        <select name="category" className="block w-full border-white bg-white bg-opacity-10  rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
+                                                        <select name="category" defaultValue={modal?.category} className="block w-full border-white bg-white bg-opacity-10  rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
                                                             <option className='text-[#6b7280] font-normal bg-dark' disabled >Choose one </option>
                                                             <option className='text-white font-normal bg-dark' value="cat">Cat/Kitten</option>
                                                             <option className='text-white font-normal bg-dark' value="dog">Dog/Puppy</option>
@@ -114,7 +96,7 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
 
                                             <div className="">
                                                 <div>
-                                                    <textarea name='desc' placeholder='Share Your Thoughts...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full mb-2"></textarea>
+                                                    <textarea defaultValue={modal?.category} name='desc' placeholder='Share Your Thoughts...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full mb-2"></textarea>
                                                 </div>
                                             </div>
                                             <button type='submit' className="rounded-md px-10 font-extrabold mx-auto cursor-pointer flex justify-center text-orange  transition-all duration-500 hover:text-white items-center gap-2 max-w-md my-4 bg-white/5 hover:bg-orange p-2 ring-1 ring-white/10 hover:ring-orange">
@@ -132,4 +114,4 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
     );
 };
 
-export default PostForm;
+export default EditModal;

@@ -1,21 +1,30 @@
-import { useContext } from "react";
+import { Fragment, useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { LuFileEdit } from "react-icons/lu";
 import useAxios from "../../Hooks/useAxios";
 import toast from "react-hot-toast";
 import usePost from "../../Hooks/usePost";
+import EditImageModaL from "../Modals/EditImageModaL.JSX";
 
 const BlogImageCard = ({ blog, openModal }) => {
-    const [, refetch] = usePost();
     const { user } = useContext(AuthContext);
     const useInstance = useAxios();
-
+    const [, refetch] = usePost();
+    const [isOpen, setIsOpen] = useState(false)
+    const [modal, setModal] = useState([]);
+    function openEditModal(blog) {
+        setModal(blog);
+        setIsOpen(true)
+    }
+    function closeModal() {
+        setIsOpen(false)
+    }
     const handleDelete = async (id) => {
         try {
             const response = await useInstance.delete(`/blogs/${id}`);
             const data = response.data;
-            
+
             if (data.deletedCount > 0) {
                 toast('Deleted Successfully', {
                     icon: '✅',
@@ -39,7 +48,7 @@ const BlogImageCard = ({ blog, openModal }) => {
             });
         }
     }
-    
+
 
     return (
         <div className="overflow-hidden border-4 border-lite md:min-h-[470px] w-full rounded-2xl bg-[#000000] p-6 mx-auto">
@@ -51,7 +60,7 @@ const BlogImageCard = ({ blog, openModal }) => {
                     <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{blog?.category}</p>
 
                     <div className="flex gap-4 justify-center items-center">
-                        <button onClick={() => handleUpdate(blog?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                        <button onClick={() => openEditModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
                             <LuFileEdit />
                         </button>
                         <button onClick={() => handleDelete(blog?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
@@ -85,6 +94,7 @@ const BlogImageCard = ({ blog, openModal }) => {
                     </div>
                 </div>
             </article>
+            <EditImageModaL isOpen={isOpen} Fragment={Fragment} modal={modal} closeModal={closeModal} />
         </div>
 
     );

@@ -57,9 +57,9 @@ const Blogs = () => {
                 {blogs.map((blog) => (
                     <Fragment key={blog._id}>
                         {blog.type === 'image' ? (
-                            <BlogImageCard blog={blog} openModal={openModal} />
+                            <BlogImageCard blog={blog} openModal={openModal} isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
                         ) : (
-                            <BlogPostCard blog={blog} openModal={openModal} />
+                            <BlogPostCard blog={blog} openModal={openModal} isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
                         )}
                     </Fragment>
                 ))}
