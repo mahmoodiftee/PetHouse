@@ -1,8 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import Navbar from "../BlogNav/Navbar";
 import { useCustomHook } from "../../../Providers/CategoryProvider";
-import useAxios from "../../../Hooks/useAxios";
-import { useLoadingContext } from "../../../Hooks/useLoading";
 import Loader from "../../../Components/Loader/Loader";
 import BlogImageCard from "../../../Components/Cards/BlogImageCard";
 import BlogPostCard from "../../../Components/Cards/BlogPostCard";
@@ -16,12 +14,16 @@ const Blogs = () => {
     const [modal, setModal] = useState([]);
     const [posts, setposts] = useState([]);
     const [blogs, setBlogs] = useState([]);
-    const [post, isLoading] = usePost();
+    const [post, refetch, isLoading] = usePost();
     //fetching data
     useEffect(() => {
-        const fetchedData = post.reverse();
-        setposts(fetchedData);
-    }, [post]);
+        const fetchData = async () => {
+            await refetch();
+            const fetchedData = [...post].reverse();
+            setposts(fetchedData);
+        };
+        fetchData();
+    }, [post, refetch]);
 
     //Filtering the Filtered post
     useEffect(() => {
@@ -45,44 +47,26 @@ const Blogs = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
+            <Navbar />
             <div className="flex flex-col justify-center items-center p-4 gap-6 md:gap-2">
                 {/* Post Section */}
                 <Post />
 
                 {/* Cards */}
-
-                {
-                    blogs.map((blog) => (
-                        <React.Fragment key={blog._id}>
-                            {blog.type === 'image' ? (
-                                <BlogImageCard
-                                    blog={blog}
-                                    openModal={openModal}
-                                />
-                            ) : (
-                                <BlogPostCard
-                                    blog={blog}
-                                    openModal={openModal}
-                                />
-                            )}
-                        </React.Fragment>
-                    ))
-                }
-                {isLoading &&
-                    <Loader />
-                }
-
+                {isLoading && <Loader />}
+                {blogs.map((blog) => (
+                    <Fragment key={blog._id}>
+                        {blog.type === 'image' ? (
+                            <BlogImageCard blog={blog} openModal={openModal} />
+                        ) : (
+                            <BlogPostCard blog={blog} openModal={openModal} />
+                        )}
+                    </Fragment>
+                ))}
             </div>
 
-            {/* //Modal// */}
-            <Modal
-                isOpen={isOpen}
-                Fragment={Fragment}
-                modal={modal}
-                closeModal={closeModal}
-            />
-
+            {/* Modal */}
+            <Modal isOpen={isOpen} Fragment={Fragment} modal={modal} closeModal={closeModal} />
         </div>
     );
 };

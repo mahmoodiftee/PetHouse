@@ -3,12 +3,14 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import useAxios from '../../Hooks/useAxios';
 import toast from 'react-hot-toast';
+import usePost from '../../Hooks/usePost';
 
 const PostForm = ({ isOpen, Fragment, closeModal }) => {
     const [currentDate, setCurrentDate] = useState('');
     const { user } = useContext(AuthContext)
     const { displayName, email, photoURL } = user;
     const useAxiosPost = useAxios();
+    const [, refetch] = usePost();
     useEffect(() => {
         const today = new Date();
         const year = today.getFullYear();
@@ -45,15 +47,16 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
             const data = response.data;
             if (data.insertedId) {
                 toast('Posting Successful',
-                {
-                    icon: '🐶',
-                    style: {
-                        borderRadius: '10px',
-                        background: '#333',
-                        color: '#fff',
-                    },
-                }
-            );
+                    {
+                        icon: '🐶',
+                        style: {
+                            borderRadius: '10px',
+                            background: '#333',
+                            color: '#fff',
+                        },
+                    }
+                );
+                refetch();
                 e.target.reset();
                 closeModal();
             }

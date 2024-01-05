@@ -1,5 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react'
-const Modal = ({isOpen, Fragment, modal, closeModal}) => {
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
+const Modal = ({ isOpen, Fragment, modal, closeModal }) => {
+    const { user } = useContext(AuthContext);
     return (
         <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -46,7 +49,7 @@ const Modal = ({isOpen, Fragment, modal, closeModal}) => {
                                                         {modal?.desc}
                                                     </p>
                                                     <div className="relative md:mt-3 flex items-center gap-x-4">
-                                                        <img src="https://tailwindcss.com/_next/static/media/guillermo-rauch.8a24ab88.jpg" alt="" className="h-8 w-8 rounded-full bg-black" />
+                                                        <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full bg-black" />
                                                         <div className="text-sm leading-6">
                                                             <p className="font-semibold text-[12px] text-orange">
                                                                 {modal?.author}
@@ -71,7 +74,7 @@ const Modal = ({isOpen, Fragment, modal, closeModal}) => {
                                                 {modal?.desc}
                                             </p>
                                             <div className="relative md:mt-3 flex items-center gap-x-4">
-                                                <img src="https://tailwindcss.com/_next/static/media/guillermo-rauch.8a24ab88.jpg" alt="" className="h-8 w-8 rounded-full bg-black" />
+                                                <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full bg-black" />
                                                 <div className="text-sm leading-6">
                                                     <p className="font-semibold text-[12px] text-orange">
                                                         {modal?.author}
