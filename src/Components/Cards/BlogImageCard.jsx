@@ -1,8 +1,47 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { LuFileEdit } from "react-icons/lu";
+import useAxios from "../../Hooks/useAxios";
+import toast from "react-hot-toast";
+import usePost from "../../Hooks/usePost";
 
 const BlogImageCard = ({ blog, openModal }) => {
+    const [, refetch] = usePost();
     const { user } = useContext(AuthContext);
+    const useInstance = useAxios();
+
+    const handleDelete = async (id) => {
+        console.log(id);
+        try {
+            const response = await useInstance.delete(`/blogs/${id}`);
+            const data = response.data;
+            
+            if (data.deletedCount > 0) {
+                toast('Deleted Successfully', {
+                    icon: '✅',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                });
+                refetch();
+            }
+        } catch (error) {
+            console.error('Error deleting post:', error);
+            toast.error('Error deleting post', {
+                icon: '❌',
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            });
+        }
+    }
+    
+
     return (
         <div className="overflow-hidden border-4 border-lite md:min-h-[470px] w-full rounded-2xl bg-[#000000] p-6 mx-auto">
             <div className="h-64 md:h-[282px] bg-[#0e0d0d] rounded-xl overflow-hidden w-full">
@@ -11,7 +50,16 @@ const BlogImageCard = ({ blog, openModal }) => {
             <article className="flex rounded-xl my-2 max-w-xl flex-col items-start justify-between">
                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
                     <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{blog?.category}</p>
-                    <p className="text-orange">{blog?.date}</p>
+
+                    <div className="flex gap-4 justify-center items-center">
+                        <button onClick={() => handleUpdate(blog?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                            <LuFileEdit />
+                        </button>
+                        <button onClick={() => handleDelete(blog?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                            <FaRegTrashAlt />
+                        </button>
+                    </div>
+
                 </div>
                 <div className="group relative">
                     <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
