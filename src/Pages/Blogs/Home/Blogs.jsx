@@ -8,31 +8,20 @@ import BlogImageCard from "../../../Components/Cards/BlogImageCard";
 import BlogPostCard from "../../../Components/Cards/BlogPostCard";
 import Modal from "../../../Components/Modals/Modal";
 import Post from "./Post";
+import usePost from "../../../Hooks/usePost";
 
 const Blogs = () => {
     const { Selected, searchedItem } = useCustomHook();
-    const { loading, showLoading, hideLoading } = useLoadingContext();
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     const [posts, setposts] = useState([]);
     const [blogs, setBlogs] = useState([]);
-    const useAxiosHook = useAxios();
-
+    const [post, isLoading] = usePost();
     //fetching data
     useEffect(() => {
-        showLoading();
-        useAxiosHook.get('/blogs')
-            .then((res) => {
-                const fetchedData = res.data;
-                setposts(fetchedData.reverse());
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .finally(() => {
-                hideLoading();
-            });
-    }, []);
+        const fetchedData = post.reverse();
+        setposts(fetchedData);
+    }, [post]);
 
     //Filtering the Filtered post
     useEffect(() => {
@@ -80,7 +69,7 @@ const Blogs = () => {
                         </React.Fragment>
                     ))
                 }
-                {loading &&
+                {isLoading &&
                     <Loader />
                 }
 
