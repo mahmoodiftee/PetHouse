@@ -12,7 +12,6 @@ const BlogImageCard = ({ blog, openModal }) => {
     const useInstance = useAxios();
 
     const handleDelete = async (id) => {
-        console.log(id);
         try {
             const response = await useInstance.delete(`/blogs/${id}`);
             const data = response.data;

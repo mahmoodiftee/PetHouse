@@ -15,7 +15,6 @@ const BlogPostCard = ({ blog, openModal }) => {
         console.log('clicked');
     }
     const handleDelete = async (id) => {
-        console.log(id);
         try {
             const response = await useInstance.delete(`/blogs/${id}`);
             const data = response.data;
