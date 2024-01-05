@@ -1,6 +1,20 @@
 import { Dialog, Transition } from '@headlessui/react'
+import toast from 'react-hot-toast';
 
 const ImageForm = ({ isOpen, Fragment, closeModal }) => {
+    const handlePost = () => {
+        toast('Hello Darkness!',
+            {
+                icon: '👏',
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            }
+        );
+    }
+
     return (
         <div>
             <Transition appear show={isOpen} as={Fragment}>
@@ -30,7 +44,7 @@ const ImageForm = ({ isOpen, Fragment, closeModal }) => {
                             >
                                 <Dialog.Panel className="w-full max-w-4xl mt-24 transform overflow-y-auto rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
                                     <div className="isolate pb-10 px-6">
-                                        <form className="mx-auto mt-4 max-w-xl">
+                                        <form onSubmit={handlePost} className="mx-auto mt-4 max-w-xl">
                                             <div className='mb-4'>
                                                 <label className="block text-sm font-semibold leading-6 text-white">
                                                     Pet Name
@@ -75,7 +89,7 @@ const ImageForm = ({ isOpen, Fragment, closeModal }) => {
                                                     <textarea placeholder='Share Your Thoughts...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full mb-2"></textarea>
                                                 </div>
                                             </div>
-                                            <button className="rounded-md px-10 font-extrabold mx-auto cursor-pointer flex justify-center text-orange  transition-all duration-500 hover:text-white items-center gap-2 max-w-md my-4 bg-white/5 hover:bg-orange p-2 ring-1 ring-white/10 hover:ring-orange">
+                                            <button type='submit' className="rounded-md px-10 font-extrabold mx-auto cursor-pointer flex justify-center text-orange  transition-all duration-500 hover:text-white items-center gap-2 max-w-md my-4 bg-white/5 hover:bg-orange p-2 ring-1 ring-white/10 hover:ring-orange">
                                                 POST
                                             </button>
                                         </form>

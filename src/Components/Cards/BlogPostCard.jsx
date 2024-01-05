@@ -17,12 +17,6 @@ const BlogPostCard = ({ blog, openModal }) => {
                     <div className="">
                         <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{blog.desc.split(' ').slice(0, 25).join(' ')}..</p>
                     </div>
-                    <div className="">
-                        <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{blog.desc.split(' ').slice(0, 25).join(' ')}..</p>
-                    </div>
-                    <div className="">
-                        <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{blog.desc.split(' ').slice(0, 25).join(' ')}..</p>
-                    </div>
                 </div>
                 <div className="w-full  flex pr-10 mb-2 justify-end items-end">
                     <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10">🡕</button>

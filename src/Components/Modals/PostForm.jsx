@@ -1,12 +1,14 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import useAxios from '../../Hooks/useAxios';
+import toast from 'react-hot-toast';
 
 const PostForm = ({ isOpen, Fragment, closeModal }) => {
     const [currentDate, setCurrentDate] = useState('');
     const { user } = useContext(AuthContext)
     const { displayName, email, photoURL } = user;
-
+    const useAxiosPost = useAxios();
     useEffect(() => {
         const today = new Date();
         const year = today.getFullYear();
@@ -16,7 +18,7 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
         const formattedDate = `${year}-${month}-${day}`;
         setCurrentDate(formattedDate);
     }, []);
-    const handlePost = (e) => {
+    const handlePost = async (e) => {
         e.preventDefault();
         const type = "post";
         const category = e.target.category.value;
@@ -38,27 +40,27 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
             desc,
         };
         console.log(newPost);
-        // fetch('https://library-management-system-server-khaki.vercel.app/books', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newBook)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 position: 'top-center',
-        //                 icon: 'success',
-        //                 title: 'Book Successfully Added',
-        //                 showConfirmButton: false,
-        //                 timer: 1500
-        //             })
-        //             e.target.reset();
-        //             navigate('/');
-        //         }
-        //     })
+        try {
+            const response = await useAxiosPost.post('/blogs', newPost);
+            const data = response.data;
+            if (data.insertedId) {
+                toast('Posting Successful',
+                {
+                    icon: '🐶',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                }
+            );
+                e.target.reset();
+                closeModal();
+            }
+        } catch (error) {
+            console.error('Error posting book:', error);
+            toast.error('Error posting. Please try again.');
+        }
     };
 
     return (
