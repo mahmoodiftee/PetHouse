@@ -53,16 +53,21 @@ const BlogPostCard = ({ blog, openModal }) => {
             <article className="flex rounded-xl my-2 max-w-xl flex-col items-start justify-between">
                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
                     <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{blog?.category}</p>
+                    {
+                        user?.email === blog?.author_email ? (
+                            <div className="flex gap-4 justify-center items-center">
+                                <button onClick={() => openEditModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                                    <LuFileEdit />
+                                </button>
+                                <button onClick={() => handleDelete(blog?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                                    <FaRegTrashAlt />
+                                </button>
+                            </div>
 
-                    <div className="flex gap-4 justify-center items-center">
-                        <button onClick={() => openEditModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
-                            <LuFileEdit />
-                        </button>
-                        <button onClick={() => handleDelete(blog?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
-                            <FaRegTrashAlt />
-                        </button>
-                    </div>
-
+                        ) : (
+                            <p className="text-orange">{blog?.date}</p>
+                        )
+                    }
                 </div>
                 <div className="group relative">
                     <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
@@ -85,7 +90,7 @@ const BlogPostCard = ({ blog, openModal }) => {
                         </div>
                     </div>
                     <div className="">
-                    <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10 pl-1.5"><span className="text-2xl font-extrabold"><LuArrowUpRightFromCircle /></span></button>
+                        <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10 pl-1.5"><span className="text-2xl font-extrabold"><LuArrowUpRightFromCircle /></span></button>
                     </div>
                 </div>
             </article>

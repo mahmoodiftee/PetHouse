@@ -57,15 +57,21 @@ const BlogImageCard = ({ blog, openModal }) => {
             <article className="flex rounded-xl my-2 max-w-xl flex-col items-start justify-between">
                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
                     <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{blog?.category}</p>
+                    {
+                         user?.email === blog?.author_email ? (
+                            <div className="flex gap-4 justify-center items-center">
+                                <button onClick={() => openEditModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                                    <LuFileEdit />
+                                </button>
+                                <button onClick={() => handleDelete(blog?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                                    <FaRegTrashAlt />
+                                </button>
+                            </div>
+                        ) : (
+                            <p className="text-orange md:pr-10">{blog?.date}</p>
+                        )
+                    }
 
-                    <div className="flex gap-4 justify-center items-center">
-                        <button onClick={() => openEditModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
-                            <LuFileEdit />
-                        </button>
-                        <button onClick={() => handleDelete(blog?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
-                            <FaRegTrashAlt />
-                        </button>
-                    </div>
 
                 </div>
                 <div className="group relative">
@@ -81,7 +87,7 @@ const BlogImageCard = ({ blog, openModal }) => {
                 </div>
                 <div className="w-full mt-4 flex justify-between items-center ">
                     <div className="relative flex items-center gap-x-4">
-                        <img src={blog?.author_img} alt="" className="h-8 w-8 rounded-full bg-black" />
+                        <img src={blog?.author_img} alt="" className="h-10 w-10 object-contain rounded-full bg-black" />
                         <div className="text-sm leading-6">
                             <p className="font-semibold text-[12px] text-orange">
                                 {blog?.author}
@@ -89,7 +95,7 @@ const BlogImageCard = ({ blog, openModal }) => {
                         </div>
                     </div>
                     <div className="">
-                    <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10 pl-1.5"><span className="text-2xl font-extrabold"><LuArrowUpRightFromCircle /></span></button>
+                        <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10 pl-1.5"><span className="text-2xl font-extrabold"><LuArrowUpRightFromCircle /></span></button>
                     </div>
                 </div>
             </article>

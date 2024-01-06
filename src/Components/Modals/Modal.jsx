@@ -49,9 +49,9 @@ const Modal = ({ isOpen, Fragment, modal, closeModal }) => {
                                                         {modal?.desc}
                                                     </p>
                                                     <div className="relative md:mt-3 flex items-center gap-x-4">
-                                                        <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full bg-black" />
+                                                        <img src={modal?.author_img} alt="" className="h-12 w-12 object-contain rounded-full bg-black" />
                                                         <div className="text-sm leading-6">
-                                                            <p className="font-semibold text-[12px] text-orange">
+                                                            <p className="font-semibold text-sm text-orange">
                                                                 {modal?.author}
                                                             </p>
                                                         </div>
