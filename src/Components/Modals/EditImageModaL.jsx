@@ -1,8 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
+import { AuthContext } from '../../Providers/AuthProvider';
+import useAxios from '../../Hooks/useAxios';
+import usePost from '../../Hooks/usePost';
 
 const EditImageModaL = ({ isOpen, Fragment, closeModal, modal }) => {
     const [currentDate, setCurrentDate] = useState('');
+    const { user } = useContext(AuthContext)
+    const { displayName, email, photoURL } = user;
+    const useAxiosPost = useAxios();
+    const [, refetch] = usePost();
+
     useEffect(() => {
         const today = new Date();
         const year = today.getFullYear();
@@ -15,27 +23,25 @@ const EditImageModaL = ({ isOpen, Fragment, closeModal, modal }) => {
 
     const handlePost = async (e) => {
         e.preventDefault();
-        const type = "post";
+        const type = "image";
         const category = e.target.category.value;
         const name = e.target.name.value;
-        const author = modal?.author;
-        const author_email = modal?.author_email;
-        const author_img = modal?.author_img;
+        const author = displayName;
+        const author_email = email;
+        const author_img = photoURL;
         const date = currentDate;
-        const desc = e.target.desc.value;;
+        const desc = e.target.desc.value;
+        const image = e.target.img.files[0];
+        const formData = new FormData();
+        formData.append('image', image);
 
         const newPost = {
-            type,
-            category,
-            name,
-            author,
-            author_email,
-            author_img,
-            date,
-            desc,
+            type, category, name, author, author_email, author_img, date, desc, image
         };
         console.log(newPost);
     };
+
+
 
     return (
         <div>
@@ -95,8 +101,8 @@ const EditImageModaL = ({ isOpen, Fragment, closeModal, modal }) => {
                                                         Category
                                                     </label>
                                                     <div className="mt-2.5">
-                                                        <select defaultValue={modal?.category} className="block w-full border-white bg-white bg-opacity-10 rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
-                                                            <option className='text-[#6b7280] font-normal bg-dark' disabled defaultValue >Choose one </option>
+                                                        <select name="category" className="block w-full border-white bg-white bg-opacity-10 rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
+                                                            <option defaultValue={modal?.category} className='text-[#6b7280] font-normal bg-dark' selected >Choose one </option>
                                                             <option className='text-white font-normal bg-dark'>Cat/Kitten</option>
                                                             <option className='text-white font-normal bg-dark'>Dog/Puppy</option>
                                                             <option className='text-white font-normal bg-dark'>Help</option>
@@ -109,7 +115,7 @@ const EditImageModaL = ({ isOpen, Fragment, closeModal, modal }) => {
 
                                             <div className="">
                                                 <div>
-                                                    <textarea defaultValue={modal?.desc} placeholder='Share Your Thoughts...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full mb-2"></textarea>
+                                                    <textarea defaultValue={modal?.desc} name='desc' placeholder='Share Your Thoughts...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full mb-2"></textarea>
                                                 </div>
                                             </div>
                                             <button type='submit' className="rounded-md px-10 font-extrabold mx-auto cursor-pointer flex justify-center text-orange  transition-all duration-500 hover:text-white items-center gap-2 max-w-md my-4 bg-white/5 hover:bg-orange p-2 ring-1 ring-white/10 hover:ring-orange">
