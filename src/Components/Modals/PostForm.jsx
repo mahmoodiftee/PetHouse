@@ -101,7 +101,7 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
                                                     </label>
                                                     <div className="mt-2.5">
                                                         <select name="category" className="block w-full border-white bg-white bg-opacity-10  rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
-                                                            <option className='text-[#6b7280] font-normal bg-dark' disabled >Choose one </option>
+                                                            <option className='text-[#6b7280] font-normal bg-dark' selected disabled >Choose one </option>
                                                             <option className='text-white font-normal bg-dark' value="cat">Cat/Kitten</option>
                                                             <option className='text-white font-normal bg-dark' value="dog">Dog/Puppy</option>
                                                             <option className='text-white font-normal bg-dark' value="help">Help</option>

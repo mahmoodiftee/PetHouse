@@ -6,8 +6,6 @@ import toast from "react-hot-toast";
 import useAxios from "../../Hooks/useAxios";
 import usePost from "../../Hooks/usePost";
 import EditModal from "../Modals/EditModal";
-import { CiLocationArrow1 } from "react-icons/ci";
-import { TiLocationArrow } from "react-icons/ti";
 
 const BlogPostCard = ({ blog, openModal }) => {
     const { user } = useContext(AuthContext);
@@ -78,16 +76,16 @@ const BlogPostCard = ({ blog, openModal }) => {
                     </div>
                 </div>
                 <div className="w-full mt-4 flex justify-between items-center ">
-                    <div className="relative flex  flex-shrink-0 items-center gap-x-4">
-                        <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full bg-black" />
+                    <div className="relative flex items-center gap-x-4">
+                        <img src={blog?.author_img} alt="" className="h-8 w-8 rounded-full bg-black" />
                         <div className="text-sm leading-6">
                             <p className="font-semibold text-[12px] text-orange">
-                                {user?.displayName}
+                                {blog?.author}
                             </p>
                         </div>
                     </div>
                     <div className="">
-                        <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10 pl-1.5"><span className="text-2xl font-extrabold"><LuArrowUpRightFromCircle /></span></button>
+                    <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10 pl-1.5"><span className="text-2xl font-extrabold"><LuArrowUpRightFromCircle /></span></button>
                     </div>
                 </div>
             </article>

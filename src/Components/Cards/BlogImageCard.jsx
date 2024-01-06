@@ -81,10 +81,10 @@ const BlogImageCard = ({ blog, openModal }) => {
                 </div>
                 <div className="w-full mt-4 flex justify-between items-center ">
                     <div className="relative flex items-center gap-x-4">
-                        <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full bg-black" />
+                        <img src={blog?.author_img} alt="" className="h-8 w-8 rounded-full bg-black" />
                         <div className="text-sm leading-6">
                             <p className="font-semibold text-[12px] text-orange">
-                                {user?.displayName}
+                                {blog?.author}
                             </p>
                         </div>
                     </div>
