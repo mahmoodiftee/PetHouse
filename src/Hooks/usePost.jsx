@@ -10,7 +10,7 @@ const usePost = () => {
             return res.data;
         }
     })
-    const isLoading = status === 'loading';
+    const isLoading = status === 'pending';
 
     return [post, refetch, isLoading]
 };
