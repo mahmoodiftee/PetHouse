@@ -1,19 +1,95 @@
 import { Dialog, Transition } from '@headlessui/react'
 import toast from 'react-hot-toast';
+import usePost from '../../Hooks/usePost';
+import useAxios from '../../Hooks/useAxios';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const ImageForm = ({ isOpen, Fragment, closeModal }) => {
-    const handlePost = () => {
-        toast('Hello Darkness!',
-            {
-                icon: '👏',
-                style: {
-                    borderRadius: '10px',
-                    background: '#333',
-                    color: '#fff',
+    const [currentDate, setCurrentDate] = useState('');
+    const { user } = useContext(AuthContext)
+    const { displayName, email, photoURL } = user;
+    const useAxiosPost = useAxios();
+    const [, refetch] = usePost();
+
+    const handlePost = async (e) => {
+        e.preventDefault();
+        const type = "post";
+        const category = e.target.category.value;
+        const name = e.target.name.value;
+        const author = displayName;
+        const author_email = email;
+        const author_img = photoURL;
+        const date = currentDate;
+        const desc = e.target.desc.value;
+        const image = e.target.img.files[0];
+        const formData = new FormData();
+        formData.append('image', image);
+    
+        try {
+            // Upload image to imgbb
+            const responseImg = await axios.post('https://api.imgbb.com/1/upload', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
                 },
+                params: {
+                    key: 'b21321b69dce0a6efd75bdd3a28ee2ee',
+                },
+            });
+            const imageUrl = responseImg.data.data.url;
+            //new post object
+            const newPost = {
+                type,
+                category,
+                name,
+                author,
+                author_email,
+                author_img,
+                date,
+                desc,
+                image: imageUrl,
+            };
+    
+            console.log(newPost);
+    
+            // Post the new blog with image URL
+            const response = await useAxiosPost.post('/blogs', newPost);
+            const data = response.data;
+    
+            if (data.insertedId) {
+                toast('Posting Successful', {
+                    icon: '🐶',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                });
+    
+                // Refetch the post data to update the UI
+                refetch();
+    
+                // Reset the form and close the modal
+                e.target.reset();
+                closeModal();
             }
-        );
-    }
+        } catch (error) {
+            console.error('Error posting blog:', error);
+            toast.error('Error posting. Please try again.');
+        }
+    };
+    
+
+
+    useEffect(() => {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+
+        const formattedDate = `${year}-${month}-${day}`;
+        setCurrentDate(formattedDate);
+    }, []);
 
     return (
         <div>

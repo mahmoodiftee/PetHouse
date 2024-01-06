@@ -30,7 +30,7 @@ const PostForm = ({ isOpen, Fragment, closeModal }) => {
         const author_email = email;
         const author_img = photoURL;
         const date = currentDate;
-        const desc = e.target.desc.value;;
+        const desc = e.target.desc.value;
 
         const newPost = {
             type,

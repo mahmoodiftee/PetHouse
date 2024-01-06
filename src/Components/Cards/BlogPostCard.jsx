@@ -1,11 +1,13 @@
 import { Fragment, useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { LuFileEdit } from "react-icons/lu";
+import { LuArrowUpRightFromCircle, LuFileEdit } from "react-icons/lu";
 import toast from "react-hot-toast";
 import useAxios from "../../Hooks/useAxios";
 import usePost from "../../Hooks/usePost";
 import EditModal from "../Modals/EditModal";
+import { CiLocationArrow1 } from "react-icons/ci";
+import { TiLocationArrow } from "react-icons/ti";
 
 const BlogPostCard = ({ blog, openModal }) => {
     const { user } = useContext(AuthContext);
@@ -85,7 +87,7 @@ const BlogPostCard = ({ blog, openModal }) => {
                         </div>
                     </div>
                     <div className="">
-                        <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10">🡕</button>
+                        <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10 pl-1.5"><span className="text-2xl font-extrabold"><LuArrowUpRightFromCircle /></span></button>
                     </div>
                 </div>
             </article>
