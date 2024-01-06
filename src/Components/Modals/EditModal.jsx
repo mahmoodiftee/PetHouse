@@ -1,53 +1,57 @@
 import { Dialog, Transition } from '@headlessui/react'
 import useAxios from '../../Hooks/useAxios';
 import usePost from '../../Hooks/usePost';
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 const EditModal = ({ isOpen, Fragment, closeModal, modal }) => {
-  
-  
-    const [currentDate, setCurrentDate] = useState('');
-    // const { user } = useContext(AuthContext)
-    // const { displayName, email, photoURL } = user;
-    // const useAxiosPost = useAxios();
-    // const [, refetch] = usePost();
-    
-    useEffect(() => {
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-
-        const formattedDate = `${year}-${month}-${day}`;
-        setCurrentDate(formattedDate);
-    }, []);
+    const useAxiosPost = useAxios();
+    const [, refetch] = usePost();
 
     const handlePost = async (e) => {
         e.preventDefault();
-        const type = "post";
-        const category = e.target.category.value;
         const name = e.target.name.value;
-        const author = modal?.author;
-        const author_email = modal?.author_email;
-        const author_img = modal?.author_img;
-        const date = currentDate;
-        const desc = e.target.desc.value;;
+        const category = e.target.category.value || '';
+        const desc = e.target.desc.value;
 
-        const newPost = {
-            type,
-            category,
-            name,
-            author,
-            author_email,
-            author_img,
-            date,
-            desc,
-        };
-        console.log(newPost);
+        try {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
+            //new post object
+            const updatedPost = {
+                name: name,
+                category: category,
+                modifiedDate: formattedDate,
+                desc: desc,
+            };
+            // Post the new blog with image URL
+            const response = await useAxiosPost.patch(`blogs/${modal?._id}`, updatedPost);
+            const data = response.data;
+            if (data.modifiedCount > 0) {
+                toast('Posting Successful', {
+                    icon: '🐶',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                });
+                console.log(data);
+                refetch();
+                e.target.reset();
+                closeModal();
+            } else {
+                toast.error('Failed to update the blog post. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error posting blog:', error);
+            toast.error('Error posting. Please try again.');
+        }
     };
-  
-  
+
+
     return (
         <div>
             <Transition appear show={isOpen} as={Fragment}>
@@ -96,7 +100,7 @@ const EditModal = ({ isOpen, Fragment, closeModal, modal }) => {
 
                                             <div className="">
                                                 <div>
-                                                    <textarea defaultValue={modal?.category} name='desc' placeholder='Share Your Thoughts...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full mb-2"></textarea>
+                                                    <textarea defaultValue={modal?.desc} name='desc' placeholder='Share Your Thoughts...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full mb-2"></textarea>
                                                 </div>
                                             </div>
                                             <button type='submit' className="rounded-md px-10 font-extrabold mx-auto cursor-pointer flex justify-center text-orange  transition-all duration-500 hover:text-white items-center gap-2 max-w-md my-4 bg-white/5 hover:bg-orange p-2 ring-1 ring-white/10 hover:ring-orange">

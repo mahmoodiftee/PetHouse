@@ -1,44 +1,71 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import { Dialog, Transition } from '@headlessui/react'
-import { AuthContext } from '../../Providers/AuthProvider';
 import useAxios from '../../Hooks/useAxios';
 import usePost from '../../Hooks/usePost';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const EditImageModaL = ({ isOpen, Fragment, closeModal, modal }) => {
-    const [currentDate, setCurrentDate] = useState('');
-    const { user } = useContext(AuthContext)
-    const { displayName, email, photoURL } = user;
     const useAxiosPost = useAxios();
     const [, refetch] = usePost();
-
-    useEffect(() => {
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-
-        const formattedDate = `${year}-${month}-${day}`;
-        setCurrentDate(formattedDate);
-    }, []);
-
     const handlePost = async (e) => {
         e.preventDefault();
-        const type = "image";
-        const category = e.target.category.value;
         const name = e.target.name.value;
-        const author = displayName;
-        const author_email = email;
-        const author_img = photoURL;
-        const date = currentDate;
-        const desc = e.target.desc.value;
+        const category = e.target.category.value || '';
         const image = e.target.img.files[0];
+        const desc = e.target.desc.value;
+
+
         const formData = new FormData();
         formData.append('image', image);
 
-        const newPost = {
-            type, category, name, author, author_email, author_img, date, desc, image
-        };
-        console.log(newPost);
+        try {
+            // Upload image to imgbb
+            const responseImg = await axios.post('https://api.imgbb.com/1/upload', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                params: {
+                    key: 'b21321b69dce0a6efd75bdd3a28ee2ee',
+                },
+            });
+            const imageUrl = responseImg.data.data.url;
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
+            //new post object
+            const updatedPost = {
+                name: name,
+                category: category,
+                modifiedDate: formattedDate,
+                desc: desc,
+                image: imageUrl,
+            };
+            // Post the new blog with image URL
+            const response = await useAxiosPost.patch(`blogs/${modal?._id}`, updatedPost);
+            const data = response.data;
+            if (data.modifiedCount > 0) {
+                toast('Posting Successful', {
+                    icon: '🐶',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                });
+                console.log(data);
+                refetch();
+                e.target.reset();
+                closeModal();
+            } else {
+                toast.error('Failed to update the blog post. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error posting blog:', error);
+            toast.error('Error posting. Please try again.');
+        }
     };
 
 
@@ -101,13 +128,13 @@ const EditImageModaL = ({ isOpen, Fragment, closeModal, modal }) => {
                                                         Category
                                                     </label>
                                                     <div className="mt-2.5">
-                                                        <select name="category" className="block w-full border-white bg-white bg-opacity-10 rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
-                                                            <option defaultValue={modal?.category} className='text-[#6b7280] font-normal bg-dark' selected >Choose one </option>
-                                                            <option className='text-white font-normal bg-dark'>Cat/Kitten</option>
-                                                            <option className='text-white font-normal bg-dark'>Dog/Puppy</option>
-                                                            <option className='text-white font-normal bg-dark'>Help</option>
-                                                            <option className='text-white font-normal bg-dark'>Adoption</option>
-                                                            <option className='text-white font-normal bg-dark'>Question</option>
+                                                        <select name="category" defaultValue={modal?.category} className="block w-full border-white bg-white bg-opacity-10  rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
+                                                            <option className='text-[#6b7280] font-normal bg-dark' disabled >Choose one </option>
+                                                            <option className='text-white font-normal bg-dark' value="cat">Cat/Kitten</option>
+                                                            <option className='text-white font-normal bg-dark' value="dog">Dog/Puppy</option>
+                                                            <option className='text-white font-normal bg-dark' value="help">Help</option>
+                                                            <option className='text-white font-normal bg-dark' value="adoption">Adoption</option>
+                                                            <option className='text-white font-normal bg-dark' value="question">Question</option>
                                                         </select>
                                                     </div>
                                                 </div>
