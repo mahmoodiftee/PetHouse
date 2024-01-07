@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaBookmark, FaHeart, FaRegBookmark, FaRegHeart, FaRegTrashAlt } from "react-icons/fa";
 import { LuArrowUpRightFromCircle, LuFileEdit } from "react-icons/lu";
@@ -15,6 +15,13 @@ const BlogPostCard = ({ blog, openModal }) => {
     const [saveClicked, setSaveClicked] = useState(true)
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
+    useEffect(() => {
+        const savedState = localStorage.getItem(`saveClicked_${blog?._id}`);
+        if (savedState !== null) {
+            setSaveClicked(savedState === 'true');
+        }
+    }, [blog?._id]);
+    
     function openEditModal(blog) {
         setModal(blog);
         setIsOpen(true)
@@ -51,18 +58,21 @@ const BlogPostCard = ({ blog, openModal }) => {
         }
     }
 
+    //LOVE REACT
     const handleLoveClick = () => {
         setLoveClicked(!loveClicked);
     };
+
+    //BOOKMARK
     const handleSaveClick = async () => {
         try {
             const { _id, ...blogData } = blog;
             const postId = _id;
+
             if (saveClicked) {
-                //FOR POST
+                // FOR POST
                 const BookmarkResponse = await useInstance.post('/bookmarks', { ...blogData, postId, BookmarkerEmail: user?.email });
                 const data = BookmarkResponse.data;
-
                 if (data?.insertedId) {
                     toast('Successfully BookMarked', {
                         icon: '✅',
@@ -72,34 +82,11 @@ const BlogPostCard = ({ blog, openModal }) => {
                             color: '#fff',
                         },
                     });
-                    setSaveClicked(!saveClicked);
+
+                    // Save the most updated state in localStorage
+                    localStorage.setItem(`saveClicked_${postId}`, 'false');
                 } else {
                     toast.error('Error bookmarking post', {
-                        style: {
-                            borderRadius: '10px',
-                            background: '#333',
-                            color: '#fff',
-                        },
-                    });
-                }
-            } else 
-            {
-                // FOR DELETE
-                const DeleteBookmarkResponse = await useInstance.delete(`/bookmarks/${postId}/${user?.email}`);
-                const deleteData = DeleteBookmarkResponse.data;
-
-                if (deleteData?.deletedCount > 0) {
-                    toast('Bookmark Removed', {
-                        icon: '✅',
-                        style: {
-                            borderRadius: '10px',
-                            background: '#333',
-                            color: '#fff',
-                        },
-                    });
-                    setSaveClicked(!saveClicked);
-                } else {
-                    toast.error('Error Un-Bookmarking post', {
                         style: {
                             icon: '❌',
                             borderRadius: '10px',
@@ -108,19 +95,31 @@ const BlogPostCard = ({ blog, openModal }) => {
                         },
                     });
                 }
+            } else {
+                // FOR DELETE
+                const DeleteBookmarkResponse = await useInstance.delete(`/bookmarks/${postId}/${user?.email}`);
+                const deleteData = DeleteBookmarkResponse.data;
+                if (deleteData?.success) {
+                    toast('Bookmark Removed', {
+                        icon: '✅',
+                        style: {
+                            borderRadius: '10px',
+                            background: '#333',
+                            color: '#fff',
+                        },
+                    });
+
+                    // Save the most updated state in localStorage
+                    localStorage.setItem(`saveClicked_${postId}`, 'true');
+                }
             }
         } catch (error) {
             console.error('Error updating bookmark:', error);
-            toast.error('Error bookmarking/unbookmarking post', {
-                icon: '❌',
-                style: {
-                    borderRadius: '10px',
-                    background: '#333',
-                    color: '#fff',
-                },
-            });
+        } finally {
+            setSaveClicked(!saveClicked);
         }
     };
+
     return (
         <div className="overflow-hidden border-4 border-lite md:min-h-56 w-full rounded-2xl bg-[#000000] p-6 mx-auto">
             <article className="flex rounded-xl my-2 max-w-xl flex-col items-start justify-between">
