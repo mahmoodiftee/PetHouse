@@ -53,10 +53,10 @@ const BlogPostCard = ({ blog, openModal }) => {
 
     const handleLoveClick = () => {
         setLoveClicked(!loveClicked);
-      };
+    };
     const handleSaveClick = () => {
         setSaveClicked(!saveClicked);
-      };
+    };
 
     return (
         <div className="overflow-hidden border-4 border-lite md:min-h-56 w-full rounded-2xl bg-[#000000] p-6 mx-auto">
@@ -100,12 +100,15 @@ const BlogPostCard = ({ blog, openModal }) => {
                         </div>
                     </div>
                     <div className="flex justify-center items-center gap-1 md:gap-4">
-                        <div>
-                            <button onClick={handleLoveClick} className="text-orange w-7 h-7 md:h-10 md:w-10">
-                                <span className={'text-lg md:text-2xl font-extrabold'}>
-                                    {loveClicked ? <FaRegHeart /> : <FaHeart />}
-                                </span>
-                            </button>
+                        <div className="flex justify-center items-center">
+                            <div className="flex gap-4 justify-center items-center">
+                                <h1 className="text-gray-400">255</h1>
+                                <button onClick={handleLoveClick} className="text-orange w-7 h-7 md:h-10 md:w-10">
+                                    <span className={'text-lg md:text-2xl font-extrabold'}>
+                                        {loveClicked ? <FaRegHeart /> : <FaHeart />}
+                                    </span>
+                                </button>
+                            </div>
 
                             <button onClick={handleSaveClick} className="text-orange w-7 h-7 md:h-10 md:w-10">
                                 <span className={'text-lg md:text-[22px] font-extrabold'}>
