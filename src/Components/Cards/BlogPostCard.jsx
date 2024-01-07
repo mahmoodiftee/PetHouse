@@ -57,32 +57,61 @@ const BlogPostCard = ({ blog, openModal }) => {
     const handleSaveClick = async () => {
         try {
             const { _id, ...blogData } = blog;
-            const BookmarkResponse = await useInstance.post('/bookmarks', ({ ...blogData, BookmarkerEmail: user?.email }))
-            const data = BookmarkResponse.data;
-            if (data?.insertedId) {
-                toast('Successfully BookMarked', {
-                    icon: '✅',
-                    style: {
-                        borderRadius: '10px',
-                        background: '#333',
-                        color: '#fff',
-                    },
-                });
-                setSaveClicked(!saveClicked);
-            }
-            else {
-                toast.error('Error bookmarking post', {
-                    style: {
-                        borderRadius: '10px',
-                        background: '#333',
-                        color: '#fff',
-                    },
-                });
-            }
+            const postId = _id;
+            if (saveClicked) {
+                //FOR POST
+                const BookmarkResponse = await useInstance.post('/bookmarks', { ...blogData, postId, BookmarkerEmail: user?.email });
+                const data = BookmarkResponse.data;
 
+                if (data?.insertedId) {
+                    toast('Successfully BookMarked', {
+                        icon: '✅',
+                        style: {
+                            borderRadius: '10px',
+                            background: '#333',
+                            color: '#fff',
+                        },
+                    });
+                    setSaveClicked(!saveClicked);
+                } else {
+                    toast.error('Error bookmarking post', {
+                        style: {
+                            borderRadius: '10px',
+                            background: '#333',
+                            color: '#fff',
+                        },
+                    });
+                }
+            } else 
+            {
+                // FOR DELETE
+                const DeleteBookmarkResponse = await useInstance.delete(`/bookmarks/${postId}/${user?.email}`);
+                const deleteData = DeleteBookmarkResponse.data;
+
+                if (deleteData?.deletedCount > 0) {
+                    toast('Bookmark Removed', {
+                        icon: '✅',
+                        style: {
+                            borderRadius: '10px',
+                            background: '#333',
+                            color: '#fff',
+                        },
+                    });
+                    setSaveClicked(!saveClicked);
+                } else {
+                    toast.error('Error Un-Bookmarking post', {
+                        style: {
+                            icon: '❌',
+                            borderRadius: '10px',
+                            background: '#333',
+                            color: '#fff',
+                        },
+                    });
+                }
+            }
         } catch (error) {
             console.error('Error updating bookmark:', error);
-            toast.error('Error bookmarking post', {
+            toast.error('Error bookmarking/unbookmarking post', {
                 icon: '❌',
                 style: {
                     borderRadius: '10px',
@@ -91,9 +120,7 @@ const BlogPostCard = ({ blog, openModal }) => {
                 },
             });
         }
-
     };
-
     return (
         <div className="overflow-hidden border-4 border-lite md:min-h-56 w-full rounded-2xl bg-[#000000] p-6 mx-auto">
             <article className="flex rounded-xl my-2 max-w-xl flex-col items-start justify-between">
