@@ -54,8 +54,44 @@ const BlogPostCard = ({ blog, openModal }) => {
     const handleLoveClick = () => {
         setLoveClicked(!loveClicked);
     };
-    const handleSaveClick = () => {
-        setSaveClicked(!saveClicked);
+    const handleSaveClick = async () => {
+        try {
+            const { _id, ...blogData } = blog;
+            const BookmarkResponse = await useInstance.post('/bookmarks', ({ ...blogData, BookmarkerEmail: user?.email }))
+            const data = BookmarkResponse.data;
+            if (data?.insertedId) {
+                toast('Successfully BookMarked', {
+                    icon: '✅',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                });
+                setSaveClicked(!saveClicked);
+            }
+            else {
+                toast.error('Error bookmarking post', {
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                });
+            }
+
+        } catch (error) {
+            console.error('Error updating bookmark:', error);
+            toast.error('Error bookmarking post', {
+                icon: '❌',
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            });
+        }
+
     };
 
     return (
