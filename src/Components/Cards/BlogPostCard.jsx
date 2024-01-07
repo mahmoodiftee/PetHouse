@@ -1,6 +1,6 @@
 import { Fragment, useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaBookmark, FaHeart, FaRegBookmark, FaRegHeart, FaRegTrashAlt } from "react-icons/fa";
 import { LuArrowUpRightFromCircle, LuFileEdit } from "react-icons/lu";
 import toast from "react-hot-toast";
 import useAxios from "../../Hooks/useAxios";
@@ -11,6 +11,8 @@ const BlogPostCard = ({ blog, openModal }) => {
     const { user } = useContext(AuthContext);
     const useInstance = useAxios();
     const [, refetch] = usePost();
+    const [loveClicked, setLoveClicked] = useState(true)
+    const [saveClicked, setSaveClicked] = useState(true)
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     function openEditModal(blog) {
@@ -48,6 +50,14 @@ const BlogPostCard = ({ blog, openModal }) => {
             });
         }
     }
+
+    const handleLoveClick = () => {
+        setLoveClicked(!loveClicked);
+      };
+    const handleSaveClick = () => {
+        setSaveClicked(!saveClicked);
+      };
+
     return (
         <div className="overflow-hidden border-4 border-lite md:min-h-56 w-full rounded-2xl bg-[#000000] p-6 mx-auto">
             <article className="flex rounded-xl my-2 max-w-xl flex-col items-start justify-between">
@@ -89,7 +99,20 @@ const BlogPostCard = ({ blog, openModal }) => {
                             </p>
                         </div>
                     </div>
-                    <div className="">
+                    <div className="flex justify-center items-center gap-1 md:gap-4">
+                        <div>
+                            <button onClick={handleLoveClick} className="text-orange w-7 h-7 md:h-10 md:w-10">
+                                <span className={'text-lg md:text-2xl font-extrabold'}>
+                                    {loveClicked ? <FaRegHeart /> : <FaHeart />}
+                                </span>
+                            </button>
+
+                            <button onClick={handleSaveClick} className="text-orange w-7 h-7 md:h-10 md:w-10">
+                                <span className={'text-lg md:text-[22px] font-extrabold'}>
+                                    {saveClicked ? <FaRegBookmark /> : <FaBookmark />}
+                                </span>
+                            </button>
+                        </div>
                         <button onClick={() => openModal(blog)} className="bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full h-10 w-10 pl-1.5"><span className="text-2xl font-extrabold"><LuArrowUpRightFromCircle /></span></button>
                     </div>
                 </div>
