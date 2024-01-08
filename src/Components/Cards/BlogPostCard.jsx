@@ -6,8 +6,10 @@ import toast from "react-hot-toast";
 import useAxios from "../../Hooks/useAxios";
 import usePost from "../../Hooks/usePost";
 import EditModal from "../Modals/EditModal";
+import useBookmark from "../../Hooks/useBookmarks";
 
 const BlogPostCard = ({ blog, openModal }) => {
+    const [, bookmarkrefetch] = useBookmark();
     const { user } = useContext(AuthContext);
     const useInstance = useAxios();
     const [, refetch] = usePost();
@@ -114,7 +116,7 @@ const BlogPostCard = ({ blog, openModal }) => {
                             color: '#fff',
                         },
                     });
-
+                    bookmarkrefetch()
                     // Save the most updated state in localStorage
                     localStorage.setItem(`saveClicked_${postId}`, 'false');
                 } else {
@@ -140,7 +142,7 @@ const BlogPostCard = ({ blog, openModal }) => {
                             color: '#fff',
                         },
                     });
-
+                    bookmarkrefetch()
                     // Save the most updated state in localStorage
                     localStorage.setItem(`saveClicked_${postId}`, 'true');
                 }

@@ -6,7 +6,9 @@ import useAxios from "../../Hooks/useAxios";
 import toast from "react-hot-toast";
 import usePost from "../../Hooks/usePost";
 import EditImageModaL from "../Modals/EditImageModaL.JSX";
+import useBookmark from "../../Hooks/useBookmarks";
 const BlogImageCard = ({ blog, openModal }) => {
+    const [, bookmarkrefetch] = useBookmark();
     const { user } = useContext(AuthContext);
     const useInstance = useAxios();
     const [, refetch] = usePost();
@@ -113,11 +115,11 @@ const BlogImageCard = ({ blog, openModal }) => {
                             color: '#fff',
                         },
                     });
-
+                    bookmarkrefetch();
                     // Save the most updated state in localStorage
                     localStorage.setItem(`saveClicked_${postId}`, 'false');
                 } else {
-                    toast.error('Error bookmarking post', {
+                    toast('Error bookmarking post', {
                         style: {
                             icon: '❌',
                             borderRadius: '10px',
@@ -125,6 +127,7 @@ const BlogImageCard = ({ blog, openModal }) => {
                             color: '#fff',
                         },
                     });
+                    bookmarkrefetch();
                 }
             } else {
                 // FOR DELETE
