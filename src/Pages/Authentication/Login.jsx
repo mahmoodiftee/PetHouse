@@ -26,7 +26,14 @@ const Login = () => {
     const handleLogin = (media) => {
         media()
             .then((response) => {
-                toast.success(`Welcome ${response.user.displayName}`);
+                toast(`Welcome ${response.user.displayName}`, {
+                    icon: '✅',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                })
                 // const userData = {
                 //     displayName: response?.user?.displayName || '',
                 //     email: response?.user?.email || '',

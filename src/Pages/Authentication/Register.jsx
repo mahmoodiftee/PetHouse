@@ -60,7 +60,14 @@ const Register = () => {
             //     email: email,
             //     photoURL: photoURL,
             // };
-            toast.success(`Welcome ${name}`);
+            toast(`Welcome ${name}`, {
+                icon: '✅',
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            })
             navigate('/');
             // await axios.post('https://ims-server-kappa.vercel.app/users', userData);
         } catch (error) {
