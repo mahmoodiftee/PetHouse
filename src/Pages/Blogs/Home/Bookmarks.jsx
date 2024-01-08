@@ -20,8 +20,11 @@ const Bookmarks = () => {
                                                 {bm?.name}
                                             </p>
                                         </h3>
-                                        <div className="">
+                                        <div className="hidden md:block">
                                             <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{bm.desc}</p>
+                                        </div>
+                                        <div className="block md:hidden">
+                                            <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{bm.desc.split(' ').slice(0, 25).join(' ')}.</p>
                                         </div>
                                     </div>
                                     <div className="w-full mt-4 flex justify-between items-center ">
