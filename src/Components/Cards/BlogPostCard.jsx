@@ -64,7 +64,11 @@ const BlogPostCard = ({ blog, openModal }) => {
         }
     }, [blog?._id]);
     //LOVE REACT
-    const handleLoveClick = () => {
+    const handleLoveClick = async () => {
+        const reactResponse = await useInstance.patch(`/blogs/${blog?._id}`,)
+        const updatedReactCount = reactResponse.data?.reactCount;
+        console.log(updatedReactCount);
+        // Update the local state based on the new value
         setLoveClicked(!loveClicked);
     };
 
