@@ -65,22 +65,31 @@ const BlogPostCard = ({ blog, openModal }) => {
     }, [blog?._id]);
     //LOVE REACT
     const handleLoveClick = async () => {
-        const reactResponse = await useInstance.patch(`/blogs/incReactCount/${blog?._id}`,)
-        const updatedReactCount = reactResponse.data?.reactCount;
-        console.log(updatedReactCount);
-        if (updatedReactCount > 0) {
-            toast('🧡', {
-                style: {
-                    borderRadius: '100%',
-                    height: '60px',
-                    background: '#333',
-                    color: '#fff',
-                    fontSize: '30px',
-                    padding: '0px'
-                },
-            });
-            setLoveClicked(!loveClicked);
-            refetch();
+        if (loveClicked) {
+            const reactResponse = await useInstance.patch(`/blogs/incReactCount/${blog?._id}`,)
+            const updatedReactCount = reactResponse.data?.reactCount;
+            if (updatedReactCount > 0) {
+                toast('🧡', {
+                    style: {
+                        borderRadius: '100%',
+                        height: '60px',
+                        background: '#333',
+                        color: '#fff',
+                        fontSize: '30px',
+                        padding: '0px'
+                    },
+                });
+                setLoveClicked(!loveClicked);
+                refetch();
+            }
+        } else {
+            // FOR REMOVING REACT
+            const reactResponse = await useInstance.patch(`/blogs/decReactCount/${blog?._id}`,)
+            const result = reactResponse.data;
+            if (result?.success) {
+                setLoveClicked(!loveClicked);
+                refetch();
+            }
         }
     };
 
@@ -186,7 +195,7 @@ const BlogPostCard = ({ blog, openModal }) => {
                         <div className="flex justify-center items-center">
                             <div className="flex gap-4 justify-center items-center">
                                 {
-                                    blog?.reactCount && <h1 className="text-gray-400">{blog?.reactCount}</h1>
+                                    blog?.reactCount !== 0 && <h1 className="text-gray-400">{blog?.reactCount}</h1>
                                 }
                                 <button onClick={handleLoveClick} className="text-orange w-7 h-7 md:h-10 md:w-10">
                                     <span className={'text-lg md:text-2xl font-extrabold'}>
