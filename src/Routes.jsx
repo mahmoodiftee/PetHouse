@@ -8,6 +8,7 @@ import Blogs from "./Pages/Blogs/Home/Blogs";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
 import Consultation from "./Pages/Consultation/Consultation";
+import Bookmarks from "./Pages/Blogs/Home/Bookmarks";
 
 
 export const router = createBrowserRouter([
@@ -35,12 +36,20 @@ export const router = createBrowserRouter([
                     {
                         path: "/blogs",
                         element: <Blogs />,
+                    },
+                    {
+                        path: "/blogs/bookmarks",
+                        element: <Bookmarks />,
                     }
                 ]
             },
             {
                 path: "/consultation",
                 element: <Consultation />
+            },
+            {
+                path: "/bookmarks",
+                element: <Bookmarks />,
             }
         ]
     },
