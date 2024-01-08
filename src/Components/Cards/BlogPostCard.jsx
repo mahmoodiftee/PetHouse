@@ -58,7 +58,7 @@ const BlogPostCard = ({ blog, openModal }) => {
         }
     }, [blog?._id]);
     useEffect(() => {
-        const savedLoveState = localStorage.getItem(`savedLoveState${blog?._id}`);
+        const savedLoveState = localStorage.getItem(`loveClicked_${blog?._id}`);
         if (savedLoveState !== null) {
             setLoveClicked(savedLoveState === 'true');
         }
@@ -81,6 +81,7 @@ const BlogPostCard = ({ blog, openModal }) => {
                 });
                 setLoveClicked(!loveClicked);
                 refetch();
+                localStorage.setItem(`loveClicked_${blog?._id}`, 'false');
             }
         } else {
             // FOR REMOVING REACT
@@ -89,6 +90,7 @@ const BlogPostCard = ({ blog, openModal }) => {
             if (result?.success) {
                 setLoveClicked(!loveClicked);
                 refetch();
+                localStorage.setItem(`loveClicked_${blog?._id}`, 'true');
             }
         }
     };
