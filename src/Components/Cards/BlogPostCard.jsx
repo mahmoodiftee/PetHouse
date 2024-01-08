@@ -15,7 +15,7 @@ const BlogPostCard = ({ blog, openModal }) => {
     const [saveClicked, setSaveClicked] = useState(true)
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
-    
+
     function openEditModal(blog) {
         setModal(blog);
         setIsOpen(true)
@@ -55,6 +55,12 @@ const BlogPostCard = ({ blog, openModal }) => {
         const savedState = localStorage.getItem(`saveClicked_${blog?._id}`);
         if (savedState !== null) {
             setSaveClicked(savedState === 'true');
+        }
+    }, [blog?._id]);
+    useEffect(() => {
+        const savedLoveState = localStorage.getItem(`savedLoveState${blog?._id}`);
+        if (savedLoveState !== null) {
+            setLoveClicked(savedLoveState === 'true');
         }
     }, [blog?._id]);
     //LOVE REACT
