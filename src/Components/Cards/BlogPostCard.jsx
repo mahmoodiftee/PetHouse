@@ -9,12 +9,12 @@ import EditModal from "../Modals/EditModal";
 import useBookmark from "../../Hooks/useBookmarks";
 
 const BlogPostCard = ({ blog, openModal }) => {
-    const [, bookmarkrefetch] = useBookmark();
+    const [bookmark, , bookmarkrefetch] = useBookmark();
     const { user } = useContext(AuthContext);
     const useInstance = useAxios();
     const [, refetch] = usePost();
     const [loveClicked, setLoveClicked] = useState(true)
-    const [saveClicked, setSaveClicked] = useState(true)
+    const [saveClicked, setSaveClicked] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
 
@@ -22,9 +22,11 @@ const BlogPostCard = ({ blog, openModal }) => {
         setModal(blog);
         setIsOpen(true)
     }
+
     function closeModal() {
         setIsOpen(false)
     }
+
     const handleDelete = async (id) => {
         try {
             const response = await useInstance.delete(`/blogs/${id}`);
@@ -53,18 +55,21 @@ const BlogPostCard = ({ blog, openModal }) => {
             });
         }
     }
+
     useEffect(() => {
         const savedState = localStorage.getItem(`saveClicked_${blog?._id}`);
         if (savedState !== null) {
             setSaveClicked(savedState === 'true');
         }
     }, [blog?._id]);
+
     useEffect(() => {
         const savedLoveState = localStorage.getItem(`loveClicked_${blog?._id}`);
         if (savedLoveState !== null) {
             setLoveClicked(savedLoveState === 'true');
         }
     }, [blog?._id]);
+
     //LOVE REACT
     const handleLoveClick = async () => {
         if (loveClicked) {
@@ -103,7 +108,7 @@ const BlogPostCard = ({ blog, openModal }) => {
             const { _id, ...blogData } = blog;
             const postId = _id;
 
-            if (saveClicked) {
+            if (!saveClicked) {
                 // FOR POST
                 const BookmarkResponse = await useInstance.post('/bookmarks', { ...blogData, postId, BookmarkerEmail: user?.email });
                 const data = BookmarkResponse.data;
@@ -210,7 +215,7 @@ const BlogPostCard = ({ blog, openModal }) => {
 
                             <button onClick={handleSaveClick} className="text-orange w-7 h-7 md:h-10 md:w-10">
                                 <span className={'text-lg md:text-[22px] font-extrabold'}>
-                                    {saveClicked ? <FaRegBookmark /> : <FaBookmark />}
+                                    {saveClicked ? <FaBookmark /> : <FaRegBookmark />}
                                 </span>
                             </button>
                         </div>

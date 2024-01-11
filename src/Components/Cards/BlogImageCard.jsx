@@ -8,12 +8,13 @@ import usePost from "../../Hooks/usePost";
 import EditImageModaL from "../Modals/EditImageModaL.JSX";
 import useBookmark from "../../Hooks/useBookmarks";
 const BlogImageCard = ({ blog, openModal }) => {
-    const [, bookmarkrefetch] = useBookmark();
+    const [bookmark, , bookmarkrefetch] = useBookmark();
     const { user } = useContext(AuthContext);
+    const UserEmail = user?.email;
     const useInstance = useAxios();
     const [, refetch] = usePost();
     const [loveClicked, setLoveClicked] = useState(true)
-    const [saveClicked, setSaveClicked] = useState(true)
+    const [saveClicked, setSaveClicked] = useState()
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     function openEditModal(blog) {
@@ -52,18 +53,24 @@ const BlogImageCard = ({ blog, openModal }) => {
         }
     }
     useEffect(() => {
-        const savedState = localStorage.getItem(`saveClicked_${blog?._id}`);
-        if (savedState !== null) {
-            setSaveClicked(savedState === 'true');
-        }
-    }, [blog?._id]);
-
-    useEffect(() => {
         const savedLoveState = localStorage.getItem(`loveClicked_${blog?._id}`);
         if (savedLoveState !== null) {
             setLoveClicked(savedLoveState === 'true');
         }
     }, [blog?._id]);
+
+    useEffect(() => {
+        const matchedEmailPost = bookmark.find(bPost => bPost.BookmarkerEmail === UserEmail);
+    
+        if (matchedEmailPost && matchedEmailPost.postId === blog?._id) {
+            setSaveClicked(true);
+        } else {
+            setSaveClicked(false);
+        }
+    }, [bookmark, UserEmail, blog]);
+    
+
+
     //LOVE REACT
     const handleLoveClick = async () => {
         if (loveClicked) {
@@ -102,7 +109,7 @@ const BlogImageCard = ({ blog, openModal }) => {
             const { _id, ...blogData } = blog;
             const postId = _id;
 
-            if (saveClicked) {
+            if (!saveClicked) {
                 // FOR POST
                 const BookmarkResponse = await useInstance.post('/bookmarks', { ...blogData, postId, BookmarkerEmail: user?.email });
                 const data = BookmarkResponse.data;
@@ -116,8 +123,7 @@ const BlogImageCard = ({ blog, openModal }) => {
                         },
                     });
                     bookmarkrefetch();
-                    // Save the most updated state in localStorage
-                    localStorage.setItem(`saveClicked_${postId}`, 'false');
+
                 } else {
                     toast('Error bookmarking post', {
                         style: {
@@ -143,8 +149,6 @@ const BlogImageCard = ({ blog, openModal }) => {
                         },
                     });
 
-                    // Save the most updated state in localStorage
-                    localStorage.setItem(`saveClicked_${postId}`, 'true');
                 }
             }
         } catch (error) {
@@ -215,7 +219,7 @@ const BlogImageCard = ({ blog, openModal }) => {
 
                             <button onClick={handleSaveClick} className="text-orange w-7 h-7 md:h-10 md:w-10">
                                 <span className={'text-lg md:text-[22px] font-extrabold'}>
-                                    {saveClicked ? <FaRegBookmark /> : <FaBookmark />}
+                                    {saveClicked ? <FaBookmark /> : <FaRegBookmark />}
                                 </span>
                             </button>
                         </div>
