@@ -11,10 +11,11 @@ import useBookmark from "../../Hooks/useBookmarks";
 const BlogPostCard = ({ blog, openModal }) => {
     const [bookmark, , bookmarkrefetch] = useBookmark();
     const { user } = useContext(AuthContext);
+    const UserEmail = user?.email;
     const useInstance = useAxios();
     const [, refetch] = usePost();
     const [loveClicked, setLoveClicked] = useState(true)
-    const [saveClicked, setSaveClicked] = useState(false)
+    const [saveClicked, setSaveClicked] = useState()
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
 
@@ -57,18 +58,21 @@ const BlogPostCard = ({ blog, openModal }) => {
     }
 
     useEffect(() => {
-        const savedState = localStorage.getItem(`saveClicked_${blog?._id}`);
-        if (savedState !== null) {
-            setSaveClicked(savedState === 'true');
-        }
-    }, [blog?._id]);
-
-    useEffect(() => {
         const savedLoveState = localStorage.getItem(`loveClicked_${blog?._id}`);
         if (savedLoveState !== null) {
             setLoveClicked(savedLoveState === 'true');
         }
     }, [blog?._id]);
+
+    useEffect(() => {
+        const matchedEmailPost = bookmark.find(bPost => bPost.BookmarkerEmail === UserEmail);
+
+        if (matchedEmailPost && matchedEmailPost.postId === blog?._id) {
+            setSaveClicked(true);
+        } else {
+            setSaveClicked(false);
+        }
+    }, [bookmark, UserEmail, blog]);
 
     //LOVE REACT
     const handleLoveClick = async () => {
@@ -122,8 +126,7 @@ const BlogPostCard = ({ blog, openModal }) => {
                         },
                     });
                     bookmarkrefetch()
-                    // Save the most updated state in localStorage
-                    localStorage.setItem(`saveClicked_${postId}`, 'false');
+                    refetch()
                 } else {
                     toast.error('Error bookmarking post', {
                         style: {
@@ -148,8 +151,7 @@ const BlogPostCard = ({ blog, openModal }) => {
                         },
                     });
                     bookmarkrefetch()
-                    // Save the most updated state in localStorage
-                    localStorage.setItem(`saveClicked_${postId}`, 'true');
+                    refetch()
                 }
             }
         } catch (error) {
