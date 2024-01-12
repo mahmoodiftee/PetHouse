@@ -10,7 +10,7 @@ const Bookmarks = () => {
             <div className='flex flex-col gap-6 items-start w-full justify-start'>
                 {
                     bookmark.map((bm) =>
-                            <div key={bm.id} className="overflow-hidden border-4 border-lite md:min-h-56 w-full rounded-2xl bg-[#000000] p-6 mx-auto">
+                            <div key={bm} className="overflow-hidden border-4 border-lite md:min-h-56 w-full rounded-2xl bg-[#000000] p-6 mx-auto">
                                 <article className="flex rounded-xl my-2 w-full flex-col items-start justify-between">
                                     <div className="group relative">
                                         <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">

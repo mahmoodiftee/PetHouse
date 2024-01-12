@@ -9,7 +9,7 @@ import EditModal from "../Modals/EditModal";
 import useBookmark from "../../Hooks/useBookmarks";
 
 const BlogPostCard = ({ blog, openModal }) => {
-    const [bookmark, , bookmarkrefetch] = useBookmark();
+    const [bookmark, bookmarkrefetch] = useBookmark();
     const { user } = useContext(AuthContext);
     const UserEmail = user?.email;
     const useInstance = useAxios();
@@ -72,7 +72,7 @@ const BlogPostCard = ({ blog, openModal }) => {
         } else {
             setSaveClicked(false);
         }
-    }, [bookmark, UserEmail, blog]);
+    }, []);
 
     //LOVE REACT
     const handleLoveClick = async () => {
@@ -126,7 +126,6 @@ const BlogPostCard = ({ blog, openModal }) => {
                         },
                     });
                     bookmarkrefetch()
-                    refetch()
                 } else {
                     toast.error('Error bookmarking post', {
                         style: {
@@ -151,7 +150,6 @@ const BlogPostCard = ({ blog, openModal }) => {
                         },
                     });
                     bookmarkrefetch()
-                    refetch()
                 }
             }
         } catch (error) {

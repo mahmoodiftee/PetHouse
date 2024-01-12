@@ -10,7 +10,7 @@ const Available = () => {
     const [visibleItems, setVisibleItems] = useState(8);
     const useAxiosHook = useAxios();
     const visiblePets = pets.slice(0, visibleItems)
-    
+
     useEffect(() => {
         useAxiosHook.get('/avaiable-pets')
             .then((res) => {
@@ -21,8 +21,8 @@ const Available = () => {
                 console.log(error);
             });
     }, []);
-    
-    
+
+
     const showMore = () => {
         setVisibleItems((e) => e + 8);
     };
@@ -51,7 +51,12 @@ const Available = () => {
                     visiblePets.map((pet) => (
                         <div key={pet._id} onClick={() => openModal(pet)} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
                             <div className="h-[45%] overflow-hidden w-full">
-                                <img src={pet.img} alt="" className="h-full cursor-pointer mx-auto object-contain transition-transform transform-gpu hover:scale-150" />
+                                <img
+                                    src={pet.img}
+                                    alt=""
+                                    className="h-full cursor-pointer mx-auto object-contain transition-transform transform-gpu hover:scale-150"
+                                    style={{ transition: "transform 0.3s ease-in-out" }}
+                                />
                             </div>
                             <article className="flex my-2 max-w-xl flex-col items-start justify-between">
                                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">

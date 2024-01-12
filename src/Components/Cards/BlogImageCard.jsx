@@ -8,7 +8,7 @@ import usePost from "../../Hooks/usePost";
 import EditImageModaL from "../Modals/EditImageModaL.JSX";
 import useBookmark from "../../Hooks/useBookmarks";
 const BlogImageCard = ({ blog, openModal }) => {
-    const [bookmark, , bookmarkrefetch] = useBookmark();
+    const [bookmark, bookmarkrefetch] = useBookmark();
     const { user } = useContext(AuthContext);
     const UserEmail = user?.email;
     const useInstance = useAxios();
@@ -61,14 +61,14 @@ const BlogImageCard = ({ blog, openModal }) => {
 
     useEffect(() => {
         const matchedEmailPost = bookmark.find(bPost => bPost.BookmarkerEmail === UserEmail);
-    
+
         if (matchedEmailPost && matchedEmailPost.postId === blog?._id) {
             setSaveClicked(true);
         } else {
             setSaveClicked(false);
         }
-    }, [bookmark, UserEmail, blog]);
-    
+    }, [bookmark]);
+
 
 
     //LOVE REACT
