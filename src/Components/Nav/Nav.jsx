@@ -8,7 +8,8 @@ import { AuthContext } from '../../Providers/AuthProvider'
 import toast from 'react-hot-toast';
 import { CgProfile } from "react-icons/cg";
 import useBookmark from '../../Hooks/useBookmarks';
-
+import { Player } from '@lottiefiles/react-lottie-player';
+import loader from '../../assets/jsons/logo1.json'
 const links = <>
   <NavLink to={'/'}><p className="text-sm  font-semibold">Home </p></NavLink>
   <NavLink to={'/blogs'}><p className="text-sm  font-semibold">Blogs</p></NavLink>
@@ -24,12 +25,21 @@ const Nav = () => {
     navigate('/login')
   }
   return (
-    <header className="text-white md:px-4 relative md:z-20">
+    <header className="text-white md:px-4 fixed relative md:z-20">
       <nav className="w-full flex items-center h-[68px] justify-between px-2 py-4 md:py-2" aria-label="Global">
-        <div className="flex gap-3 items-center lg:flex-1">
-          <p className="text-xl font-semibold">Pet<span className='text-orange'>House</span></p>
+        <div className="flex relative gap-3 items-center lg:flex-1">
+          <div className="flex absolute -left-10 justify-center items-center">
+            <Player
+              autoplay
+              loop
+              src={loader}
+              className='w-[130px]'
+            >
+            </Player>
+          </div>
+          <p className="text-xl font-semibold absolute left-14 pt-3">Pet<span className='text-orange'>House</span></p>
         </div>
-        <div className="flex lg:hidden">
+        <div className="flex pt-3 lg:hidden">
           {
             user && user?.email ? (
               <div className="flex gap-3">
@@ -81,12 +91,12 @@ const Nav = () => {
 
           }
         </div>
-        <Popover.Group className="hidden lg:flex lg:gap-x-12">
+        <Popover.Group className="hidden lg:flex pt-3 lg:gap-x-12">
           {links}
         </Popover.Group>
         {
           user && user?.email ? (
-            <div className="hidden lg:flex gap-3 lg:flex-1 lg:justify-end">
+            <div className="hidden pt-2 lg:flex gap-3 lg:flex-1 lg:justify-end">
               <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
@@ -106,7 +116,7 @@ const Nav = () => {
               </Link>
             </div>
           ) : (
-            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <div className="hidden pt-3 lg:flex lg:flex-1 lg:justify-end">
               <Link
                 to={'/login'} className="text-sm font-semibold flex justify-center items-center gap-2 leading-6 ">
                 Log in <span aria-hidden="true"> <IoMdArrowDropright /> </span>
