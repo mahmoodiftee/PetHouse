@@ -25,7 +25,7 @@ const Nav = () => {
     navigate('/login')
   }
   return (
-    <header className="text-white md:px-4 fixed relative md:z-20">
+    <header className="text-white md:px-4 relative md:z-20">
       <nav className="w-full flex items-center h-[68px] justify-between px-2 py-4 md:py-2" aria-label="Global">
         <div className="flex relative gap-3 items-center lg:flex-1">
           <div className="flex absolute -left-10 justify-center items-center">
