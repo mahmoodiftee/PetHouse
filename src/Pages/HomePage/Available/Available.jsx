@@ -1,9 +1,12 @@
-import { useEffect, useState, Fragment } from "react"
+import { useEffect, useState, Fragment, useContext } from "react"
 import Title from "../../../Components/Title/Title"
 import { Dialog, Transition } from "@headlessui/react"
 import Button from "../../../Components/Button/Button"
 import useAxios from "../../../Hooks/useAxios";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { Link } from "react-router-dom";
 const Available = () => {
+    const { user } = useContext(AuthContext);
     const [pets, setPets] = useState([]);
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
@@ -40,9 +43,14 @@ const Available = () => {
         setIsOpen(true)
     }
 
+    // const handleAdopt = async (post) => {
+    //     const adopterEmail = user?.email;
+    //     const selectedPost = { ...post, adopterEmail };
+    //     const adoptionResponse = await useAxiosHook.post('/adoptions', selectedPost)
+    // }
 
     return (
-        <div  id="available" className="my-6 md:my-10 px-2 md:px-6">
+        <div id="available" className="my-6 md:my-10 px-2 md:px-6">
             <div className="md:w-[30%] w-[80%] mx-auto">
                 <Title head1={'Available'} head2={'For Adoption'}></Title>
             </div>
@@ -137,8 +145,8 @@ const Available = () => {
                                                 <p className="text-[12px] md:text-[16px] mb-2 font-light">
                                                     <span className="text-[16px] md:text-xl font-bold">Description: </span> {modal?.desc}
                                                 </p>
-                                                <div className="flex justify-start gap-4">
-                                                    <Button text={'Adopt'} />
+                                                <div className="flex justify-start">
+                                                    <Link to={`/avaiable-pets/${modal._id}`}><Button text={'Adopt'} /></Link>
                                                 </div>
                                             </div>
 

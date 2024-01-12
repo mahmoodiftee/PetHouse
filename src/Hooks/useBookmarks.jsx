@@ -12,7 +12,6 @@ const useBookmark = () => {
         queryFn: async () => {
             const res = await useBookmarkHook.get('/bookmarks')
             const filteredData = res.data.filter(data => data.BookmarkerEmail === userEmail);
-            console.log(filteredData);
             return filteredData;
         }
     })

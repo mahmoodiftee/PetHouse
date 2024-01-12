@@ -9,7 +9,7 @@ import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
 import Consultation from "./Pages/Consultation/Consultation";
 import Bookmarks from "./Pages/Blogs/Home/Bookmarks";
-
+import SingleAvailablePost from "./Pages/HomePage/Available/SinglePosts/SingleAvailablePost";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +20,11 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+            },
+            {
+                path: "/avaiable-pets/:id",
+                element: <SingleAvailablePost />,
+                loader: ({ params }) => fetch(`http://localhost:5000/avaiable-pets/${params.id}`)
             },
             {
                 path: "/login",

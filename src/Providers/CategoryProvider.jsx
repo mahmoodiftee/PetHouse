@@ -34,7 +34,6 @@ const CategoryProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
-      console.log('Observing Current User', currentUser);
       setLoading(false); 
     });
     return () => {
