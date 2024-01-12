@@ -43,12 +43,6 @@ const Available = () => {
         setIsOpen(true)
     }
 
-    // const handleAdopt = async (post) => {
-    //     const adopterEmail = user?.email;
-    //     const selectedPost = { ...post, adopterEmail };
-    //     const adoptionResponse = await useAxiosHook.post('/adoptions', selectedPost)
-    // }
-
     return (
         <div id="available" className="my-6 md:my-10 px-2 md:px-6">
             <div className="md:w-[30%] w-[80%] mx-auto">

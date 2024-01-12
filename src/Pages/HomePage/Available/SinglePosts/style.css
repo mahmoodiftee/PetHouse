@@ -45,7 +45,7 @@
     font-size: 12px;
     font-weight: bold;
     padding: 12px 55px;
-    margin: 20px;
+    margin: 10px -5px;
     border-radius: 20px;
     border: 1px solid #ff4b2b;
     outline: none;
@@ -129,7 +129,7 @@
     justify-content: center;
     flex-direction: column;
     padding: 0 40px;
-    text-align: center;
+    text-align: start;
     top: 0;
     height: 100%;
     width: 50%;
