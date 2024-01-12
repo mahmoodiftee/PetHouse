@@ -15,7 +15,7 @@ const SingleAvailablePost = () => {
     };
 
     return (
-        <div className="w-full my-10">
+        <div className="w-full flex justify-center items-center mx-auto my-10">
             <div className={`container ${isSignUpActive ? 'right-panel-active' : ''}`}>
                 <div className="sign-up">
                     <form action="#">

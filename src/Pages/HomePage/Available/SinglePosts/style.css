@@ -1,23 +1,12 @@
-body{
-	align-items: center;
-	display: flex;
-	justify-content:center;
-	flex-direction: column;
-	background: #f6f5f7;
-	font-family: 'monserrat', sans-serif;
-	min-height: 100%;
-	margin: 10%;
-}
+
 .container{
 	position: relative;
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
-	background: #fff;
+	background: #000000;
 	border-radius: 10px;
 	overflow: hidden;
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-				0 10px 10px rgba(0,0,0,0.22)
 }
 .sign-up, .sign-in{
 	position: absolute;
@@ -36,7 +25,7 @@ body{
 	z-index: 2;
 }
 form{
-	background: #fff;
+	background: #000000;
 	display: flex;
 	align-items: center;
 	justify-content: center;
