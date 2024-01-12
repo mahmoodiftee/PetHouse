@@ -42,7 +42,7 @@ const Available = () => {
 
 
     return (
-        <div className="my-6 md:my-10 px-2 md:px-6">
+        <div  id="available" className="my-6 md:my-10 px-2 md:px-6">
             <div className="md:w-[30%] w-[80%] mx-auto">
                 <Title head1={'Available'} head2={'For Adoption'}></Title>
             </div>
@@ -138,7 +138,6 @@ const Available = () => {
                                                     <span className="text-[16px] md:text-xl font-bold">Description: </span> {modal?.desc}
                                                 </p>
                                                 <div className="flex justify-start gap-4">
-                                                    <Button text={'Conditions'} />
                                                     <Button text={'Adopt'} />
                                                 </div>
                                             </div>

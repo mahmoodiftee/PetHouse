@@ -1,8 +1,7 @@
 import Button from '../../../Components/Button/Button';
 import imageL from '../../../assets/bannerL.png';
-import imageS from '../../../assets/bannerS.png';
 
-const Banner = () => {
+const Banner = ({ scrollToAvailable }) => {
     return (
         <div className="flex relative justify-center overflow-hidden h-[400px] mx-auto w-full ">
             <div className='flex flex-1 md:flex-none items-center'>
@@ -11,9 +10,9 @@ const Banner = () => {
                         Home For<span className="text-orange block ml-10">Every Paw</span>
                     </h1>
                     <div className="flex justify-end items-center">
-                        <Button text={'Adopt'} />
+                        <Button onClick={scrollToAvailable} text={'Adopt'} />
                     </div>
-                
+
                 </div>
             </div>
             <img className="flex flex-1 md:flex-none h-full object-contain" src={imageL} alt="" />
