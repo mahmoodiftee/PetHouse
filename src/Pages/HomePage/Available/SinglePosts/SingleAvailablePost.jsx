@@ -1,10 +1,14 @@
 import { Link, useLoaderData } from "react-router-dom";
 import './style.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Button from "../../../../Components/Button/Button";
-import { FaArrowsRotate } from "react-icons/fa6";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../../../Providers/AuthProvider";
+import useAxios from "../../../../Hooks/useAxios";
 
 const SingleAvailablePost = () => {
+    const { user } = useContext(AuthContext);
+    const axiosInstance = useAxios();
     const post = useLoaderData();
     const [isSignUpActive, setSignUpActive] = useState();
 
@@ -15,6 +19,45 @@ const SingleAvailablePost = () => {
     const handleSignInClick = () => {
         setSignUpActive(false);
     };
+
+    const handleAdopt = async () => {
+        const adopterEmail = user?.email;
+        const selectedPost = { ...post, adopterEmail };
+        try {
+          const adoptionResponse = await axiosInstance.post('/adoptions', selectedPost);
+          if (adoptionResponse.status === 200) {
+            if (adoptionResponse.data.error) {
+              toast.error(adoptionResponse.data.error, {
+                style: {
+                  icon: '❌',
+                  borderRadius: '10px',
+                  background: '#333',
+                  color: '#fff',
+                },
+              });
+            } else {
+              toast('Submitted Adoption Request', {
+                icon: '✅',
+                style: {
+                  borderRadius: '10px',
+                  background: '#333',
+                  color: '#fff',
+                },
+              });
+            }
+          }
+        } catch (error) {
+          toast.error('Error Submitting Adoption Request', {
+            style: {
+              icon: '❌',
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
+        }
+      };
+      
 
 
     return (
