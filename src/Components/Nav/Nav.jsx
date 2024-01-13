@@ -69,9 +69,7 @@ const Nav = () => {
                     </div>
                   </div>
                   <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-dark rounded-xl w-52">
-                    <Link to={'/'} className='mx-auto ml-3 w-full'><span className='flex items-center justify-start'>Home</span></Link>
-                    <Link to={'/blogs'} className='mx-auto ml-3 w-full'><span className='flex items-center justify-start'>Blogs</span></Link>
-                    <Link to={'/Consultation'} className='mx-auto ml-3 w-full'><span className='flex items-center justify-start'>Consultation</span></Link>
+                    {links}
                     <Link
                       onClick={handleSignOut}
                       to={'/login'} className='mx-auto ml-3 w-full'><span className='flex  gap-1 items-center justify-start'>Logout <HiOutlineLogout /></span></Link>
@@ -88,9 +86,7 @@ const Nav = () => {
                   </div>
                 </div>
                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-dark rounded-xl w-52">
-                  <Link to={'/'} className='mx-auto ml-3 w-full'><span className='flex items-center justify-start'>Home</span></Link>
-                  <Link to={'/blogs'} className='mx-auto ml-3 w-full'><span className='flex items-center justify-start'>Blogs</span></Link>
-                  <Link to={'/Consultation'} className='mx-auto ml-3 w-full'><span className='flex items-center justify-start'>Consultation</span></Link>
+                  {links}
                   <Link to={'/login'} className='mx-auto ml-3 w-full'><span className='flex items-center justify-start'>Login <IoMdArrowDropright /></span></Link>
                 </ul>
               </div>
