@@ -11,6 +11,7 @@ import Consultation from "./Pages/Consultation/Consultation";
 import Bookmarks from "./Pages/Blogs/Home/Bookmarks";
 import SingleAvailablePost from "./Pages/HomePage/Available/SinglePosts/SingleAvailablePost";
 import AdoptionForm from "./Pages/HomePage/Available/AdoptionForm/AdoptionForm";
+import UserProfile from "./Pages/Profile/UserProfile/UserProfile";
 
 export const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/profile",
-                element: <AdoptionForm/>,
+                element: <UserProfile/>,
             },
             {
                 path: "/avaiable-pets/:id",

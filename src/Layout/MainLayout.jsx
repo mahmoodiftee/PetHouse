@@ -1,10 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Nav from "../Components/Nav/Nav";
 
 const MainLayout = () => {
+    const location = useLocation();
     return (
         <div className="bg-black text-white">
-            <Nav/>
+            <div className={`${location.pathname === '/profile' ? 'hidden' : ''}`}>
+                <Nav />
+            </div>
             <Outlet></Outlet>
         </div>
     );
