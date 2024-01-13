@@ -3,20 +3,27 @@ import { Popover } from '@headlessui/react'
 import { HiBookmark, HiOutlineLogout } from "react-icons/hi";
 import { IoMdArrowDropright } from "react-icons/io";
 import { TiThMenu } from "react-icons/ti";
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AuthContext } from '../../Providers/AuthProvider'
 import toast from 'react-hot-toast';
 import { CgProfile } from "react-icons/cg";
 import useBookmark from '../../Hooks/useBookmarks';
 import { Player } from '@lottiefiles/react-lottie-player';
 import loader from '../../assets/jsons/logo1.json'
-const links = <>
-  <NavLink to={'/'}><p className="text-sm  font-semibold">Home </p></NavLink>
-  <NavLink to={'/blogs'}><p className="text-sm  font-semibold">Blogs</p></NavLink>
-  <NavLink to={'/consultation'}><p className="text-sm  font-semibold">Consultation</p></NavLink>
-</>
 
 const Nav = () => {
+  const location = useLocation();
+  const links = <>
+    <NavLink to={'/'}>
+      <li className={`text-sm font-semibold ${location.pathname === '/' ? 'text-orange' : ''}`}><a className='rounded-full'>Home</a></li>
+    </NavLink>
+    <NavLink to={'/blogs'}>
+      <li className={`text-sm font-semibold ${location.pathname === '/blogs' ? 'text-orange' : ''}`}><a className='rounded-full'>Blogs</a></li>
+    </NavLink>
+    <NavLink to={'/consultation'}>
+      <li className={`text-sm font-semibold ${location.pathname === '/consultation' ? 'text-orange' : ''}`}><a className='rounded-full'>Chat</a></li>
+    </NavLink>
+  </>
   const { user, LogOut } = useContext(AuthContext);
   const [bookmark] = useBookmark();
   const handleSignOut = () => {
@@ -92,7 +99,9 @@ const Nav = () => {
           }
         </div>
         <Popover.Group className="hidden lg:flex pt-3 lg:gap-x-12">
-          {links}
+          <ul class="menu rounded-full menu-horizontal bg-base-200">
+            {links}
+          </ul>
         </Popover.Group>
         {
           user && user?.email ? (

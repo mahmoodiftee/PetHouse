@@ -5,6 +5,7 @@ import Button from "../../../Components/Button/Button"
 import useAxios from "../../../Hooks/useAxios";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { MdAddToPhotos } from "react-icons/md";
 const Available = () => {
     const { user } = useContext(AuthContext);
     const [pets, setPets] = useState([]);
@@ -48,7 +49,8 @@ const Available = () => {
             <div className="md:w-[30%] w-[80%] mx-auto">
                 <Title head1={'Available'} head2={'For Adoption'}></Title>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center mt-6 md:mt-10">
+            <Link to={'/adoption-form'} className="mt-6 md:ml-1 my-6 md:mt-10 flex justify-center"><button className="font-extrabold text-white hover:text-white/90 flex justify-center items-center gap-3"><span className="hover:text-orange/90 text-orange ">Adoption Post</span><MdAddToPhotos className="text-xl" /></button></Link>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center">
                 {
                     visiblePets.map((pet) => (
                         <div key={pet._id} onClick={() => openModal(pet)} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">

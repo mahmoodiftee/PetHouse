@@ -10,6 +10,7 @@ import Register from "./Pages/Authentication/Register";
 import Consultation from "./Pages/Consultation/Consultation";
 import Bookmarks from "./Pages/Blogs/Home/Bookmarks";
 import SingleAvailablePost from "./Pages/HomePage/Available/SinglePosts/SingleAvailablePost";
+import AdoptionForm from "./Pages/HomePage/Available/AdoptionForm/AdoptionForm";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+            },
+            {
+                path: "/adoption-form",
+                element: <AdoptionForm/>,
             },
             {
                 path: "/avaiable-pets/:id",

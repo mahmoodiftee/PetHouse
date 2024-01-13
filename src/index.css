@@ -8,6 +8,11 @@ body {
   background-color: black;
 }
 
+.text-orangee {
+  color: orange;
+  /* or your desired color */
+}
+
 ::-webkit-scrollbar {
   width: 0.5vw;
 }
