@@ -4,16 +4,32 @@
     "status": "available",
     "img": "https://i.ibb.co/fdDzV49/1.png",
     "age": "5 months",
-    "desc": "Sparky , a lively and adorable 5-month-old puppy ready to fill your home with joy.",
-    "date": "2023-04-10"
+    "desc": "Sparky, a lively and adorable 5-month-old kitten ready to fill your home with joy.",
+    "date": "2023-04-10",
+    "conditions": {
+      "experience": "Previous pet ownership experience",
+      "activity_level": "Frequent playtime and interaction",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Commitment to building a strong emotional bond",
+      "return_policy": "Willing to return the pet if necessary"
+    }
   },
   {
     "type": "Puppy",
     "status": "available",
     "img": "https://i.ibb.co/Ksqrjt8/2.png",
     "age": "7 months",
-    "desc": "Mittens is a sweet 7-month-old kitten with a playful spirit, perfect for cuddle sessions.",
-    "date": "2023-06-22"
+    "desc": "Mittens is a sweet 7-month-old puppy with a playful spirit, perfect for cuddle sessions.",
+    "date": "2023-06-22",
+    "conditions": {
+      "experience": "Open to guidance for first-time pet owners",
+      "training_commitment": "Commitment to puppy training and behavior",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Ready to form a strong emotional bond",
+      "return_policy": "Considerate return policy if needed"
+    }
   },
   {
     "type": "Puppy",
@@ -21,198 +37,412 @@
     "img": "https://i.ibb.co/hDrWVCJ/3.png",
     "age": "1 year",
     "desc": "Max is a friendly 1-year-old puppy, always ready for new adventures and companionship.",
-    "date": "2023-01-15"
+    "date": "2023-01-15",
+    "conditions": {
+      "experience": "Experienced pet owner preferred",
+      "outdoor_activity_commitment": "Commitment to outdoor activities and exercise",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Willing to invest time in building a strong emotional bond",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "Puppy",
     "status": "available",
     "img": "https://i.ibb.co/PzZWbhD/4.png",
     "age": "2 years",
-    "desc": "Whiskers , the wise 2-year-old kitten, is seeking a loving family for his next chapter.",
-    "date": "2023-11-08"
+    "desc": "Whiskers, the wise 2-year-old kitten, is seeking a loving family for his next chapter.",
+    "date": "2023-11-08",
+    "conditions": {
+      "experience": "Previous pet ownership experience",
+      "gentle_guidance": "Prefers gentle guidance and understanding",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Appreciates a patient and caring emotional bond",
+      "return_policy": "Willing to return the pet if necessary"
+    }
   },
   {
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/9NdRgFy/5.png",
     "age": "8 months",
-    "desc": "Bella , the charismatic 8-month-old puppy, brings boundless energy and charm to any home.",
-    "date": "2023-09-14"
+    "desc": "Bella, the charismatic 8-month-old puppy, brings boundless energy and charm to any home.",
+    "date": "2023-09-14",
+    "conditions": {
+      "experience": "Previous kitten ownership experience",
+      "playful_interactions": "Enjoys playful interactions and activities",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Values a strong emotional bond",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/sqm5XTP/6.png",
     "age": "1.5 years",
-    "desc": "Charlie , a 1.5-year-old kitty, loves lounging in the sun and playing with feather toys.",
-    "date": "2023-03-30"
+    "desc": "Charlie, a 1.5-year-old kitty, loves lounging in the sun and playing with feather toys.",
+    "date": "2023-03-30",
+    "conditions": {
+      "experience": "Previous cat ownership experience",
+      "sunbathing_lover": "Enjoys sunbathing and lounging",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Seeks a companion for sunbathing and play",
+      "return_policy": "Willing to return the pet if necessary"
+    }
   },
   {
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/qMMgGZ5/7.png",
     "age": "6 months",
-    "desc": "Oliver , a playful 6-month-old puppy, is on a quest for a forever family to call his own.",
-    "date": "2023-07-18"
+    "desc": "Oliver, a playful 6-month-old puppy, is on a quest for a forever family to call his own.",
+    "date": "2023-07-18",
+    "conditions": {
+      "experience": "Open to guidance for first-time cat owners",
+      "playful_spirit": "Appreciates a playful and energetic spirit",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Ready to build a strong emotional bond",
+      "return_policy": "Considerate return policy if needed"
+    }
   },
   {
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/jwWSLjv/8.png",
     "age": "9 months",
-    "desc": "Luna , a delightful 9-month-old kitten, will fill your home with purrs and affection.",
-    "date": "2023-02-25"
+    "desc": "Luna, a delightful 9-month-old kitten, will fill your home with purrs and affection.",
+    "date": "2023-02-25",
+    "conditions": {
+      "experience": "Previous cat ownership experience",
+      "affectionate_companion": "Enjoys being an affectionate companion",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Values a deep and affectionate emotional bond",
+      "return_policy": "Willing to return the pet if necessary"
+    }
   },
   {
     "type": "kittens",
     "status": "available",
     "img": "https://i.ibb.co/whSRwvG/9.png",
     "age": "1.5 years",
-    "desc": "Rocky&Shamas , the adventurous 1.5-year-old puppy, is ready for endless fun.",
-    "date": "2023-08-12"
+    "desc": "Rocky&Shamas, the adventurous 1.5-year-old puppy, is ready for endless fun.",
+    "date": "2023-08-12",
+    "conditions": {
+      "experience": "Previous kitten ownership experience",
+      "adventurous_spirit": "Prefers an adventurous and active lifestyle",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Seeks a companion for adventures",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/XDYhrk3/10.png",
     "age": "2 years",
-    "desc": "Misty , a wise 2-year-old kitty, will be your loving companion through thick and thin.",
-    "date": "2023-05-03"
+    "desc": "Misty, a wise 2-year-old kitty, will be your loving companion through thick and thin.",
+    "date": "2023-05-03",
+    "conditions": {
+      "experience": "Previous cat ownership experience",
+      "wise_companion": "Values a wise and understanding companion",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Seeks a deep and enduring emotional bond",
+      "return_policy": "Willing to return the pet if necessary"
+    }
   },
   {
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/bR5pCgG/11.png",
     "age": "7 months",
-    "desc": "Cooper , the mischievous 7-month-old puppy, is searching for a playmate and forever home.",
-    "date": "2023-10-19"
+    "desc": "Cooper, the mischievous 7-month-old puppy, is searching for a playmate and forever home.",
+    "date": "2023-10-19",
+    "conditions": {
+      "experience": "Open to guidance for first-time cat owners",
+      "mischievous_playmate": "Enjoys a mischievous and playful spirit",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Ready to build a strong emotional bond",
+      "return_policy": "Considerate return policy if needed"
+    }
   },
   {
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/M1crZ2H/12.png",
     "age": "1 year",
-    "desc": "Sunny&Mani , a cheerful 1-year-old kitten, will brighten your days with her joyful antics.",
-    "date": "2023-04-05"
+    "desc": "Sunny&Mani, a cheerful 1-year-old kitten, will brighten your days with her joyful antics.",
+    "date": "2023-04-05",
+    "conditions": {
+      "experience": "Previous dog ownership experience",
+      "cheerful_companion": "Brings joy with a cheerful and playful demeanor",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Values a joyful and loving emotional bond",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/qMMgGZ5/7.png",
     "age": "10 months",
-    "desc": "Teddy , the cuddly 10-month-old puppy, is looking for someone to share a lifetime of love.",
-    "date": "2023-12-01"
+    "desc": "Teddy, the cuddly 10-month-old puppy, is looking for someone to share a lifetime of love.",
+    "date": "2023-12-01",
+    "conditions": {
+      "experience": "Previous cat ownership experience",
+      "cuddly_companion": "Enjoys being a cuddly and affectionate companion",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Values a deep and affectionate emotional bond",
+      "return_policy": "Willing to return the pet if necessary"
+    }
   },
   {
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/G7nThj5/14.png",
     "age": "8 months",
-    "desc": "Cleo , an elegant 8-month-old kitty, is ready to grace your home with her regal presence.",
-    "date": "2023-09-08"
+    "desc": "Cleo, an elegant 8-month-old kitty, is ready to grace your home with her regal presence.",
+    "date": "2023-09-08",
+    "conditions": {
+      "experience": "Previous kitten ownership experience",
+      "elegant_presence": "Brings an elegant and regal presence to your home",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Seeks a companion for regal moments",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/JxrWqGN/15.png",
     "age": "1.5 years",
-    "desc": "Maximus , a 1.5-year-old puppy, is not just a pet; he's a loyal friend for life.",
-    "date": "2023-06-28"
+    "desc": "Maximus, a 1.5-year-old puppy, is not just a pet; he's a loyal friend for life.",
+    "date": "2023-06-28",
+    "conditions": {
+      "experience": "Previous cat ownership experience",
+      "loyal_friend": "A loyal friend for life, not just a pet",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Values a deep and enduring emotional bond",
+      "return_policy": "Willing to return the pet if necessary"
+    }
   },
   {
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/dfnWBKX/16.png",
     "age": "2 years",
-    "desc": "Whisk , the curious 2-year-old kitty, is ready to explore the world from the comfort of your home.",
-    "date": "2023-01-17"
+    "desc": "Whisk, the curious 2-year-old kitty, is ready to explore the world from the comfort of your home.",
+    "date": "2023-01-17",
+    "conditions": {
+      "experience": "Previous cat ownership experience",
+      "loyal_friend": "A loyal friend for life, not just a pet",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Regular vet visits and healthcare commitment",
+      "emotional_bond": "Values a deep and enduring emotional bond",
+      "return_policy": "Willing to return the pet if necessary"
+    }
   },
   {
     "type": "Puppy",
     "status": "available",
     "img": "https://i.ibb.co/VSHFyKN/17.png",
     "age": "6 months",
-    "desc": "Cocoa , a playful 6-month-old puppy, promises to bring sweetness and joy into your life.",
-    "date": "2023-11-29"
+    "desc": "Cocoa, a playful 6-month-old puppy, promises to bring sweetness and joy into your life.",
+    "date": "2023-11-29",
+    "conditions": {
+      "experience": "Open to guidance for first-time pet owners",
+      "sweet_nature": "Brings sweetness and joy into your life",
+      "activity_level": "High energy level, requires regular play and exercise",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "training_commitment": "Willing to invest time in basic obedience training",
+      "socialization": "Enjoys socializing with other pets",
+      "return_policy": "Considerate return policy if needed"
+    }
   },
   {
     "type": "Puppy",
     "status": "available",
     "img": "https://i.ibb.co/BynXZ3d/18.png",
     "age": "1 year",
-    "desc": "Mocha , a gentle 1-year-old kitty, will add warmth and comfort to your home.",
-    "date": "2023-07-14"
+    "desc": "Mocha, a gentle 1-year-old puppy, will add warmth and comfort to your home.",
+    "date": "2023-07-14",
+    "conditions": {
+      "experience": "Experienced pet owner preferred",
+      "calm_disposition": "Has a calm and gentle disposition",
+      "activity_level": "Moderate energy level, enjoys leisure walks",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "socialization": "Prefers a quieter environment",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/wSvTRGV/19.png",
     "age": "9 months",
-    "desc": "Bailey , the spirited 9-month-old puppy, is ready to embark on new adventures by your side.",
-    "date": "2023-05-20"
+    "desc": "Bailey, the spirited 9-month-old puppy, is ready to embark on new adventures by your side.",
+    "date": "2023-05-20",
+    "conditions": {
+      "experience": "Open to guidance for first-time pet owners",
+      "energetic_companion": "Energetic and seeks an active companion",
+      "activity_level": "High energy level, requires regular exercise",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "training_commitment": "Requires basic obedience training",
+      "socialization": "Friendly and enjoys socializing with other pets",
+      "return_policy": "Considerate return policy if needed"
+    }
   },
   {
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/Gpbr98y/20.png",
     "age": "1.5 years",
-    "desc": "Lily , a charming 1.5-year-old kitty, will blossom into a lifelong companion in your loving home.",
-    "date": "2023-03-12"
+    "desc": "Lily, a charming 1.5-year-old kitty, will blossom into a lifelong companion in your loving home.",
+    "date": "2023-03-12",
+    "conditions": {
+      "experience": "Experienced pet owner preferred",
+      "affectionate_companion": "Affectionate and seeks a loving companion",
+      "activity_level": "Moderate energy level, enjoys relaxing moments",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "socialization": "Enjoys a calm and quiet environment",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/88zzks9/21.png",
     "age": "7 months",
-    "desc": "Rusty , a playful 7-month-old puppy, is seeking a forever family happiness.",
-    "date": "2023-08-27"
+    "desc": "Rusty, a playful 7-month-old puppy, is seeking a forever family happiness.",
+    "date": "2023-08-27",
+    "conditions": {
+      "experience": "Open to guidance for first-time pet owners",
+      "playful_nature": "Highly playful and seeks an interactive family",
+      "activity_level": "High energy level, requires regular play and exercise",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "training_commitment": "Requires basic obedience training",
+      "socialization": "Enjoys socializing with other pets",
+      "return_policy": "Considerate return policy if needed"
+    }
   },
   {
     "type": "Dog",
     "status": "available",
     "img": "https://i.ibb.co/S68byt7/22.png",
     "age": "1.5 years",
-    "desc": "Mittens , a 1.5-year-old kitty, will grace your home with elegance and a soft purr.",
-    "date": "2023-04-18"
+    "desc": "Mittens, a 1.5-year-old kitty, will grace your home with elegance and a soft purr.",
+    "date": "2023-04-18",
+    "conditions": {
+      "experience": "Experienced pet owner preferred",
+      "elegant_companion": "Elegant and seeks a refined companion",
+      "activity_level": "Moderate energy level, enjoys leisure moments",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "socialization": "Prefers a quieter environment",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "Cat",
     "status": "available",
     "img": "https://i.ibb.co/80c01fj/23.png",
     "age": "8 months",
-    "desc": "Rocky , the adventurous 1.5-year-old puppy, is ready for endless fun.",
-    "date": "2023-10-03"
+    "desc": "Rocky, the adventurous 1.5-year-old puppy, is ready for endless fun.",
+    "date": "2023-10-03",
+    "conditions": {
+      "experience": "Open to guidance for first-time pet owners",
+      "adventurous_spirit": "Adventurous spirit, seeks an active family",
+      "activity_level": "High energy level, enjoys exploration and play",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "socialization": "Enjoys socializing with other pets",
+      "return_policy": "Considerate return policy if needed"
+    }
   },
   {
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/NZWgGSJ/24.png",
     "age": "1 year",
-    "desc": "Shadow , a mysterious 1-year-old kitty, is looking for a cozy spot to call home.",
-    "date": "2023-06-16"
+    "desc": "Shadow, a mysterious 1-year-old kitty, is looking for a cozy spot to call home.",
+    "date": "2023-06-16",
+    "conditions": {
+      "experience": "Experienced pet owner preferred",
+      "mysterious_charm": "Mysterious charm, seeks a patient and understanding family",
+      "activity_level": "Moderate energy level, enjoys quiet moments",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "socialization": "Prefers a quieter environment",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/yXwdKJD/25.png",
     "age": "10 months",
-    "desc": "Charlie , the charismatic 10-month-old puppy, is searching for a family.",
-    "date": "2023-02-09"
+    "desc": "Charlie, the charismatic 10-month-old puppy, is searching for a family.",
+    "date": "2023-02-09",
+    "conditions": {
+      "experience": "Open to guidance for first-time pet owners",
+      "charismatic_personality": "Charismatic personality, seeks a lively and loving family",
+      "activity_level": "High energy level, enjoys interactive play",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "socialization": "Enjoys socializing with other pets",
+      "return_policy": "Considerate return policy if needed"
+    }
   },
   {
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/z7sFZ78/26.png",
     "age": "1.5 years",
-    "desc": "Smokey , a charming 1.5-year-old kitty, will bring a touch of mystery and affection to your home.",
-    "date": "2023-09-01"
+    "desc": "Smokey, a charming 1.5-year-old kitty, will bring a touch of mystery and affection to your home.",
+    "date": "2023-09-01",
+    "conditions": {
+      "experience": "Experienced pet owner preferred",
+      "mysterious_affection": "Mysterious charm with a touch of affection",
+      "activity_level": "Moderate energy level, enjoys quiet moments",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "socialization": "Prefers a quieter environment",
+      "return_policy": "Flexible return policy if circumstances change"
+    }
   },
   {
     "type": "kitten",
     "status": "available",
     "img": "https://i.ibb.co/jVpdXZC/27.png",
     "age": "6 months",
-    "desc": "Simba&Mimba , a playful 6-month-old puppy, is ready to be the king of your heart and home.",
-    "date": "2023-05-15"
+    "desc": "Simba&Mimba, a playful 6-month-old puppy, is ready to be the king of your heart and home.",
+    "date": "2023-05-15",
+    "conditions": {
+      "experience": "Open to guidance for first-time pet owners",
+      "playful_kingdom_ruler": "Playful kingdom ruler, seeks an affectionate family",
+      "activity_level": "High energy level, enjoys interactive play",
+      "financial_stability": "Financially stable for pet expenses",
+      "healthcare_commitment": "Commitment to regular vet visits and healthcare",
+      "socialization": "Enjoys socializing with other pets",
+      "return_policy": "Considerate return policy if needed"
+    }
   }
 ]

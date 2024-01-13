@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             {
                 path: "/avaiable-pets/:id",
                 element: <SingleAvailablePost />,
-                loader: ({ params }) => fetch(`http://localhost:5000/avaiable-pets/${params.id}`)
+                loader: ({ params }) => fetch(`https://per-house-server.vercel.app/avaiable-pets/${params.id}`)
             },
             {
                 path: "/login",

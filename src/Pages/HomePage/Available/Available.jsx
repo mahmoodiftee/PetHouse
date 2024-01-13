@@ -140,7 +140,7 @@ const Available = () => {
                                                     <span className="text-[16px] md:text-xl font-bold">Description: </span> {modal?.desc}
                                                 </p>
                                                 <div className="flex justify-start">
-                                                    <Link to={`/avaiable-pets/${modal._id}`}><Button text={'Adopt'} /></Link>
+                                                    <Link className="Button buttonA" to={`/avaiable-pets/${modal._id}`}><span className="Button__inner">Adopt</span></Link>
                                                 </div>
                                             </div>
 
