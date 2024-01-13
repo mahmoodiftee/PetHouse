@@ -109,9 +109,9 @@ const Nav = () => {
                   </div>
                 </div>
                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-dark rounded-xl w-52">
-                  <p className='flex justify-end font-medium items-end text-orange rounded-xl my-1 pr-[14px]'>{user?.displayName}</p>
-                  <li className='flex justify-end font-medium text-orange items-end rounded-xl my-1'><a>Profile <span className='text-xl'><CgProfile /></span></a></li>
-                  <li className='flex text-orange font-medium justify-end items-end rounded-xl my-1'><Link to={'/bookmarks'}><span className='-mr-3 p-4 h-6 w-6 flex justify-center items-center font-medium text-white rounded-full'>{bookmark?.length}</span>Bookmarks <span className='text-xl'><HiBookmark /></span></Link></li>
+                  <p className='flex rounded-full justify-end font-medium items-end text-orange my-1 pr-[14px]'>{user?.displayName}</p>
+                  <li className='flex rounded-full justify-end font-medium text-orange items-end my-1'><Link to={'/profile'} className='rounded-full pl-[79px] py-2.5'>Profile <span className='text-xl'><CgProfile /></span></Link></li>
+                  <li className='flex rounded-full text-orange font-medium justify-end items-end my-1'><Link className='rounded-full' to={'/bookmarks'}><span className='-mr-3 p-4 h-6 w-6 flex justify-center items-center font-medium text-white rounded-full'>{bookmark?.length}</span>Bookmarks <span className='text-xl'><HiBookmark /></span></Link></li>
                 </ul>
               </div>
               <Link
