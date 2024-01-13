@@ -93,7 +93,8 @@ const SingleAvailablePost = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-6 mr-2 my-6">
+                <textarea required placeholder={`A message for the ${post.desc?.split(', ')[0]}'s well-wisher...`} className="w-full my-2 placeholder:text-white/50 textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm mb-2"></textarea>
+                <div className="flex gap-6 mr-2 my-3">
                   <button type="submit" className="Button buttonA">
                     <span className="Button__inner">Adopt</span>
                   </button>
