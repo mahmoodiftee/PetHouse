@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, Fragment } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import bg from '../../../assets/bg-3.jpg'
 import bg1 from '../../../assets/bg4.jpg'
@@ -12,7 +12,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from 'swiper/modules';
 import { Link } from "react-router-dom";
+import Notifications from "./Modals/Notifications";
 const UserProfile = () => {
+    const [isOpen, setIsOpen] = useState(false)
+    function closeModal() {
+        setIsOpen(false)
+    }
+    function openModal() {
+        setIsOpen(true)
+    }
     const { user } = useContext(AuthContext);
     return (
         <div className="py-4 px-2 md:px-0 min-h-screen w-full">
@@ -57,9 +65,10 @@ const UserProfile = () => {
                     </div>
 
                     <div className="flex flex-col justify-center gap-2 col-span-4 w-full h-full">
-                        <div className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div onClick={() => openModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[14%] md:w-[25%] mx-auto object-contain" src={one} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Notifications</h1>
+                            <Notifications isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
                         </div>
                         <div className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={three} alt="" />
