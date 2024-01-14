@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import bg from '../../../assets/bg-3.jpg'
-import bg2 from '../../../assets/bg-2.jpg'
 import { BiSolidEdit } from "react-icons/bi";
 import { RiHome3Line } from "react-icons/ri";
 const UserProfile = () => {
@@ -9,9 +8,9 @@ const UserProfile = () => {
     return (
         <div className="py-4 px-2 md:px-0 min-h-screen w-full">
             <div className="rounded-xl p-2 bg-dark h-[92vh] w-full">
-                <div className="h-[20%] md:h-[35%] relative w-full rounded-xl" style={{ background: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                <div className="h-[20%]  flex items-center justify-center md:h-[35%] relative w-full rounded-xl" style={{ background: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <div className="avatar">
-                        <div className="absolute w-24 top-10 left-28 md:top-16 md:left-20 md:w-40 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <div className=" w-20 md:w-28 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={bg} />
                         </div>
                     </div>
