@@ -99,14 +99,14 @@ const UserProfile = () => {
                         <div onClick={() => openAdoptionModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={three} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0 md:text-xl text-gray-300 font-bold">Adoptions</h1>
-                            <BlogsModal isOpen={isAdoptionOpen} Fragment={Fragment} closeModal={closeAdoptionModal} />
+                            <AdoptionsModal isOpen={isAdoptionOpen} Fragment={Fragment} closeModal={closeAdoptionModal} />
                         </div>
                     </div>
                     <div className="flex flex-col justify-center gap-2 col-span-4 w-full h-full">
                         <div onClick={() => openBlogsModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={two} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Blogs</h1>
-                            <AdoptionsModal isOpen={isBlogsOpen} Fragment={Fragment} closeModal={closeBlogsModal} />
+                            <BlogsModal isOpen={isBlogsOpen} Fragment={Fragment} closeModal={closeBlogsModal} />
                         </div>
                         <div onClick={() => openAdoptedModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={four} alt="" />
