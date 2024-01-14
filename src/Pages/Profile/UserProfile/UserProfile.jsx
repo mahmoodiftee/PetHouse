@@ -16,11 +16,16 @@ import Notifications from "./Modals/Notifications";
 import BlogsModal from "./Modals/BlogsModal";
 import AdoptionsModal from "./Modals/AdoptionsModal";
 import AdoptedModal from "./Modals/AdoptedModal";
+import EditProfile from "./Modals/EditProfile";
 const UserProfile = () => {
     const [isNotificationOpen, setIsNotificationOpen] = useState(false)
+    const [isEditOpen, setIsEditOpen] = useState(false)
     const [isBlogsOpen, setIsBlogsOpen] = useState(false)
     const [isAdoptionOpen, setIsAdoptionOpen] = useState(false)
     const [isAdoptedOpen, setIsAdoptedOpen] = useState(false)
+    function closeEditModal() {
+        setIsEditOpen(false)
+    }
     function closeNotificationModal() {
         setIsNotificationOpen(false)
     }
@@ -34,6 +39,9 @@ const UserProfile = () => {
         setIsAdoptedOpen(false)
     }
     //Open
+    function openEditModal() {
+        setIsEditOpen(true)
+    }
     function openNotificationModal() {
         setIsNotificationOpen(true)
     }
@@ -59,7 +67,7 @@ const UserProfile = () => {
                         <h1 className="text-[12px] md:text-sm mt-1 md:mt-4 uppercase font-medium">{user?.displayName}</h1>
                     </div>
                     <Link to={'/'}><button className="btn bg-white bg-opacity-30 border-none text-white text-2xl font-extrabold btn-circle absolute top-5 left-5"><RiHome3Line /></button></Link>
-                    <button className="btn bg-white bg-opacity-30 border-none text-white text-2xl font-extrabold btn-circle absolute top-5 right-5"><BiSolidEdit /></button>
+                    <button onClick={() => openEditModal()} className="btn bg-white bg-opacity-30 border-none text-white text-2xl font-extrabold btn-circle absolute top-5 right-5"><BiSolidEdit /></button>
                 </div>
                 <div className="grid grid-cols-1 gap-2 p-2 md:grid-cols-11 items-center w-full h-[78%] md:h-[63%] rounded-xl mt-2 bg-[#0f0e0e]">
                     <div className="col-span-4 relative border-4 border-lite overflow-hidden hidden md:block md:col-span-3 bg-dark rounded-xl w-full h-full">
@@ -116,6 +124,7 @@ const UserProfile = () => {
                     </div>
                 </div>
             </div>
+            <EditProfile isOpen={isEditOpen} Fragment={Fragment} closeModal={closeEditModal} />
         </div>
 
     );
