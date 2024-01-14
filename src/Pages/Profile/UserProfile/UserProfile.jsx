@@ -15,14 +15,38 @@ import { Link } from "react-router-dom";
 import Notifications from "./Modals/Notifications";
 import BlogsModal from "./Modals/BlogsModal";
 import AdoptionsModal from "./Modals/AdoptionsModal";
+import AdoptedModal from "./Modals/AdoptedModal";
 const UserProfile = () => {
-    const [isOpen, setIsOpen] = useState(false)
-    function closeModal() {
-        setIsOpen(false)
+    const [isNotificationOpen, setIsNotificationOpen] = useState(false)
+    const [isBlogsOpen, setIsBlogsOpen] = useState(false)
+    const [isAdoptionOpen, setIsAdoptionOpen] = useState(false)
+    const [isAdoptedOpen, setIsAdoptedOpen] = useState(false)
+    function closeNotificationModal() {
+        setIsNotificationOpen(false)
     }
-    function openModal() {
-        setIsOpen(true)
+    function closeBlogsModal() {
+        setIsBlogsOpen(false)
     }
+    function closeAdoptionModal() {
+        setIsAdoptionOpen(false)
+    }
+    function closeAdoptedModal() {
+        setIsAdoptedOpen(false)
+    }
+    //Open
+    function openNotificationModal() {
+        setIsNotificationOpen(true)
+    }
+    function openBlogsModal() {
+        setIsBlogsOpen(true)
+    }
+    function openAdoptionModal() {
+        setIsAdoptionOpen(true)
+    }
+    function openAdoptedModal() {
+        setIsAdoptedOpen(true)
+    }
+
     const { user } = useContext(AuthContext);
     return (
         <div className="py-4 px-2 md:px-0 min-h-screen w-full">
@@ -67,27 +91,27 @@ const UserProfile = () => {
                     </div>
 
                     <div className="flex flex-col justify-center gap-2 col-span-4 w-full h-full">
-                        <div onClick={() => openModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div onClick={() => openNotificationModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[14%] md:w-[25%] mx-auto object-contain" src={one} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Notifications</h1>
-                            <Notifications isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
+                            <Notifications isOpen={isNotificationOpen} Fragment={Fragment} closeModal={closeNotificationModal} />
                         </div>
-                        <div onClick={() => openModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div onClick={() => openAdoptionModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={three} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0 md:text-xl text-gray-300 font-bold">Adoptions</h1>
-                            <BlogsModal isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
+                            <BlogsModal isOpen={isAdoptionOpen} Fragment={Fragment} closeModal={closeAdoptionModal} />
                         </div>
                     </div>
                     <div className="flex flex-col justify-center gap-2 col-span-4 w-full h-full">
-                        <div onClick={() => openModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div onClick={() => openBlogsModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={two} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Blogs</h1>
-                            <AdoptionsModal isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
+                            <AdoptionsModal isOpen={isBlogsOpen} Fragment={Fragment} closeModal={closeBlogsModal} />
                         </div>
-                        <div onClick={() => openModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div onClick={() => openAdoptedModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={four} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Adopted</h1>
-                            <BlogsModal isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
+                            <AdoptedModal isOpen={isAdoptedOpen} Fragment={Fragment} closeModal={closeAdoptedModal} />
                         </div>
                     </div>
                 </div>

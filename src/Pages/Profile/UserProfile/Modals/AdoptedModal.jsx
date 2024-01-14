@@ -1,5 +1,9 @@
 import { Dialog, Transition } from '@headlessui/react'
-const BlogsModal = ({ isOpen, Fragment, closeModal }) => {
+import { useContext } from 'react';
+import { AuthContext } from '../../../../Providers/AuthProvider';
+
+const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
+    const { user } = useContext(AuthContext);
     return (
         <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -30,7 +34,7 @@ const BlogsModal = ({ isOpen, Fragment, closeModal }) => {
                                 <div className="w-full h-96 relative">
                                     <button onClick={closeModal} className='btn btn-circle p-2 absolute right-0 top-0'>X</button>
                                     <div>
-                                        BlogsModal
+                                        AdoptedModal
                                     </div>
                                 </div>
                             </Dialog.Panel>
@@ -42,4 +46,4 @@ const BlogsModal = ({ isOpen, Fragment, closeModal }) => {
     );
 };
 
-export default BlogsModal;
+export default AdoptedModal;

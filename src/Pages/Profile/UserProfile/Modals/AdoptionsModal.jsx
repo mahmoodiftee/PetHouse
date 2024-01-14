@@ -29,6 +29,9 @@ const AdoptionsModal = ({ isOpen, Fragment, closeModal }) => {
                             <Dialog.Panel className="w-full max-w-4xl transform overflow-y-auto rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
                                 <div className="w-full h-96 relative">
                                     <button onClick={closeModal} className='btn btn-circle p-2 absolute right-0 top-0'>X</button>
+                                    <div>
+                                        AdoptionsModal
+                                    </div>
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>
