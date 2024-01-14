@@ -1,9 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { useContext } from 'react';
-import { AuthContext } from '../../../../Providers/AuthProvider';
-
-const Notifications = ({ isOpen, Fragment, closeModal }) => {
-    const { user } = useContext(AuthContext);
+const BlogsModal = ({ isOpen, Fragment, closeModal }) => {
     return (
         <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -43,4 +39,4 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
     );
 };
 
-export default Notifications;
+export default BlogsModal;

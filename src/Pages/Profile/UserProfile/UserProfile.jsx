@@ -13,6 +13,7 @@ import "swiper/css";
 import { Autoplay } from 'swiper/modules';
 import { Link } from "react-router-dom";
 import Notifications from "./Modals/Notifications";
+import BlogsModal from "./Modals/BlogsModal";
 const UserProfile = () => {
     const [isOpen, setIsOpen] = useState(false)
     function closeModal() {
@@ -70,19 +71,22 @@ const UserProfile = () => {
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Notifications</h1>
                             <Notifications isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
                         </div>
-                        <div className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div onClick={() => openModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={three} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0 md:text-xl text-gray-300 font-bold">Adoptions</h1>
+                            <BlogsModal isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
                         </div>
                     </div>
                     <div className="flex flex-col justify-center gap-2 col-span-4 w-full h-full">
-                        <div className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div onClick={() => openModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={two} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Blogs</h1>
+                            <BlogsModal isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
                         </div>
-                        <div className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div onClick={() => openModal()} className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={four} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Adopted</h1>
+                            <BlogsModal isOpen={isOpen} Fragment={Fragment} closeModal={closeModal} />
                         </div>
                     </div>
                 </div>
