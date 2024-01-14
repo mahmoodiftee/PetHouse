@@ -95,7 +95,7 @@ const Nav = () => {
           }
         </div>
         <Popover.Group className="hidden lg:flex pt-3 lg:gap-x-12">
-          <ul class="menu rounded-full menu-horizontal bg-base-200">
+          <ul className="menu rounded-full menu-horizontal bg-base-200">
             {links}
           </ul>
         </Popover.Group>
