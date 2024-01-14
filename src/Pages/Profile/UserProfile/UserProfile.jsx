@@ -57,21 +57,21 @@ const UserProfile = () => {
                     </div>
 
                     <div className="flex flex-col justify-center gap-2 col-span-4 w-full h-full">
-                        <div className=" bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[14%] md:w-[25%] mx-auto object-contain" src={one} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Notifications</h1>
                         </div>
-                        <div className="bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={three} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0 md:text-xl text-gray-300 font-bold">Adoptions</h1>
                         </div>
                     </div>
                     <div className="flex flex-col justify-center gap-2 col-span-4 w-full h-full">
-                        <div className=" bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={two} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Blogs</h1>
                         </div>
-                        <div className="bg-dark rounded-xl flex flex-col justify-center items-center h-full">
+                        <div className="cursor-pointer bg-dark rounded-xl flex flex-col justify-center items-center h-full">
                             <img className="w-[12%] md:w-[20%] mx-auto object-contain" src={four} alt="" />
                             <h1 className="text-[12px] mt-1 md:mt-0  md:text-xl text-gray-300 font-bold">Adopted</h1>
                         </div>
