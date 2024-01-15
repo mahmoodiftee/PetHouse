@@ -1,8 +1,58 @@
+import { useState } from "react";
+import { FaMinus, FaPlus } from "react-icons/fa6";
 
 const AdoptionForm = () => {
+    const [conditions, setConditions] = useState([""]);
+
+    const addConditionField = () => {
+        if (conditions.length < 5) {
+            setConditions([...conditions, ""]);
+        }
+    };
+    const removeConditionField = (index) => {
+        const updatedConditions = [...conditions];
+        updatedConditions.splice(index, 1);
+        setConditions(updatedConditions);
+    };
+
+    const handleConditionChange = (index, value) => {
+        const updatedConditions = [...conditions];
+        updatedConditions[index] = value;
+        setConditions(updatedConditions);
+    };
+
+    const handleAddPost = (e) => {
+        e.preventDefault();
+
+        const name = e.target.name.value;
+        const type = e.target.type.value;
+        const img = e.target.img.value;
+        const age = e.target.age.value;
+        const desc = e.target.desc.value;
+
+        const conditionsArray = conditions;
+
+        const post = {
+            name,
+            type,
+            status: "available",
+            img,
+            age: age + " months",
+            desc,
+            date: "2023-04-10",
+            conditions: conditionsArray.length > 1 ? conditionsArray.reduce((acc, condition, index) => {
+                acc[`${index + 1}`] = condition;
+                return acc;
+            }, {}) : conditionsArray[0],
+        };
+
+        console.log(post);
+    };
+
+
     return (
-        <div className="isolate min-h-screen pb-10 px-6">
-            <form className="mx-auto mt-4 max-w-xl">
+        <div className="isolate min-h-screen py-10 px-6">
+            <form onSubmit={handleAddPost} className="mx-auto mt-4 max-w-xl">
                 <div className="grid grid-cols-1 md:gap-x-8 md:gap-y-6 sm:grid-cols-2 ">
                     <div className='mb-4'>
                         <label className="block pl-2.5 text-sm font-semibold leading-6 text-white">
@@ -22,7 +72,7 @@ const AdoptionForm = () => {
                             Type
                         </label>
                         <div className="mt-2.5">
-                            <select className="block w-full border-white bg-white bg-opacity-10 rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
+                            <select name="type" className="block w-full border-white bg-white bg-opacity-10 rounded-md border-0 px-3.5 py-2 text-white font-normal shadow-sm ring-1 ring-inset ring-orange/5 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6">
                                 <option className='text-[#6b7280] font-normal bg-dark' disabled selected >Choose one </option>
                                 <option className='text-white font-normal bg-dark'>Kitten</option>
                                 <option className='text-white font-normal bg-dark'>Puppy</option>
@@ -56,17 +106,52 @@ const AdoptionForm = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='mb-4 pl-2.5'>
+                    <div className='mb-3 pl-2.5'>
                         <label className="block text-sm font-semibold leading-6 text-white">
-                            Pet Image
+                            Conditions
                         </label>
                     </div>
-                    <textarea placeholder='Share Your Thoughts...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full md:mb-2"></textarea>
+                    {conditions.map((condition, index) => (
+                        <div key={index} className="flex relative items-center mb-2">
+                            <input
+                                type="text"
+                                required
+                                placeholder={'Add condition..'}
+                                value={condition}
+                                onChange={(e) => handleConditionChange(index, e.target.value)}
+                                className="placeholder:text-white input input-bordered border-0 h-[42px] border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-lg textarea-sm w-full mr-2 transition-opacity ease-in-out duration-300"
+                                style={{ opacity: conditions.length > 1 && index === conditions.length - 1 ? 0.7 : 1 }}
+                            />
+                            {conditions.length > 1 && (
+                                <button
+                                    type="button"
+                                    onClick={() => removeConditionField(index)}
+                                    className="rounded-full absolute right-4 p-1.5 text-lg font-extrabold mx-auto cursor-pointer flex justify-center text-red-500 transition-all duration-500 hover:text-white items-center max-w-md bg-white/5 hover:bg-red-500 ring-1 ring-white/10 hover:ring-red-500"
+                                >
+                                    <FaMinus />
+                                </button>
+                            )}
+                            {conditions.length < 5 && index === conditions.length - 1 && (
+                                <button
+                                    type="button"
+                                    onClick={addConditionField}
+                                    className="rounded-full absolute right-4 p-1.5 text-lg font-extrabold mx-auto cursor-pointer flex justify-center text-orange  transition-all duration-500 hover:text-white items-center max-w-md bg-white/5 hover:bg-orange ring-1 ring-white/10 hover:ring-orange"
+                                >
+                                    <FaPlus />
+                                </button>
+                            )}
+                        </div>
+                    ))}
                 </div>
                 <div>
-
+                    <div className='mb-3 pl-2.5'>
+                        <label className="block text-sm font-semibold leading-6 text-white">
+                            Details
+                        </label>
+                    </div>
+                    <textarea name="desc" placeholder='Details about the pet...' className="placeholder:text-white textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm w-full md:mb-2"></textarea>
                 </div>
-                <button className="rounded-md px-10 font-extrabold mx-auto cursor-pointer flex justify-center text-orange  transition-all duration-500 hover:text-white items-center gap-2 max-w-md my-4 bg-white/5 hover:bg-orange p-2 ring-1 ring-white/10 hover:ring-orange">
+                <button type="submit" className="rounded-md px-10 font-extrabold mx-auto cursor-pointer flex justify-center text-orange  transition-all duration-500 hover:text-white items-center gap-2 max-w-md my-4 bg-white/5 hover:bg-orange p-2 ring-1 ring-white/10 hover:ring-orange">
                     POST
                 </button>
             </form>
