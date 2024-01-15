@@ -5,9 +5,11 @@ import { FaMinus, FaPlus } from "react-icons/fa6";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import useAxios from "../../../../Hooks/useAxios";
 import useAvaiablePosts from "../../../../Hooks/useAvaiablePosts";
+import { useNavigate } from "react-router-dom";
 
 const AdoptionForm = () => {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const useInstance = useAxios();
     const [conditions, setConditions] = useState(['']);
     const [currentDate, setCurrentDate] = useState('');
@@ -91,6 +93,7 @@ const AdoptionForm = () => {
                         color: '#fff',
                     },
                 });
+                navigate('/');
                 refetch();
                 e.target.reset();
             }
