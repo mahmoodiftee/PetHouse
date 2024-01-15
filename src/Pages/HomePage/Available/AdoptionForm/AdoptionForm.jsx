@@ -1,14 +1,21 @@
-import { useState } from "react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { FaMinus, FaPlus } from "react-icons/fa6";
+import { AuthContext } from "../../../../Providers/AuthProvider";
+import useAxios from "../../../../Hooks/useAxios";
 
 const AdoptionForm = () => {
-    const [conditions, setConditions] = useState([""]);
-
+    const { user } = useContext(AuthContext);
+    const useInstance = useAxios();
+    const [conditions, setConditions] = useState(['']);
+    const [currentDate, setCurrentDate] = useState('');
     const addConditionField = () => {
         if (conditions.length < 5) {
             setConditions([...conditions, ""]);
         }
     };
+
     const removeConditionField = (index) => {
         const updatedConditions = [...conditions];
         updatedConditions.splice(index, 1);
@@ -21,32 +28,72 @@ const AdoptionForm = () => {
         setConditions(updatedConditions);
     };
 
-    const handleAddPost = (e) => {
+    useEffect(() => {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+
+        const formattedDate = `${year}-${month}-${day}`;
+        setCurrentDate(formattedDate);
+    }, []);
+
+    const handleAddPost = async (e) => {
         e.preventDefault();
 
         const name = e.target.name.value;
         const type = e.target.type.value;
-        const img = e.target.img.value;
         const age = e.target.age.value;
         const desc = e.target.desc.value;
-
+        const image = e.target.img.files[0];
+        const formData = new FormData();
+        formData.append('image', image);
         const conditionsArray = conditions;
 
-        const post = {
-            name,
-            type,
-            status: "available",
-            img,
-            age: age + " months",
-            desc,
-            date: "2023-04-10",
-            conditions: conditionsArray.length > 1 ? conditionsArray.reduce((acc, condition, index) => {
-                acc[`${index + 1}`] = condition;
-                return acc;
-            }, {}) : conditionsArray[0],
-        };
+        try {
+            const responseImg = await axios.post('https://api.imgbb.com/1/upload', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                params: {
+                    key: 'b21321b69dce0a6efd75bdd3a28ee2ee',
+                },
+            });
+            const imageUrl = responseImg.data.data.url;
+            const post = {
+                author: user?.displayName,
+                authorImg: user?.photoURL,
+                name,
+                type,
+                status: "available",
+                img: imageUrl,
+                age: age + " months",
+                desc,
+                date: currentDate,
+                conditions: conditionsArray.length > 1 ? conditionsArray.reduce((acc, condition, index) => {
+                    acc[`${index + 1}`] = condition;
+                    return acc;
+                }, {}) : conditionsArray[0],
+            };
 
-        console.log(post);
+            console.log(post);
+
+            const response = await useInstance.post('/avaiable-pets', post);
+            const data = response.data;
+
+            if (data.insertedId) {
+                toast.success('Successful', {
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                });
+            }
+        } catch (error) {
+            console.error('Error posting:', error);
+            toast.error('Error posting. Please try again.');
+        }
     };
 
 
