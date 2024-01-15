@@ -11,12 +11,12 @@ const useAdoptions = () => {
         queryKey: ['adoption'],
         queryFn: async () => {
             const res = await useBookmarkHook.get('/avaiable-pets')
-            const filteredData = res.data.filter(data => data.BookmarkerEmail === userEmail);
+            const filteredData = res.data.filter(data => data.authorEmail === userEmail);
             return filteredData;
         }
     })
     const isLoading = status === 'pending';
-    return [bookmark, refetch, isLoading]
+    return [adoption, refetch, isLoading]
 };
 
 export default useAdoptions;
