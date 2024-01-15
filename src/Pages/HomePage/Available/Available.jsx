@@ -2,29 +2,19 @@ import { useEffect, useState, Fragment, useContext } from "react"
 import Title from "../../../Components/Title/Title"
 import { Dialog, Transition } from "@headlessui/react"
 import Button from "../../../Components/Button/Button"
-import useAxios from "../../../Hooks/useAxios";
-import { AuthContext } from "../../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { MdAddToPhotos } from "react-icons/md";
+import useAvaiablePosts from "../../../Hooks/useAvaiablePosts";
+import Loader from "../../../Components/Loader/Loader";
 const Available = () => {
-    const { user } = useContext(AuthContext);
-    const [pets, setPets] = useState([]);
+    const [post, refetch, isLoading] = useAvaiablePosts();
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     const [visibleItems, setVisibleItems] = useState(8);
-    const useAxiosHook = useAxios();
-    const visiblePets = pets.slice(0, visibleItems)
-
+    const visiblePets = post.slice(0, visibleItems)
     useEffect(() => {
-        useAxiosHook.get('/avaiable-pets')
-            .then((res) => {
-                const data = res.data;
-                setPets(data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
+        setVisibleItems(8);
+    }, [post, refetch]);
 
 
     const showMore = () => {
@@ -50,6 +40,11 @@ const Available = () => {
                 <Title head1={'Available'} head2={'For Adoption'}></Title>
             </div>
             <Link to={'/adoption-form'} className="mt-6 md:ml-1 my-6 md:mt-10 flex justify-center"><button className="font-extrabold text-white hover:text-white/90 flex justify-center items-center gap-3"><span className="hover:text-orange/90 text-orange ">Adoption Post</span><MdAddToPhotos className="text-xl" /></button></Link>
+            {isLoading &&
+                <div className="w-full flex justify-center items-center">
+                    <Loader />
+                </div>
+            }
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center">
                 {
                     visiblePets.map((pet) => (
@@ -92,7 +87,7 @@ const Available = () => {
                 }
             </div>
             <div className="w-full flex justify-center items-center my-6">
-                {visibleItems < pets.length ? (
+                {visibleItems < post.length ? (
                     <Button text={'Show More'} onClick={showMore} />
                 ) : (
                     <Button text={'Show Less'} onClick={showLess} />

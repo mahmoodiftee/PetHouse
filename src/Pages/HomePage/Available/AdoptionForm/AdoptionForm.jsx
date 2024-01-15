@@ -4,12 +4,14 @@ import toast from "react-hot-toast";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import useAxios from "../../../../Hooks/useAxios";
+import useAvaiablePosts from "../../../../Hooks/useAvaiablePosts";
 
 const AdoptionForm = () => {
     const { user } = useContext(AuthContext);
     const useInstance = useAxios();
     const [conditions, setConditions] = useState(['']);
     const [currentDate, setCurrentDate] = useState('');
+    const [, refetch] = useAvaiablePosts();
     const addConditionField = () => {
         if (conditions.length < 5) {
             setConditions([...conditions, ""]);
@@ -89,6 +91,8 @@ const AdoptionForm = () => {
                         color: '#fff',
                     },
                 });
+                refetch();
+                e.target.reset();
             }
         } catch (error) {
             console.error('Error posting:', error);
