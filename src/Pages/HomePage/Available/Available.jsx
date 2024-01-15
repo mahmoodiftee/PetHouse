@@ -66,7 +66,7 @@ const Available = () => {
                                     <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
                                         <p href="#">
                                             <span className="absolute inset-0"></span>
-                                            {pet.desc.split(' ')[0]}
+                                            {pet.desc?.split(' ')[0].replace(/[,]/g, '')}
                                         </p>
                                     </h3>
                                     <div className="h-[75px] mb-2">
@@ -74,12 +74,27 @@ const Available = () => {
                                     </div>
                                 </div>
                                 <div className="relative md:mt-3 flex items-center gap-x-4">
-                                    <img src="https://tailwindcss.com/_next/static/media/guillermo-rauch.8a24ab88.jpg" alt="" className="h-8 w-8 rounded-full bg-black" />
-                                    <div className="text-sm leading-6">
-                                        <p className="font-semibold text-[12px] text-orange">
-                                            John Doe
-                                        </p>
-                                    </div>
+                                    {
+                                        pet && pet?.author ? (
+                                            <>
+                                                <img src={pet?.authorImg} alt="" className="h-8 w-8 rounded-full bg-black" />
+                                                <div className="text-sm leading-6">
+                                                    <p className="font-semibold text-[12px] text-orange">
+                                                        {pet?.author}
+                                                    </p>
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <img src="https://tailwindcss.com/_next/static/media/guillermo-rauch.8a24ab88.jpg" alt="" className="h-8 w-8 rounded-full bg-black" />
+                                                <div className="text-sm leading-6">
+                                                    <p className="font-semibold text-[12px] text-orange">
+                                                        John Doe
+                                                    </p>
+                                                </div>
+                                            </>
+                                        )
+                                    }
                                 </div>
                             </article>
                         </div>
@@ -128,7 +143,7 @@ const Available = () => {
                                         <div className="flex-1 text-white flex justify-center items-center">
                                             <div>
                                                 <h3 className="text-2xl md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
-                                                    {modal.desc?.split(' ')[0]}
+                                                    {modal.desc?.split(' ')[0].replace(/[,]/g, '')}
                                                 </h3>
                                                 <p className="text-sm md:text-xl mb-2 font-light">
                                                     <span className="text-[16px] md:text-xl font-bold">Age :</span> {modal?.age}
@@ -140,7 +155,6 @@ const Available = () => {
                                                     <Link className="Button buttonA" to={`/avaiable-pets/${modal._id}`}><span className="Button__inner">Adopt</span></Link>
                                                 </div>
                                             </div>
-
 
                                         </div>
                                     </div>

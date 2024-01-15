@@ -103,11 +103,42 @@ const SingleAvailablePost = () => {
                   </button>
                 </div>
               </form>
-              <div className="overlay-right">
+              <div className="overlay-right relative">
+                <div className="flex items-center absolute right-5 my-4 top-0 gap-x-4">
+                  {
+                    post && post?.author ? (
+                      <>
+                        <div className="text-sm leading-6">
+                          <p className="font-semibold text-[12px] text-orange">
+                            {post?.author}
+                          </p>
+                        </div>
+                        <img src={post?.authorImg} alt="" className="h-8 w-8 rounded-full bg-black" />
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-sm leading-6">
+                          <p className="font-semibold text-[12px] text-orange">
+                            John Doe
+                          </p>
+                        </div>
+                        <img src="https://tailwindcss.com/_next/static/media/guillermo-rauch.8a24ab88.jpg" alt="" className="h-8 w-8 rounded-full bg-black" />
+                      </>
+                    )
+                  }
+                </div>
                 <div>
-                  <h3 className="text-2xl md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
-                    {post.desc?.split(' ')[0]}
-                  </h3>
+                  {
+                    post && post?.name ? (
+                      < h3 className="text-2xl md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
+                        {post.name}
+                      </h3>
+                    ) : (
+                      <h3 className="text-2xl md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
+                        {post.desc?.split(' ')[0]}
+                      </h3>
+                    )
+                  }
                   <p className="text-sm md:text-xl mb-2 font-light">
                     <span className="text-[16px] md:text-xl font-bold">Age :</span> {post?.age}
                   </p>
@@ -120,7 +151,7 @@ const SingleAvailablePost = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
