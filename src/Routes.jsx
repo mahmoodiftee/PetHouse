@@ -12,6 +12,7 @@ import Bookmarks from "./Pages/Blogs/Home/Bookmarks";
 import SingleAvailablePost from "./Pages/HomePage/Available/SinglePosts/SingleAvailablePost";
 import AdoptionForm from "./Pages/HomePage/Available/AdoptionForm/AdoptionForm";
 import UserProfile from "./Pages/Profile/UserProfile/UserProfile";
+import AdoptionDetail from "./Pages/Profile/UserProfile/Pages/AdoptionDetail/AdoptionDetail";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,11 @@ export const router = createBrowserRouter([
             {
                 path: "/avaiable-pets/:id",
                 element: <SingleAvailablePost />,
+                loader: ({ params }) => fetch(`https://per-house-server.vercel.app/avaiable-pets/${params.id}`)
+            },
+            {
+                path: "/adoption-detail/:id",
+                element: <AdoptionDetail />,
                 loader: ({ params }) => fetch(`https://per-house-server.vercel.app/avaiable-pets/${params.id}`)
             },
             {

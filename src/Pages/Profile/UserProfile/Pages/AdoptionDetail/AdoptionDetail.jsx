@@ -1,12 +1,12 @@
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import './style.css';
 import { useContext, useState } from 'react';
-import Button from "../../../../Components/Button/Button";
 import toast from "react-hot-toast";
-import { AuthContext } from "../../../../Providers/AuthProvider";
-import useAxios from "../../../../Hooks/useAxios";
+import useAxios from "../../../../../Hooks/useAxios";
+import { AuthContext } from "../../../../../Providers/AuthProvider";
+import Button from "../../../../../Components/Button/Button";
 
-const SingleAvailablePost = () => {
+const AdoptionDetail = () => {
   const { user } = useContext(AuthContext);
   const axiosInstance = useAxios();
   const post = useLoaderData();
@@ -156,4 +156,4 @@ const SingleAvailablePost = () => {
   );
 };
 
-export default SingleAvailablePost;
+export default AdoptionDetail;
