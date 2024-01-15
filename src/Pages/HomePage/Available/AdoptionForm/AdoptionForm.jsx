@@ -67,6 +67,7 @@ const AdoptionForm = () => {
             const post = {
                 author: user?.displayName,
                 authorImg: user?.photoURL,
+                authorEmail:user?.email,
                 name,
                 type,
                 status: "available",
