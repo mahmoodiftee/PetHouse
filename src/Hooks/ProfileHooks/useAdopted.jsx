@@ -10,8 +10,8 @@ const useAdopted = () => {
     const { refetch, data: adopted = [], status } = useQuery({
         queryKey: ['adopted'],
         queryFn: async () => {
-            const res = await useBookmarkHook.get('/adopted')
-            const filteredData = res.data.filter(data => data.adopter_email === userEmail);
+            const res = await useBookmarkHook.get('/adoptions')
+            const filteredData = res.data.filter(data => data.adopterEmail === userEmail);
             return filteredData;
         }
     })

@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import './style.css';
 import { useContext, useState } from 'react';
 import Button from "../../../../Components/Button/Button";
@@ -19,7 +19,7 @@ const SingleAvailablePost = () => {
   const handleSignInClick = () => {
     setSignUpActive(false);
   };
-
+  const navigate = useNavigate();
   const handleAdopt = async (e) => {
     e.preventDefault();
     const adopterEmail = user?.email;
@@ -45,6 +45,7 @@ const SingleAvailablePost = () => {
               color: '#fff',
             },
           });
+          navigate('/')
         }
       }
     } catch (error) {
