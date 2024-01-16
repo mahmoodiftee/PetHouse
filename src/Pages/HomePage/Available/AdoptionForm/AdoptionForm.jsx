@@ -14,18 +14,17 @@ const AdoptionForm = () => {
     const [conditions, setConditions] = useState(['']);
     const [currentDate, setCurrentDate] = useState('');
     const [, refetch] = useAvaiablePosts();
+   
     const addConditionField = () => {
         if (conditions.length < 5) {
             setConditions([...conditions, ""]);
         }
     };
-
     const removeConditionField = (index) => {
         const updatedConditions = [...conditions];
         updatedConditions.splice(index, 1);
         setConditions(updatedConditions);
     };
-
     const handleConditionChange = (index, value) => {
         const updatedConditions = [...conditions];
         updatedConditions[index] = value;

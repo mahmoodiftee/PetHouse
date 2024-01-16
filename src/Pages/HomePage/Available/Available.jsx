@@ -64,10 +64,17 @@ const Available = () => {
                                 </div>
                                 <div className="group relative">
                                     <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
-                                        <p href="#">
-                                            <span className="absolute inset-0"></span>
-                                            {pet.desc?.split(' ')[0].replace(/[,]/g, '')}
-                                        </p>
+                                        {
+                                            pet && pet?.name ? (
+                                                <p href="#">
+                                                    {pet.name}
+                                                </p>
+                                            ) : (
+                                                <p href="#">
+                                                    {pet.desc?.split(' ')[0].replace(/[,]/g, '')}
+                                                </p>
+                                            )
+                                        }
                                     </h3>
                                     <div className="h-[75px] mb-2">
                                         <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{pet.desc.split(' ').slice(0, 30).join(' ')}..</p>
@@ -143,7 +150,17 @@ const Available = () => {
                                         <div className="flex-1 text-white flex justify-center items-center">
                                             <div>
                                                 <h3 className="text-2xl md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
-                                                    {modal.desc?.split(' ')[0].replace(/[,]/g, '')}
+                                                    {
+                                                        modal && modal?.name ? (
+                                                            <p href="#">
+                                                                {modal.name}
+                                                            </p>
+                                                        ) : (
+                                                            <p href="#">
+                                                                {modal.desc?.split(' ')[0].replace(/[,]/g, '')}
+                                                            </p>
+                                                        )
+                                                    }
                                                 </h3>
                                                 <p className="text-sm md:text-xl mb-2 font-light">
                                                     <span className="text-[16px] md:text-xl font-bold">Age :</span> {modal?.age}

@@ -17,8 +17,8 @@ const SingleBlogPost = () => {
     const post = useLoaderData();
     console.log(post);
     const navigate = useNavigate();
-    const [isOpen, setIsOpen] = useState(false)
     const [isPostOpen, setIsPostOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     const [postModal, setpostModal] = useState([]);
     function openEditPostModal(post) {

@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import './style.css';
 import { useContext, useState } from 'react';
 import Button from "../../../../Components/Button/Button";
@@ -68,12 +68,12 @@ const SingleAvailablePost = () => {
         <div className={`Adoptioncontainer ${isSignUpActive ? 'right-panel-active' : ''}`}>
           <div className="sign-in">
             <form className="AdoptionForm" action="#">
-              <img src={post.img} alt="" />
+              <img className="h-72 object-contain" src={post.img} alt="" />
             </form>
           </div>
           <div className="sign-up">
             <form className="AdoptionForm" action="#">
-              <img src={post.img} alt="" />
+              <img className="h-72 object-contain" src={post.img} alt="" />
             </form>
           </div>
           <div className="overlay-container">
@@ -129,24 +129,27 @@ const SingleAvailablePost = () => {
                   }
                 </div>
                 <div>
-                  {
-                    post && post?.name ? (
-                      < h3 className="text-2xl md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
-                        {post.name}
-                      </h3>
-                    ) : (
-                      <h3 className="text-2xl md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
-                        {post.desc?.split(' ')[0]}
-                      </h3>
-                    )
-                  }
+                  <h3 className="text-2xl md:text-4xl mb-4 font-semibold leading-6 text-orange group-hover:text-orange">
+                    {
+                      post && post?.name ? (
+                        <p href="#">
+                          {post.name}
+                        </p>
+                      ) : (
+                        <p href="#">
+                          {post.desc?.split(' ')[0].replace(/[,]/g, '')}
+                        </p>
+                      )
+                    }
+                  </h3>
                   <p className="text-sm md:text-xl mb-2 font-light">
                     <span className="text-[16px] md:text-xl font-bold">Age :</span> {post?.age}
                   </p>
                   <p className="text-[12px] md:text-[16px] mb-2 font-light">
                     <span className="text-[16px] md:text-xl font-bold">Description: </span> {post?.desc}
                   </p>
-                  <Button text={'Adopt'} onClick={handleSignUpClick} />                               </div>
+                  <Button text={'Adopt'} onClick={handleSignUpClick} />
+                </div>
               </div>
             </div>
           </div>

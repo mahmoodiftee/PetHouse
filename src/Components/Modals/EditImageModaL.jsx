@@ -58,7 +58,7 @@ const EditImageModaL = ({ isOpen, Fragment, closeModal, modal }) => {
                 console.log(data);
                 refetch();
                 e.target.reset();
-                closeModal();
+                closeModal();                                                                                          
             } else {
                 toast.error('Failed to update the blog post. Please try again.');
             }
@@ -67,8 +67,6 @@ const EditImageModaL = ({ isOpen, Fragment, closeModal, modal }) => {
             toast.error('Error updating. Please try again.');
         }
     };
-
-
 
     return (
         <div>
