@@ -13,7 +13,7 @@ import SingleAvailablePost from "./Pages/HomePage/Available/SinglePosts/SingleAv
 import AdoptionForm from "./Pages/HomePage/Available/AdoptionForm/AdoptionForm";
 import UserProfile from "./Pages/Profile/UserProfile/UserProfile";
 import AdoptionDetail from "./Pages/Profile/UserProfile/Pages/AdoptionDetail/AdoptionDetail";
-import SingleBlogPost from "./Pages/HomePage/Available/SinglePosts/SingleBlogPost";
+import SingleBlogPost from "./Pages/Profile/UserProfile/Pages/BlogDetail/SingleBlogPost";
 
 export const router = createBrowserRouter([
     {

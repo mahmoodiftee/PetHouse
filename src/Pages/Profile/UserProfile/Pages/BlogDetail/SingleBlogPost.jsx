@@ -1,53 +1,50 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import './style.css';
-import { useContext, useState } from 'react';
-import Button from "../../../../Components/Button/Button";
 import toast from "react-hot-toast";
-import { AuthContext } from "../../../../Providers/AuthProvider";
-import useAxios from "../../../../Hooks/useAxios";
-import usePost from "../../../../Hooks/usePost";
-import useBlogs from "../../../../Hooks/ProfileHooks/useBlogs";
+import useAxios from "../../../../../Hooks/useAxios";
+import usePost from "../../../../../Hooks/usePost";
+import useBlogs from "../../../../../Hooks/ProfileHooks/useBlogs";
 import { LuFileEdit } from "react-icons/lu";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 const SingleBlogPost = () => {
     const axiosInstance = useAxios();
     const [, refetch] = usePost();
-    const [, adoptionRefetch] = useBlogs();
+    const [, blogsRefetch] = useBlogs();
     const post = useLoaderData();
     console.log(post);
     const navigate = useNavigate();
 
-    // const handleDelete = async (id) => {
-    //     try {
-    //         const response = await axiosInstance.delete(`/avaiable-pets/${id}`);
-    //         const data = response.data;
+    const handleDelete = async (id) => {
+        try {
+            const response = await axiosInstance.delete(`/blogs/${id}`);
+            const data = response.data;
 
-    //         if (data.deletedCount > 0) {
-    //             toast('Deleted Successfully', {
-    //                 icon: '✅',
-    //                 style: {
-    //                     borderRadius: '10px',
-    //                     background: '#333',
-    //                     color: '#fff',
-    //                 },
-    //             });
-    //             refetch();
-    //             adoptionRefetch();
-    //             navigate('/')
-    //         }
-    //     } catch (error) {
-    //         console.error('Error deleting post:', error);
-    //         toast.error('Error deleting post', {
-    //             icon: '❌',
-    //             style: {
-    //                 borderRadius: '10px',
-    //                 background: '#333',
-    //                 color: '#fff',
-    //             },
-    //         });
-    //     }
-    // }
+            if (data.deletedCount > 0) {
+                toast('Deleted Successfully', {
+                    icon: '✅',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                });
+                refetch();
+                blogsRefetch();
+                navigate('/profile')
+            }
+        } catch (error) {
+            console.error('Error deleting post:', error);
+            toast.error('Error deleting post', {
+                icon: '❌',
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            });
+        }
+    }
 
 
 
@@ -100,7 +97,7 @@ const SingleBlogPost = () => {
                                         <button className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
                                             <LuFileEdit />
                                         </button>
-                                        <button className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                                        <button onClick={() => handleDelete(post?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
                                             <FaRegTrashAlt />
                                         </button>
                                     </div>
@@ -148,7 +145,7 @@ const SingleBlogPost = () => {
                                     <button className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
                                         <LuFileEdit />
                                     </button>
-                                    <button className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                                    <button onClick={() => handleDelete(post?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
                                         <FaRegTrashAlt />
                                     </button>
                                 </div>
