@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxios from "./useAxios";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useAxios from "../useAxios";
 
 const useBlogs = () => {
     const { user } = useContext(AuthContext);
