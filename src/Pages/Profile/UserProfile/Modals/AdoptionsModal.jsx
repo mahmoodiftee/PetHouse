@@ -32,7 +32,7 @@ const AdoptionsModal = ({ isOpen, Fragment, closeModal }) => {
                             leaveTo="opacity-0 scale-95"
                         >
                             <Dialog.Panel className="w-full max-w-5xl transform overflow-y-auto rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
-                                <div className="w-full min-h-[450px] overflow-x-hidden overflow-y-auto relative">
+                                <div className="w-full h-[450px] overflow-x-hidden overflow-y-auto relative">
                                     <button onClick={closeModal} className='btn btn-sm btn-circle p-2 z-50 absolute right-3 top-0 bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full'><ImCross className='text-sm' /></button>
                                     <div className='text-center text-xl md:text-2xl font-extrabold text-orange'>
                                         Adoptions
@@ -41,7 +41,7 @@ const AdoptionsModal = ({ isOpen, Fragment, closeModal }) => {
                                         {isLoading && <Loader />}
                                     </div>
                                     {adoption && adoption.length < 1 ? (
-                                        <div className='w-[80%] mx-auto h-[80%] my-auto text-center flex justify-center items-center'>You dont have any adoption post yet.</div>
+                                        <div className='w-[70%] md:w-[80%] mx-auto h-[80%] my-auto text-center flex justify-center items-center'>You dont have any adoption post yet.</div>
 
                                     ) : (
                                         <div className='p-4 md:p-4 grid grid-cols-1 md:grid-cols-3 items-center gap-4'>

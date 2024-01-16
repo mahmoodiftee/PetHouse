@@ -6,6 +6,9 @@ import usePost from "../../../../../Hooks/usePost";
 import useBlogs from "../../../../../Hooks/ProfileHooks/useBlogs";
 import { LuFileEdit } from "react-icons/lu";
 import { FaRegTrashAlt } from "react-icons/fa";
+import EditImageModaL from "../../../../../Components/Modals/EditImageModaL";
+import { Fragment, useState } from "react";
+import EditModal from "../../../../../Components/Modals/EditModal";
 
 const SingleBlogPost = () => {
     const axiosInstance = useAxios();
@@ -14,7 +17,26 @@ const SingleBlogPost = () => {
     const post = useLoaderData();
     console.log(post);
     const navigate = useNavigate();
-
+    const [isOpen, setIsOpen] = useState(false)
+    const [isPostOpen, setIsPostOpen] = useState(false)
+    const [modal, setModal] = useState([]);
+    const [postModal, setpostModal] = useState([]);
+    function openEditPostModal(post) {
+        setpostModal(post);
+        setIsPostOpen(true)
+    }
+    function closePostModal() {
+        setIsPostOpen(false);
+        window.location.reload();
+    }    
+    function openEditModal(post) {
+        setModal(post);
+        setIsOpen(true)
+    }
+    function closeModal() {
+        setIsOpen(false);
+        window.location.reload();
+    }    
     const handleDelete = async (id) => {
         try {
             const response = await axiosInstance.delete(`/blogs/${id}`);
@@ -46,9 +68,6 @@ const SingleBlogPost = () => {
         }
     }
 
-
-
-
     return (
         <div className="w-full min-h-screen flex justify-center items-center mx-auto p-4 -my-8">
 
@@ -59,7 +78,7 @@ const SingleBlogPost = () => {
                             <img className="h-72 md:h-96 w-full object-contain" src={post.image} alt="" />
                         </div>
                         <div className="min-h-96 md:min-h-[450px] w-full flex-1 flex justify-center md:items-center p-6">
-                            <div className="relative">
+                            <div className="relative w-full">
                                 <div className="flex items-center absolute right-5 top-0 gap-x-4">
                                     {
                                         post && post?.author ? (
@@ -94,7 +113,7 @@ const SingleBlogPost = () => {
                                         <span className="text-[16px] md:text-xl font-bold">Description: </span> {post?.desc}
                                     </p>
                                     <div className="flex gap-4 justify-start mt-3 items-center">
-                                        <button className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                                        <button onClick={() => openEditModal(post)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
                                             <LuFileEdit />
                                         </button>
                                         <button onClick={() => handleDelete(post?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
@@ -107,7 +126,7 @@ const SingleBlogPost = () => {
                     </>
                 ) : (
                     <div className="min-h-96 md:min-h-[450px] w-full flex-1 flex justify-center md:items-center p-6">
-                        <div className="relative">
+                        <div className="relative w-full">
                             <div className="flex items-center absolute right-5 top-0 gap-x-4">
                                 {
                                     post && post?.author ? (
@@ -142,7 +161,7 @@ const SingleBlogPost = () => {
                                     <span className="text-[16px] md:text-xl font-bold">Description: </span> {post?.desc}
                                 </p>
                                 <div className="flex gap-4 justify-start mt-3 items-center">
-                                    <button className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
+                                    <button onClick={() => openEditPostModal(post)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
                                         <LuFileEdit />
                                     </button>
                                     <button onClick={() => handleDelete(post?._id)} className="bg-[#161616] hover:bg-orange transition-all duration-500 flex btn text-lg text-orange hover:text-white justify-between items-center rounded-full">
@@ -155,6 +174,8 @@ const SingleBlogPost = () => {
                 )
                 }
             </div>
+            <EditModal isOpen={isPostOpen} Fragment={Fragment} modal={postModal} closeModal={closePostModal} />
+            <EditImageModaL isOpen={isOpen} Fragment={Fragment} modal={modal} closeModal={closeModal} />
         </div >
     );
 };

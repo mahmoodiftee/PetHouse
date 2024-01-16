@@ -30,7 +30,7 @@ const EditModal = ({ isOpen, Fragment, closeModal, modal }) => {
             const response = await useAxiosPost.patch(`blogs/${modal?._id}`, updatedPost);
             const data = response.data;
             if (data.modifiedCount > 0) {
-                toast('Posting Successful', {
+                toast('Update Successful', {
                     icon: '🐶',
                     style: {
                         borderRadius: '10px',
@@ -46,8 +46,8 @@ const EditModal = ({ isOpen, Fragment, closeModal, modal }) => {
                 toast.error('Failed to update the blog post. Please try again.');
             }
         } catch (error) {
-            console.error('Error posting blog:', error);
-            toast.error('Error posting. Please try again.');
+            console.error('Error Updating blog:', error);
+            toast.error('Error Updating. Please try again.');
         }
     };
 

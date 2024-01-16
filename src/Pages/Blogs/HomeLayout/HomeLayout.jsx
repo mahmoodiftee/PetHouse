@@ -4,7 +4,7 @@ import Search from "./Search";
 
 const HomeLayout = () => {
     return (
-        <div className="min-h-screen grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+        <div className="min-h-screen grid grid-cols-1 md:grid-cols-12 gap-3 mt-2.5 items-center">
             <div className="hidden p-6 md:block h-full md:col-span-3 w-full md:border-2 md:border-[#292929] md:bg-[#161616] rounded-lg">
                 <Options />
             </div>
