@@ -44,7 +44,7 @@ const Nav = () => {
             >
             </Player>
           </div>
-          <p className="text-xl font-semibold absolute left-14 pt-3">Pet<span className='text-orange'>House</span></p>
+          <Link to={'/'} className="text-xl font-semibold absolute left-14 pt-3">Pet<span className='text-orange'>House</span></Link>
         </div>
         <div className="flex pt-3 lg:hidden">
           {

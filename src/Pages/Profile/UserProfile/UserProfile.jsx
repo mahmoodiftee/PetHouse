@@ -75,7 +75,7 @@ const UserProfile = () => {
                 </div>
                 <div className="grid grid-cols-1 gap-2 p-2 md:grid-cols-11 items-center w-full h-[78%] md:h-[63%] rounded-xl mt-2 bg-[#0f0e0e]">
                     <div className="col-span-4 relative border-4 border-lite overflow-hidden hidden md:block md:col-span-3 bg-dark rounded-xl w-full h-full">
-                        <div className="h-[170px] absolute blur-2xl -bottom-28 z-50 w-full bg-dark opacity-90"></div>
+                        <div className="h-[170px] absolute blur-2xl -bottom-28 z-10 w-full bg-dark opacity-90"></div>
                         <div className="h-full w-full hidden md:flex">
                             <Swiper
                                 centeredSlides={true}

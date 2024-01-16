@@ -49,7 +49,7 @@ const AdoptionDetail = () => {
 
 
   return (
-    <div className="w-full min-h-screen flex justify-center items-center mx-auto p-4 -my-12">
+    <div className="w-full min-h-screen flex justify-center items-center mx-auto p-4 -my-8">
 
       <div className="w-full min-h-[450px] flex flex-col md:flex-row justify-center -gap-2 items-center">
         <div className="min-h-96 md:min-h-[450px] bg-dark w-full flex-1 flex justify-center items-center rounded-xl">
@@ -57,7 +57,7 @@ const AdoptionDetail = () => {
         </div>
         <div className="min-h-96 md:min-h-[450px] w-full flex-1 flex justify-center md:items-center p-6">
           <div className="relative">
-            <div className="flex items-center absolute right-5 my-4 top-0 gap-x-4">
+            <div className="flex items-center absolute right-5 top-0 gap-x-4">
               {
                 post && post?.author ? (
                   <>
