@@ -64,7 +64,7 @@ const AdoptionDetail = () => {
         <div className="min-h-96 md:min-h-[450px] bg-dark w-full flex-1 flex justify-center items-center rounded-xl">
           <img className="h-72 md:h-96 w-full object-contain" src={post.img} alt="" />
         </div>
-        <div className="min-h-96 md:min-h-[450px] w-full flex-1 flex justify-center md:items-center p-6">
+        <div className="min-h-96 md:min-h-[450px] w-full flex-1 flex justify-start md:items-center p-6">
           <div className="relative">
             <div>
               {

@@ -36,17 +36,17 @@ export const router = createBrowserRouter([
             {
                 path: "/blogs/:id",
                 element: <SingleBlogPost />,
-                loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+                loader: ({ params }) => fetch(`https://per-house-server.vercel.app/blogs/${params.id}`)
             },
             {
                 path: "/avaiable-pets/:id",
                 element: <SingleAvailablePost />,
-                loader: ({ params }) => fetch(`http://localhost:5000/avaiable-pets/${params.id}`)
+                loader: ({ params }) => fetch(`https://per-house-server.vercel.app/avaiable-pets/${params.id}`)
             },
             {
                 path: "/adoption-detail/:id",
                 element: <AdoptionDetail />,
-                loader: ({ params }) => fetch(`http://localhost:5000/avaiable-pets/${params.id}`)
+                loader: ({ params }) => fetch(`https://per-house-server.vercel.app/avaiable-pets/${params.id}`)
             },
             {
                 path: "/login",
