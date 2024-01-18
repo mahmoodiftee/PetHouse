@@ -155,7 +155,7 @@ const SingleAvailablePost = () => {
           </div>
         </div>
       </div>
-      <div className="block md:hidden">
+      <div className="block w-full md:hidden">
         <div className="w-full min-h-screen flex flex-col justify-center items-center mx-auto p-4 -my-8">
           <div className="w-full min-h-[450px] flex flex-col md:flex-row justify-center -gap-2 items-center">
             <div className="min-h-96 md:min-h-[450px] bg-dark w-full flex-1 flex justify-center items-center rounded-xl">
@@ -185,11 +185,11 @@ const SingleAvailablePost = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="w-full">
             <h1 className="text-orange w-[40%] mx-auto text-center border-2 border-x-transparent border-t-transparent border-b-orange">Adoption Form</h1>
-            <form onSubmit={handleAdopt} className="">
+            <form onSubmit={handleAdopt} className="w-full">
               <div className="w-full form-control">
-                <div className="label mt-4 w-full gap-4">
+                <div className=" w-full label mt-4 gap-4">
                   <div className="flex w-full justify-between flex-col px-2 gap-2">
                     {Object.entries(post.conditions).map(([field, value], i) => (
                       i < 4 && (
