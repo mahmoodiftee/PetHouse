@@ -5,11 +5,13 @@ import Button from "../../../../Components/Button/Button";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import useAxios from "../../../../Hooks/useAxios";
+import usePost from "../../../../Hooks/usePost";
 
 const SingleAvailablePost = () => {
   const { user } = useContext(AuthContext);
   const axiosInstance = useAxios();
   const post = useLoaderData();
+  const [, refetch] = usePost();
   const [isSignUpActive, setSignUpActive] = useState();
 
   const handleSignUpClick = () => {
@@ -23,10 +25,10 @@ const SingleAvailablePost = () => {
 
   const handleAdopt = async (e) => {
     e.preventDefault();
-
+    const message = e.target.message.value;
     const adopterEmail = user?.email;
-    const selectedPost = { ...post, adopterEmail, postId: post._id };
-    
+    const selectedPost = { ...post, adopterEmail, message, postId: post._id };
+
     try {
       const adoptionResponse = await axiosInstance.post('/adopted', selectedPost);
 
@@ -41,7 +43,7 @@ const SingleAvailablePost = () => {
             },
           });
         } else {
-          
+
           const statusChange = await axiosInstance.patch(`/avaiable-pets/${post._id}`, { status: 'pending' });
           if (statusChange.status === 200) {
             toast('Submitted Adoption Request', {
@@ -52,6 +54,7 @@ const SingleAvailablePost = () => {
                 color: '#fff',
               },
             });
+            refetch();
             navigate('/');
           }
         }
@@ -102,7 +105,11 @@ const SingleAvailablePost = () => {
                     </div>
                   </div>
                 </div>
-                <textarea required placeholder={`A message for the ${post.desc?.split(', ')[0]}'s well-wisher...`} className="w-full my-2 placeholder:text-white/50 textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm mb-2"></textarea>
+                <textarea
+                  required
+                  name="message"
+                  placeholder={`A message for the ${post.name || (post.desc?.split(', ')[0])}'s well-wisher...`}
+                  className="w-full my-2 placeholder:text-white/50 textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm mb-2" />
                 <div className="flex gap-6 mr-2 my-3">
                   <button type="submit" className="Button buttonA">
                     <span className="Button__inner">Adopt</span>
@@ -210,7 +217,12 @@ const SingleAvailablePost = () => {
                   </div>
                 </div>
               </div>
-              <textarea required placeholder={`A message for the ${post.desc?.split(', ')[0]}'s well-wisher...`} className="w-full my-2 placeholder:text-white/50 textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm mb-2"></textarea>
+              <textarea
+                required
+                name="message"
+                placeholder={`A message for the ${post.name || (post.desc?.split(', ')[0])}'s well-wisher...`}
+                className="w-full my-2 placeholder:text-white/50 textarea border-0 border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-2xl textarea-sm mb-2" />
+
               <div className="flex justify-center mb-6">
                 <button type="submit" className="Button buttonA">
                   <span className="Button__inner">Adopt</span>
