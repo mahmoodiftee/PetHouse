@@ -33,8 +33,8 @@ const AdoptedDetail = () => {
                                 }
                                 {
                                     selectedPost.presentStatus === 'Pending' ?
-                                        <p className=" rounded-xl text-center font-semibold text-[12px] text-red-700">{selectedPost.presentStatus}</p> :
-                                        <p className=" rounded-xl text-center font-semibold text-[12px] text-green-700">{selectedPost.presentStatus}</p>
+                                        <p className=" rounded-xl text-center font-semibold text-sm text-red-700">{selectedPost.presentStatus}</p> :
+                                        <p className=" rounded-xl text-center font-semibold text-sm text-green-700">{selectedPost.presentStatus}</p>
                                 }
                             </div>
 
