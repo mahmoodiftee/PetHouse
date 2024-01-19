@@ -25,7 +25,7 @@ const SingleAvailablePost = () => {
     const adopterEmail = user?.email;
     const selectedPost = { ...post, adopterEmail, postId: post._id };
     try {
-      const adoptionResponse = await axiosInstance.post('/adoptions', selectedPost);
+      const adoptionResponse = await axiosInstance.post('/adopted', selectedPost);
       if (adoptionResponse.status === 200) {
         if (adoptionResponse.data.error) {
           toast.error(adoptionResponse.data.error, {

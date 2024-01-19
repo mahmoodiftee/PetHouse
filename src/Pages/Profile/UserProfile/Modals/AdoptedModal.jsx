@@ -1,14 +1,11 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { useContext } from 'react';
-import { AuthContext } from '../../../../Providers/AuthProvider';
 import useAdopted from '../../../../Hooks/ProfileHooks/useAdopted';
 import { ImCross } from 'react-icons/im';
 import Loader from '../../../../Components/Loader/Loader';
 import { Link } from 'react-router-dom';
 
 const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
-    const { user } = useContext(AuthContext);
-    const [adopted, refetch, isLoading] = useAdopted();
+    const [adopted, , isLoading] = useAdopted();
     console.log(adopted);
     return (
         <Transition appear show={isOpen} as={Fragment}>
@@ -51,7 +48,7 @@ const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
                                         <div className='p-4 md:p-4 grid grid-cols-1 md:grid-cols-3 items-center gap-4'>
                                             {
                                                 adopted.map((post) => (
-                                                    <Link to={`/adoption-detail/${post._id}`} key={post._id} className="overflow-hidden cursor-pointer h-[340px] md:h-[360px] w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-4">
+                                                    <Link to={`/adopted/${post.postId}`} key={post._id} className="overflow-hidden cursor-pointer h-[340px] md:h-[360px] w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-4">
                                                         <div className="h-[45%] overflow-hidden w-full">
                                                             <img
                                                                 src={post.img}
