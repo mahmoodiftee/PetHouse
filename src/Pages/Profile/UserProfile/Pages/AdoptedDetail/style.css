@@ -153,3 +153,23 @@
 .Adoptioncontainer.right-panel-active .overlay-right {
     transform: translateX(20%);
 }
+
+
+.btn-smm {
+    height: 22px/* 32px */;
+    min-height: 22px/* 32px */;
+    padding-left: 0.75rem/* 12px */;
+    padding-right: 0.75rem/* 12px */;
+    font-size: 0.875rem/* 14px */;
+}
+.btn-square:where(.btn-smm) {
+    height: 22px/* 32px */;
+    width: 22px/* 32px */;
+    padding: 0px;
+}
+.btn-circle:where(.btn-smm) {
+    height: 22px/* 32px */;
+    width: 22px/* 32px */;
+    border-radius: 9999px;
+    padding: 0px;
+}
