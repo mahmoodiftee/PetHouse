@@ -151,7 +151,7 @@ const AdoptionForm = () => {
                         </label>
                         <div className="mt-2.5">
                             <input
-                                name="number"
+                                name="age"
                                 type="number"
                                 autoComplete="number"
                                 required

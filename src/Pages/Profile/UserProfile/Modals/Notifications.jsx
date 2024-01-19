@@ -71,8 +71,8 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                                                                         <CgProfile className='-mt-[2px] text-sm' /><p>Adopter's Profile</p>
                                                                     </h3>
                                                                     <ul tabIndex={0} className="mt-3 -ml-4 z-[1] px-4 shadow menu menu-sm dropdown-content bg-dark rounded-xl">
-                                                                        <img className='w-14 mx-auto rounded-full' src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                                                        <li className='flex text-gray-300 font-medium items-center rounded-xl my-1'>Mahmood Iffty</li>
+                                                                        <img className='w-14 mx-auto rounded-full' src={post.adopterDP} />
+                                                                        <li className='flex text-gray-300 font-medium items-center rounded-xl my-1'>{post.adopterName}</li>
                                                                         <li className='flex text-gray-300 font-medium rounded-xl my-1'>{post.adopterEmail}</li>
                                                                     </ul>
                                                                 </div>

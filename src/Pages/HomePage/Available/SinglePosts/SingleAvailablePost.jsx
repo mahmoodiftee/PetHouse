@@ -28,7 +28,9 @@ const SingleAvailablePost = () => {
     const message = e.target.message.value;
     const adopterEmail = user?.email;
     const presentStatus = 'Pending';
-    const selectedPost = { ...post, presentStatus, adopterEmail, message, postId: post._id };
+    const adopterDP = user?.photoURL;
+    const adopterName = user?.displayName;
+    const selectedPost = { ...post, presentStatus, postId: post._id, adopterDP, adopterName, adopterEmail, message, };
     try {
       const adoptionResponse = await axiosInstance.post('/adopted', selectedPost);
 
