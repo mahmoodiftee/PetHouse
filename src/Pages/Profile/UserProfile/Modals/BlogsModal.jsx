@@ -5,7 +5,6 @@ import Loader from '../../../../Components/Loader/Loader';
 import { Link } from 'react-router-dom';
 const BlogsModal = ({ isOpen, Fragment, closeModal }) => {
     const [blog, , isLoading] = useBlogs();
-    console.log(blog);
     return (
         <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>

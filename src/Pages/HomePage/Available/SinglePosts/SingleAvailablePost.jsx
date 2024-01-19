@@ -20,12 +20,16 @@ const SingleAvailablePost = () => {
     setSignUpActive(false);
   };
   const navigate = useNavigate();
+
   const handleAdopt = async (e) => {
     e.preventDefault();
+
     const adopterEmail = user?.email;
     const selectedPost = { ...post, adopterEmail, postId: post._id };
+    
     try {
       const adoptionResponse = await axiosInstance.post('/adopted', selectedPost);
+
       if (adoptionResponse.status === 200) {
         if (adoptionResponse.data.error) {
           toast.error(adoptionResponse.data.error, {
@@ -37,18 +41,23 @@ const SingleAvailablePost = () => {
             },
           });
         } else {
-          toast('Submitted Adoption Request', {
-            icon: '✅',
-            style: {
-              borderRadius: '10px',
-              background: '#333',
-              color: '#fff',
-            },
-          });
-          navigate('/')
+          
+          const statusChange = await axiosInstance.patch(`/avaiable-pets/${post._id}`, { status: 'pending' });
+          if (statusChange.status === 200) {
+            toast('Submitted Adoption Request', {
+              icon: '✅',
+              style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+              },
+            });
+            navigate('/');
+          }
         }
       }
     } catch (error) {
+      console.error('Error Submitting Adoption Request:', error);
       toast.error('Error Submitting Adoption Request', {
         style: {
           icon: '❌',
@@ -59,7 +68,6 @@ const SingleAvailablePost = () => {
       });
     }
   };
-
 
 
   return (

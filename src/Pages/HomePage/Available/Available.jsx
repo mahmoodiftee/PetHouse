@@ -63,19 +63,26 @@ const Available = () => {
                                     <p className="text-orange">{pet.date}</p>
                                 </div>
                                 <div className="group relative">
-                                    <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
+                                    <div className="flex items-center justify-between w-full">
+                                        <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
+                                            {
+                                                pet && pet?.name ? (
+                                                    <p href="#">
+                                                        {pet.name}
+                                                    </p>
+                                                ) : (
+                                                    <p href="#">
+                                                        {pet.desc?.split(' ')[0].replace(/[,]/g, '')}
+                                                    </p>
+                                                )
+                                            }
+                                        </h3>
                                         {
-                                            pet && pet?.name ? (
-                                                <p href="#">
-                                                    {pet.name}
-                                                </p>
-                                            ) : (
-                                                <p href="#">
-                                                    {pet.desc?.split(' ')[0].replace(/[,]/g, '')}
-                                                </p>
-                                            )
+                                            pet.status === 'pending' ?
+                                                <p className="bg-black pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-red-700">{pet.status}</p> :
+                                                <p className="bg-black pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-green-700">{pet.status}</p>
                                         }
-                                    </h3>
+                                    </div>
                                     <div className="h-[75px] mb-2">
                                         <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{pet.desc.split(' ').slice(0, 30).join(' ')}..</p>
                                     </div>

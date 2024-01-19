@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
     const [adopted, , isLoading] = useAdopted();
-    console.log(adopted);
     return (
         <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>

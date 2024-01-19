@@ -14,7 +14,7 @@ const AdoptionForm = () => {
     const [conditions, setConditions] = useState(['']);
     const [currentDate, setCurrentDate] = useState('');
     const [, refetch] = useAvaiablePosts();
-   
+
     const addConditionField = () => {
         if (conditions.length < 5) {
             setConditions([...conditions, ""]);
@@ -66,7 +66,7 @@ const AdoptionForm = () => {
             const post = {
                 author: user?.displayName,
                 authorImg: user?.photoURL,
-                authorEmail:user?.email,
+                authorEmail: user?.email,
                 name,
                 type,
                 status: "available",
@@ -151,11 +151,13 @@ const AdoptionForm = () => {
                         </label>
                         <div className="mt-2.5">
                             <input
-                                placeholder='Pet age'
+                                name="number"
+                                type="number"
+                                autoComplete="number"
                                 required
-                                type="text"
-                                name="age"
-                                className="placeholder:text-white inpu input-bordered border-0 h-[42px] border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-lg textarea-sm w-full" />
+                                className="placeholder:text-white inpu input-bordered border-0 h-[42px] border-lite bg-[#1A1A1A] focus:ring-2 focus:ring-inset focus:ring-orange rounded-lg textarea-sm w-full"
+                                placeholder="Age"
+                            />
                         </div>
                     </div>
                 </div>
