@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
     const [adopted, , isLoading] = useAdopted();
+    
+    console.log(adopted);
     return (
         <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -34,7 +36,7 @@ const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
                         >
                             <Dialog.Panel className="w-full max-w-5xl transform overflow-y-auto rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
                                 <div className="w-full h-[450px] overflow-x-hidden overflow-y-auto relative">
-                                    <button onClick={closeModal} className='btn btn-sm btn-circle p-2 z-50 absolute right-3 top-0 bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full'><ImCross className='text-sm' /></button>
+                                    <button onClick={closeModal} className='btn btn-sm btn-circle p-2 z-50 text-white hover:text-black absolute right-3 top-0 bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full'><ImCross className='text-sm' /></button>
                                     <div className='text-center text-xl md:text-2xl font-extrabold text-orange'>
                                         Adopted
                                     </div>
@@ -58,16 +60,30 @@ const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
                                                         </div>
                                                         <article className="flex my-2 max-w-xl flex-col items-start justify-between">
                                                             <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
-                                                                <p href="#" className="relative z-10 rounded-full px-1.5 py-2px text-[10px] font-medium text-white bg-orange hover:bg-orange hover:text-white">{post.type}</p>
+                                                                <p className="relative z-10 rounded-full text-[10px] text-gray-300 px-3 py-[2px] -ml-1 bg-black font-extrabold">{post.type}</p>
                                                                 <p className="text-orange">{post.date}</p>
                                                             </div>
                                                             <div className="group relative">
-                                                                <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
-                                                                    <p href="#">
-                                                                        <span className="absolute inset-0"></span>
-                                                                        {post.desc?.split(' ')[0].replace(/[,]/g, '')}
-                                                                    </p>
-                                                                </h3>
+                                                                <div className="flex items-center justify-between w-full">
+                                                                    <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
+                                                                        {
+                                                                            post && post?.name ? (
+                                                                                <p href="#">
+                                                                                    {post.name}
+                                                                                </p>
+                                                                            ) : (
+                                                                                <p href="#">
+                                                                                    {post.desc?.split(' ')[0].replace(/[,]/g, '')}
+                                                                                </p>
+                                                                            )
+                                                                        }
+                                                                    </h3>
+                                                                    {
+                                                                        post.presentStatus === 'Pending' ?
+                                                                            <p className="bg-black pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-red-700">{post.presentStatus}</p> :
+                                                                            <p className="bg-black pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-green-700">{post.presentStatus}</p>
+                                                                    }
+                                                                </div>
                                                                 <div className="h-[75px]">
                                                                     <p className="text-[12px] md:text-sm md:leading-6 text-gray-400">{post.desc.split(' ').slice(0, 30).join(' ')}..</p>
                                                                 </div>

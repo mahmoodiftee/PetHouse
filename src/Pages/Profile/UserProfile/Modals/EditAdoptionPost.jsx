@@ -3,7 +3,6 @@ import { Dialog, Transition } from '@headlessui/react'
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import useAxios from '../../../../Hooks/useAxios';
-import { FaMinus, FaPlus } from 'react-icons/fa';
 import useAvaiablePosts from '../../../../Hooks/useAvaiablePosts';
 const EditAdoptionPost = ({ isOpen, Fragment, closeModal, modal }) => {
     const useAxiosPost = useAxios();

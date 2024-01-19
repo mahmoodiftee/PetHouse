@@ -33,7 +33,7 @@ const BlogsModal = ({ isOpen, Fragment, closeModal }) => {
                         >
                             <Dialog.Panel className="w-full max-w-5xl transform overflow-y-hidden rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
                                 <div className="w-full h-[450px] overflow-x-hidden overflow-y-auto relative">
-                                    <button onClick={closeModal} className='btn btn-sm btn-circle p-2 z-50 absolute right-3 top-1 bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full'><ImCross className='text-sm' /></button>
+                                    <button onClick={closeModal} className='btn btn-sm btn-circle p-2 z-50 text-white hover:text-black absolute right-3 top-0 bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full'><ImCross className='text-sm' /></button>
                                     <div className='text-center text-xl md:text-2xl font-extrabold text-orange'>
                                         Blogs
                                     </div>

@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { useContext } from 'react';
 import { AuthContext } from '../../../../Providers/AuthProvider';
+import { ImCross } from 'react-icons/im';
 
 const Notifications = ({ isOpen, Fragment, closeModal }) => {
     const { user } = useContext(AuthContext);
@@ -32,7 +33,7 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                         >
                             <Dialog.Panel className="w-full max-w-4xl transform overflow-y-auto rounded-2xl bg-[#000000] border-4 border-[#161616] p-6 text-left flex justify-center items-center align-middle shadow-xl transition-all">
                                 <div className="w-full h-96 relative">
-                                    <button onClick={closeModal} className='btn btn-circle p-2 absolute right-0 top-0'>X</button>
+                                <button onClick={closeModal} className='btn btn-sm btn-circle p-2 z-50 text-white hover:text-black absolute right-3 top-0 bg-[#161616] hover:bg-orange transition-all duration-500 rounded-full'><ImCross className='text-sm' /></button>
                                     <div className='text-center text-xl md:text-2xl font-extrabold text-orange'>
                                         Notifications
                                     </div>
