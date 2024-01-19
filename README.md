@@ -1,5 +1,10 @@
 # TODO
-17/01/24
+20/01/24
 
-- have to work on adoption condition and notification sending to the adoption author
+- Have to work on adoption approval on notification component
+
+- need to make changes on the available pet post design based on status === 'pending' on available component
+
+- need to fix the bug of data loading issue when re-directed to available post section
+
 
