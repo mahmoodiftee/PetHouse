@@ -3,8 +3,8 @@
 
 - Have to work on adoption approval on notification component
 
-- need to make changes on the available pet post design based on status === 'pending' on available component
+- need to make changes on the available pet post design based on status === 'pending' on available component/ fixed
 
-- need to fix the bug of data loading issue when re-directed to available post section
+- need to fix the bug of data loading issue when re-directed to available post section / fixed
 
 

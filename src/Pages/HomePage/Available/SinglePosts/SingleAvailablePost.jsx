@@ -56,7 +56,6 @@ const SingleAvailablePost = () => {
                 color: '#fff',
               },
             });
-            refetch();
             navigate('/');
           }
         }

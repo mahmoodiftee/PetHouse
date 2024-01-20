@@ -48,7 +48,7 @@ const Available = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center">
                 {
                     visiblePets.map((pet) => (
-                        <div key={pet._id} onClick={() => openModal(pet)} className="overflow-hidden cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
+                        <div key={pet._id} onClick={() => openModal(pet)} className="overflow-hidden relative cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
                             <div className="h-[45%] overflow-hidden w-full">
                                 <img
                                     src={pet.img}
@@ -60,7 +60,7 @@ const Available = () => {
                             <article className="flex my-2 max-w-xl flex-col items-start justify-between">
                                 <div className="flex justify-between w-full mb-2 items-center gap-x-4 text-xs">
                                     <p href="#" className="relative z-10 rounded-full text-[10px] text-gray-300 px-3 py-[2px] -ml-1.5 bg-black font-extrabold">{pet.type}</p>
-                                    <p className="text-orange">{pet.date}</p>
+                                    <p className="z-[10] text-orange">{pet.date}</p>
                                 </div>
                                 <div className="group relative">
                                     <div className="flex items-center justify-between w-full">
@@ -124,7 +124,7 @@ const Available = () => {
             </div>
 
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10" onClose={closeModal}>
+                <Dialog as="div" className="relative z-[20]" onClose={closeModal}>
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -175,9 +175,16 @@ const Available = () => {
                                                 <p className="text-[12px] md:text-[16px] mb-2 font-light">
                                                     <span className="text-[16px] md:text-xl font-bold">Description: </span> {modal?.desc}
                                                 </p>
-                                                <div className="flex justify-start">
-                                                    <Link className="Button buttonA" to={`/avaiable-pets/${modal._id}`}><span className="Button__inner">Adopt</span></Link>
-                                                </div>
+                                                {
+                                                    modal.status === 'pending' ?
+                                                        <div className="rounded-xl text-red-500 text-start">
+                                                            Not Available
+                                                        </div>
+                                                        :
+                                                        <div className="flex justify-start">
+                                                            <Link className="Button buttonA" to={`/avaiable-pets/${modal._id}`}><span className="Button__inner">Adopt</span></Link>
+                                                        </div>
+                                                }
                                             </div>
 
                                         </div>
@@ -188,7 +195,7 @@ const Available = () => {
                     </div>
                 </Dialog>
             </Transition>
-        </div>
+        </div >
     );
 };
 
