@@ -8,21 +8,27 @@ import useAvaiablePosts from "../../../Hooks/useAvaiablePosts";
 import Loader from "../../../Components/Loader/Loader";
 const Available = () => {
     const [post, refetch, isLoading] = useAvaiablePosts();
+    const [selectedTab, setSelectedTab] = useState('all');
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
     const [visibleItems, setVisibleItems] = useState(8);
-    const visiblePets = post.slice(0, visibleItems)
+    const [initialVisibleItems, setInitialVisibleItems] = useState(8);
+    const visiblePets = post
+        .filter((pet) =>
+            selectedTab === 'all' ? true :
+                (selectedTab === 'available' ? pet.status === 'available' : pet.status === 'pending')
+        )
+        .slice(0, visibleItems);
     useEffect(() => {
-        setVisibleItems(8);
+        setInitialVisibleItems(8);
     }, [post, refetch]);
 
-
     const showMore = () => {
-        setVisibleItems((e) => e + 8);
+        setVisibleItems((prevVisibleItems) => prevVisibleItems + 8);
     };
 
     const showLess = () => {
-        setVisibleItems(4);
+        setVisibleItems(initialVisibleItems);
     };
 
     function closeModal() {
@@ -34,18 +40,38 @@ const Available = () => {
         setIsOpen(true)
     }
 
+    const handleTabClick = (tab) => {
+        setSelectedTab(tab);
+        setInitialVisibleItems(8);
+        setVisibleItems(8);
+    };
     return (
         <div id="available" className="my-6 md:my-10 px-2 md:px-6">
             <div className="md:w-[30%] w-[80%] mx-auto">
                 <Title head1={'Available'} head2={'For Adoption'}></Title>
             </div>
-            <Link to={'/adoption-form'} className="mt-6 md:ml-1 my-6 md:mt-10 flex justify-center"><button className="font-extrabold text-white hover:text-white/90 flex justify-center items-center gap-3"><span className="hover:text-orange/90 text-orange ">Adoption Post</span><MdAddToPhotos className="text-xl" /></button></Link>
-            {isLoading &&
-                <div className="w-full flex justify-center items-center">
-                    <Loader />
+            <div className="flex flex-col-reverse md:flex-row mb-6 md:mb-0 justify-between items-center w-full">
+                <div role="tablist" className="tabs tabs-boxed px-3 py-2 tabs-md bg-lite">
+                    <a role="tab"
+                        onClick={() => handleTabClick('all')}
+                        className={`tab font-bold rounded-xl ${selectedTab === 'all' ? 'text-orange bg-black rounded-full ' : ''}`}
+                    > All Posts</a>
+                    <a role="tab"
+                        onClick={() => handleTabClick('available')}
+                        className={`tab font-bold rounded-xl ${selectedTab === 'available' ? 'text-orange bg-black rounded-full ' : ''}`}
+                    > Available</a>
+                    <a role="tab"
+                        onClick={() => handleTabClick('pending')}
+                        className={`tab font-bold rounded-xl ${selectedTab === 'pending' ? 'text-orange bg-black rounded-full ' : ''}`}
+                    > Pending </a>
                 </div>
-            }
+                <Link to={'/adoption-form'} className="mt-6 md:ml-1 my-6 md:mt-10 flex justify-center"><button className="font-extrabold text-white hover:text-white/90 flex justify-center items-center gap-3"><span className="hover:text-orange/90 text-orange ">Adoption Post</span><MdAddToPhotos className="text-xl" /></button></Link>
+            </div>
+
+            {isLoading && <div className="w-full flex justify-center items-center"> <Loader /></div>}
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 items-center">
+
                 {
                     visiblePets.map((pet) => (
                         <div key={pet._id} onClick={() => openModal(pet)} className="overflow-hidden relative cursor-pointer h-[340px] md:h-96 w-full rounded-lg bg-[#171717] mx-auto p-2 lg:p-6">
@@ -115,6 +141,7 @@ const Available = () => {
                     ))
                 }
             </div>
+
             <div className="w-full flex justify-center items-center my-6">
                 {visibleItems < post.length ? (
                     <Button text={'Show More'} onClick={showMore} />
