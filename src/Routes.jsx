@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
                 element: <AdoptionDetail />,
                 loader: ({ params }) => fetch(`http://localhost:5000/avaiable-pets/${params.id}`)
             },
-            //Have to work on it
+            //Have to work on it, it has to fetch from adopted collection
             {
                 path: "/adopted/:id",
                 element: <AdoptedDetail />,

@@ -7,12 +7,13 @@ import { CgProfile } from 'react-icons/cg';
 import toast from 'react-hot-toast';
 import useAxios from '../../../../Hooks/useAxios';
 import useAdopted from '../../../../Hooks/ProfileHooks/useAdopted';
+import useAvaiablePosts from '../../../../Hooks/useAvaiablePosts';
 
 const Notifications = ({ isOpen, Fragment, closeModal }) => {
     const [notification, , Loading] = useNotification();
     const [, adoptedRefetch] = useAdopted();
     const axiosInstance = useAxios();
-
+    const [, refetch] = useAvaiablePosts();
     const handleReject = async (id) => {
         console.log(id);
         try {
@@ -45,12 +46,15 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
 
 
     const handleApprove = async (id) => {
-        console.log(id)
+        console.log(id);
+
         try {
-            // const statusChange = await axiosInstance.patch(`/avaiable-pets/${id}`, { status: 'adopted' });
+            const statusChange = await axiosInstance.patch(`/avaiable-pets/${id}`, { status: 'adopted' });
+
             const AdoptedstatusChange = await axiosInstance.patch(`/adopted/${id}`, { status: 'adopted' });
 
-            if (AdoptedstatusChange.status === 200) {
+            if (statusChange.status === 200 && AdoptedstatusChange.status === 200) {
+
                 toast('Approved', {
                     icon: '✅',
                     style: {
@@ -60,9 +64,17 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                     },
                 });
 
-
+                try {
+                    const response = await axiosInstance.delete(`/avaiable-pets/${id}`);
+                    const data = response.data;
+                    if (data.deletedCount > 0) {
+                        refetch();
+                    }
+                    console.log('post deleted from the home');
+                } catch (error) {
+                    console.error('Error deleting post:', error);
+                }
             }
-
         } catch (error) {
             console.error('Error:', error);
             toast.error('Error', {
@@ -74,7 +86,8 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                 },
             });
         }
-    }
+    };
+
 
     return (
         <Transition appear show={isOpen} as={Fragment}>
