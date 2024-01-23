@@ -211,7 +211,7 @@ const Available = () => {
                                                         </div>
                                                     ) : (
                                                         modal?.authorEmail === user?.email ?
-                                                            <div className="rounded-xl text-red-500 text-start">
+                                                            <div className="rounded-xl text-green-500 font-bold text-start">
                                                                 Your Post
                                                             </div>
                                                             : <Link className="Button buttonA" to={`/avaiable-pets/${modal._id}`}>
