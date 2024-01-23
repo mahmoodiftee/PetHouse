@@ -33,6 +33,7 @@ const SingleAvailablePost = () => {
     const selectedPost = { ...post, presentStatus, postId: post._id, adopterDP, adopterName, adopterEmail, message, };
     try {
       const adoptionResponse = await axiosInstance.post('/adopted', selectedPost);
+      // const NotificationsResponse = await axiosInstance.post('/notification', selectedPost);
 
       if (adoptionResponse.status === 200) {
         if (adoptionResponse.data.error) {

@@ -10,12 +10,11 @@ import useAdopted from '../../../../Hooks/ProfileHooks/useAdopted';
 import useAvaiablePosts from '../../../../Hooks/useAvaiablePosts';
 
 const Notifications = ({ isOpen, Fragment, closeModal }) => {
-    const [notification, , Loading] = useNotification();
+    const [notification, NotificationRefetch, Loading] = useNotification();
     const [, adoptedRefetch] = useAdopted();
     const axiosInstance = useAxios();
     const [, refetch] = useAvaiablePosts();
     const handleReject = async (id) => {
-        console.log(id);
         try {
             const response = await axiosInstance.delete(`/adopted/${id}`);
             const data = response.data;
@@ -46,7 +45,6 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
 
 
     const handleApprove = async (id) => {
-        console.log(id);
 
         try {
             const statusChange = await axiosInstance.patch(`/avaiable-pets/${id}`, { status: 'adopted' });
@@ -63,14 +61,13 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                         color: '#fff',
                     },
                 });
-
+                NotificationRefetch();
                 try {
                     const response = await axiosInstance.delete(`/avaiable-pets/${id}`);
                     const data = response.data;
                     if (data.deletedCount > 0) {
                         refetch();
                     }
-                    console.log('post deleted from the home');
                 } catch (error) {
                     console.error('Error deleting post:', error);
                 }
@@ -156,12 +153,20 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                                                                     </ul>
                                                                 </div>
                                                                 <div className="mt-1 hidden md:flex justify-center gap-2 items-center">
-                                                                    <button onClick={() => handleReject(post?._id)} data-tip="Reject" className='tooltip p-1 btn btn-sm btn-circle text-red-600 hover:text-white bg-[#161616] hover:bg-red-600 transition-all duration-500 rounded-full flex justify-center items-center'><ImCross className='md:text-[12px] text-[10px]' /></button>
-                                                                    <button onClick={() => handleApprove(post?._id)} data-tip="Approve" className='tooltip p-1 btn btn-sm btn-circle text-green-600 hover:text-white bg-[#161616] hover:bg-green-600 transition-all duration-500 rounded-full flex justify-center items-center'><FaCheck className='md:text-lg text-[10px]' /></button>
+                                                                    <button onClick={() => handleReject(post?._id)} data-tip="Reject" className={`${post?.status === 'adopted' ? 'hidden' : ''} tooltip p-1 btn btn-sm btn-circle text-red-600 hover:text-white bg-[#161616] hover:bg-red-600 transition-all duration-500 rounded-full flex justify-center items-center`}><ImCross className='md:text-[12px] text-[10px]' /></button>
+                                                                    {
+                                                                        post?.status === 'adopted' ?
+                                                                            <h1 className='text-sm text-green-500'>Approved</h1> :
+                                                                            < button onClick={() => handleApprove(post?._id)} data-tip="Approve" className='tooltip p-1 btn btn-sm btn-circle text-green-600 hover:text-white bg-[#161616] hover:bg-green-600 transition-all duration-500 rounded-full flex justify-center items-center'><FaCheck className='md:text-lg text-[10px]' /></button>
+                                                                    }
                                                                 </div>
                                                                 <div className="mt-1 flex md:hidden justify-center gap-2 items-center">
-                                                                    <button onClick={() => handleReject(post?._id)} data-tip="Reject" className='tooltip p-1 btn btn-smm btn-circle text-red-600 hover:text-white bg-[#161616] hover:bg-red-600 transition-all duration-500 rounded-full flex justify-center items-center'><ImCross className='md:text-[12px] text-[10px]' /></button>
-                                                                    <button onClick={() => handleApprove(post?._id)} data-tip="Approve" className='tooltip p-1 btn btn-smm btn-circle text-green-600 hover:text-white bg-[#161616] hover:bg-green-600 transition-all duration-500 rounded-full flex justify-center items-center'><FaCheck className='md:text-lg text-[10px]' /></button>
+                                                                    <button onClick={() => handleReject(post?._id)} data-tip="Reject" className={`${post?.status === 'adopted' ? 'hidden' : ''} tooltip p-1 btn btn-smm btn-circle text-red-600 hover:text-white bg-[#161616] hover:bg-red-600 transition-all duration-500 rounded-full flex justify-center items-center`}><ImCross className='md:text-[12px] text-[10px]' /></button>
+                                                                    {
+                                                                        post?.status === 'adopted' ?
+                                                                            <h1 className='text-sm text-green-500'>Approved</h1> :
+                                                                            < button onClick={() => handleApprove(post?._id)} data-tip="Approve" className='tooltip p-1 btn btn-smm btn-circle text-green-600 hover:text-white bg-[#161616] hover:bg-green-600 transition-all duration-500 rounded-full flex justify-center items-center'><FaCheck className='md:text-lg text-[10px]' /></button>
+                                                                    }
                                                                 </div>
                                                             </div>
                                                         </article>
@@ -174,10 +179,10 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>
-                    </div>
-                </div>
-            </Dialog>
-        </Transition>
+                    </div >
+                </div >
+            </Dialog >
+        </Transition >
     );
 };
 
