@@ -13,10 +13,12 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
     const [, adoptedRefetch] = useAdopted();
     const axiosInstance = useAxios();
 
-    const hnadleReject = async (id) => {
+    const handleReject = async (id) => {
+        console.log(id);
         try {
             const response = await axiosInstance.delete(`/adopted/${id}`);
             const data = response.data;
+            console.log(data)
             if (data.deletedCount > 0) {
                 toast('Rejected', {
                     icon: '✅',
@@ -39,23 +41,38 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                 },
             });
         }
-    }
+    };
+
 
     const handleApprove = async (id) => {
-        const statusChange = await axiosInstance.patch(`/avaiable-pets/${id}`, { status: 'adopted' });
-        const AdoptedstatusChange = await axiosInstance.patch(`/adopted/${id}`, { status: 'adopted' });
+        console.log(id)
+        try {
+            // const statusChange = await axiosInstance.patch(`/avaiable-pets/${id}`, { status: 'adopted' });
+            const AdoptedstatusChange = await axiosInstance.patch(`/adopted/${id}`, { status: 'adopted' });
 
-        if (statusChange.status && AdoptedstatusChange.status === 200) {
-            toast('Approved', {
-                icon: '✅',
+            if (AdoptedstatusChange.status === 200) {
+                toast('Approved', {
+                    icon: '✅',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    },
+                });
+
+
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+            toast.error('Error', {
+                icon: '❌',
                 style: {
                     borderRadius: '10px',
                     background: '#333',
                     color: '#fff',
                 },
             });
-
-
         }
     }
 
@@ -126,11 +143,11 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                                                                     </ul>
                                                                 </div>
                                                                 <div className="mt-1 hidden md:flex justify-center gap-2 items-center">
-                                                                    <button onClick={() => hnadleReject(post?._id)} data-tip="Reject" className='tooltip p-1 btn btn-sm btn-circle text-red-600 hover:text-white bg-[#161616] hover:bg-red-600 transition-all duration-500 rounded-full flex justify-center items-center'><ImCross className='md:text-[12px] text-[10px]' /></button>
+                                                                    <button onClick={() => handleReject(post?._id)} data-tip="Reject" className='tooltip p-1 btn btn-sm btn-circle text-red-600 hover:text-white bg-[#161616] hover:bg-red-600 transition-all duration-500 rounded-full flex justify-center items-center'><ImCross className='md:text-[12px] text-[10px]' /></button>
                                                                     <button onClick={() => handleApprove(post?._id)} data-tip="Approve" className='tooltip p-1 btn btn-sm btn-circle text-green-600 hover:text-white bg-[#161616] hover:bg-green-600 transition-all duration-500 rounded-full flex justify-center items-center'><FaCheck className='md:text-lg text-[10px]' /></button>
                                                                 </div>
                                                                 <div className="mt-1 flex md:hidden justify-center gap-2 items-center">
-                                                                    <button onClick={() => hnadleReject(post?._id)} data-tip="Reject" className='tooltip p-1 btn btn-smm btn-circle text-red-600 hover:text-white bg-[#161616] hover:bg-red-600 transition-all duration-500 rounded-full flex justify-center items-center'><ImCross className='md:text-[12px] text-[10px]' /></button>
+                                                                    <button onClick={() => handleReject(post?._id)} data-tip="Reject" className='tooltip p-1 btn btn-smm btn-circle text-red-600 hover:text-white bg-[#161616] hover:bg-red-600 transition-all duration-500 rounded-full flex justify-center items-center'><ImCross className='md:text-[12px] text-[10px]' /></button>
                                                                     <button onClick={() => handleApprove(post?._id)} data-tip="Approve" className='tooltip p-1 btn btn-smm btn-circle text-green-600 hover:text-white bg-[#161616] hover:bg-green-600 transition-all duration-500 rounded-full flex justify-center items-center'><FaCheck className='md:text-lg text-[10px]' /></button>
                                                                 </div>
                                                             </div>
