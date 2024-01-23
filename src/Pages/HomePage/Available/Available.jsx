@@ -90,7 +90,7 @@ const Available = () => {
                                     <p href="#" className="relative z-10 rounded-full text-[10px] text-gray-300 px-3 py-[2px] -ml-1.5 bg-black font-extrabold">{pet.type}</p>
                                     <p className="z-[10] text-orange">{pet.date}</p>
                                 </div>
-                                <div className="group relative">
+                                <div className="group w-full relative">
                                     <div className="flex items-center justify-between w-full">
                                         <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
                                             {
@@ -107,8 +107,8 @@ const Available = () => {
                                         </h3>
                                         {
                                             pet.status === 'pending' ?
-                                                <p className="bg-black pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-red-700">{pet.status}</p> :
-                                                <p className="bg-black pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-green-700">{pet.status}</p>
+                                                <p className="bg-black absolute right-0 pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-red-700">{pet.status}</p> :
+                                                <p className="bg-black absolute right-0 pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-green-700">{pet.status}</p>
                                         }
                                     </div>
                                     <div className="h-[75px] mb-2">
@@ -205,7 +205,7 @@ const Available = () => {
                                                     <span className="text-[16px] md:text-xl font-bold">Description: </span> {modal?.desc}
                                                 </p>
                                                 {
-                                                    modal.status === 'pending' ? (
+                                                   modal.status === 'pending' || modal.status === 'adopted' ? (
                                                         <div className="rounded-xl text-red-500 text-start">
                                                             Not Available
                                                         </div>

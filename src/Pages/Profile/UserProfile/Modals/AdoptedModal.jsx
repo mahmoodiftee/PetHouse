@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
     const [adopted, , isLoading] = useAdopted();
-    
+
     console.log(adopted);
     return (
         <Transition appear show={isOpen} as={Fragment}>
@@ -63,7 +63,7 @@ const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
                                                                 <p className="relative z-10 rounded-full text-[10px] text-gray-300 px-3 py-[2px] -ml-1 bg-black font-extrabold">{post.type}</p>
                                                                 <p className="text-orange">{post.date}</p>
                                                             </div>
-                                                            <div className="group relative">
+                                                            <div className="group w-full relative">
                                                                 <div className="flex items-center justify-between w-full">
                                                                     <h3 className=" text-lg font-semibold leading-6 text-orange group-hover:text-orange">
                                                                         {
@@ -79,13 +79,13 @@ const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
                                                                         }
                                                                     </h3>
                                                                     {
-                                                                        post.presentStatus === 'Pending' ?
-                                                                            <p className="bg-black pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-red-700">{post.presentStatus}</p> :
-                                                                            <p className="bg-black pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-green-700">{post.presentStatus}</p>
+                                                                        post.status === 'pending' ?
+                                                                            <p className="bg-black absolute right-0 pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-red-700">{post.status}</p> :
+                                                                            <p className="bg-black absolute right-0 pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-green-700">{post.status}</p>
                                                                     }
                                                                 </div>
-                                                                <div className="h-[75px]">
-                                                                    <p className="text-[12px] md:text-sm md:leading-6 text-gray-400">{post.desc.split(' ').slice(0, 30).join(' ')}..</p>
+                                                                <div className="h-[75px] mb-2">
+                                                                    <p className="mt-2 text-[12px] md:text-sm md:leading-6 text-gray-400">{post.desc.split(' ').slice(0, 30).join(' ')}..</p>
                                                                 </div>
                                                             </div>
                                                             <div className="relative my-1 flex items-center gap-x-4">
