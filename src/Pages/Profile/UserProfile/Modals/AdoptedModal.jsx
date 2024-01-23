@@ -79,8 +79,8 @@ const AdoptedModal = ({ isOpen, Fragment, closeModal }) => {
                                                                         }
                                                                     </h3>
                                                                     {
-                                                                        post.status === 'pending' ?
-                                                                            <p className="bg-black absolute right-0 pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-red-700">{post.status}</p> :
+                                                                        post?.presentStatus === 'Pending' ?
+                                                                            <p className="bg-black absolute right-0 pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-red-700">{post.presentStatus}</p> :
                                                                             <p className="bg-black absolute right-0 pl-3 pr-10 py-1 rounded-l-xl -mr-9 font-semibold text-[12px] text-green-700">{post.status}</p>
                                                                     }
                                                                 </div>

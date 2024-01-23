@@ -28,6 +28,7 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                         color: '#fff',
                     },
                 });
+                NotificationRefetch();
                 adoptedRefetch();
             }
         } catch (error) {
@@ -48,8 +49,7 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
 
         try {
             const statusChange = await axiosInstance.patch(`/avaiable-pets/${id}`, { status: 'adopted' });
-
-            const AdoptedstatusChange = await axiosInstance.patch(`/adopted/${id}`, { status: 'adopted' });
+            const AdoptedstatusChange = await axiosInstance.patch(`/adopted/${id}`, { status: 'adopted', presentStatus: 'adopted' });
 
             if (statusChange.status === 200 && AdoptedstatusChange.status === 200) {
 
@@ -61,6 +61,7 @@ const Notifications = ({ isOpen, Fragment, closeModal }) => {
                         color: '#fff',
                     },
                 });
+                adoptedRefetch();
                 NotificationRefetch();
                 try {
                     const response = await axiosInstance.delete(`/avaiable-pets/${id}`);
