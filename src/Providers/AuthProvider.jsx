@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from "../Pages/Authentication/firebase.config";
+import axios from "axios";
 // import axios from "axios";
 
 export const AuthContext = createContext(null)
@@ -9,7 +10,7 @@ const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-  
+
 
   const googleLogin = () => {
     setLoading(true);
@@ -31,7 +32,7 @@ const AuthProvider = ({ children }) => {
   //     const userDataResponse = await axios.get(`https://ims-server-kappa.vercel.app/users`);
   //     const allUsers = userDataResponse.data;
   //     const userInfo = allUsers.find(u => u.email === currentUser.email);
-      
+
   //     setUser({
   //       ...currentUser,
   //       role: userInfo.role,
@@ -40,16 +41,24 @@ const AuthProvider = ({ children }) => {
   //     console.error("Error updating user data:", error);
   //   }
   // };
-  
+
 
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
-      // console.log('Logged in User', currentUser);
-
+      console.log('Logged in User', currentUser);
       // if (currentUser) {
-      //   await updateUserData(currentUser);
+      //   axios.post('http://localhost:5000/jwt', currentUser.email, { withCredentials: true })
+      //     .then(() => {
+      //       (res => console.log(res.data))
+      //     })
+      // }
+      // else {
+      //   axios.post('http://localhost:5000/logout', currentUser, { withCredentials: true })
+      //     .then(() => {
+      //       (res => console.log(res.data))
+      //     })
       // }
 
       setLoading(false);

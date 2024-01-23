@@ -1,8 +1,8 @@
-import Available from "./Available/Available";
 import About from "./About/About";
 import Banner from "./Banner/Banner";
 import Location from "./Location/Location";
 import Contact from "./Contact/Contact";
+import Available from "./Available/SinglePosts/Available";
 
 const Home = () => {
     const scrollToAvailable = () => {

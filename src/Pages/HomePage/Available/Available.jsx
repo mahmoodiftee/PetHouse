@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import { MdAddToPhotos } from "react-icons/md";
 import useAvaiablePosts from "../../../Hooks/useAvaiablePosts";
 import Loader from "../../../Components/Loader/Loader";
+import { AuthContext } from "../../../Providers/AuthProvider";
 const Available = () => {
     const [post, refetch, isLoading] = useAvaiablePosts();
+    const { user } = useContext(AuthContext);
     const [selectedTab, setSelectedTab] = useState('all');
     const [isOpen, setIsOpen] = useState(false)
     const [modal, setModal] = useState([]);
@@ -203,15 +205,22 @@ const Available = () => {
                                                     <span className="text-[16px] md:text-xl font-bold">Description: </span> {modal?.desc}
                                                 </p>
                                                 {
-                                                    modal.status === 'pending' ?
+                                                    modal.status === 'pending' ? (
                                                         <div className="rounded-xl text-red-500 text-start">
                                                             Not Available
                                                         </div>
-                                                        :
-                                                        <div className="flex justify-start">
-                                                            <Link className="Button buttonA" to={`/avaiable-pets/${modal._id}`}><span className="Button__inner">Adopt</span></Link>
-                                                        </div>
+                                                    ) : (
+                                                        modal?.authorEmail === user?.email ?
+                                                            <div className="rounded-xl text-red-500 text-start">
+                                                                Your Post
+                                                            </div>
+                                                            : <Link className="Button buttonA" to={`/avaiable-pets/${modal._id}`}>
+                                                                <span className="Button__inner">Details</span>
+                                                            </Link>
+
+                                                    )
                                                 }
+
                                             </div>
 
                                         </div>
