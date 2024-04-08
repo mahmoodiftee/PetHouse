@@ -9,4 +9,12 @@
 
 - previous task are solved, now have to work on acceprting and rejecting adoption request
 
+# TODO
+24/01/24
+
+- initial project done, now left issues: bookmark, adoptionDetail route
+
+# chat functionality due 
+
+
 

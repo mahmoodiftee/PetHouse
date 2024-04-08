@@ -15,6 +15,7 @@ import UserProfile from "./Pages/Profile/UserProfile/UserProfile";
 import AdoptionDetail from "./Pages/Profile/UserProfile/Pages/AdoptionDetail/AdoptionDetail";
 import SingleBlogPost from "./Pages/Profile/UserProfile/Pages/BlogDetail/SingleBlogPost";
 import AdoptedDetail from "./Pages/Profile/UserProfile/Pages/AdoptedDetail/AdoptedDetail";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -37,17 +38,17 @@ export const router = createBrowserRouter([
             {
                 path: "/blogs/:id",
                 element: <SingleBlogPost />,
-                loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+                loader: ({ params }) => fetch(`https://per-house-server.vercel.app/blogs/${params.id}`)
             },
             {
                 path: "/avaiable-pets/:id",
                 element: <SingleAvailablePost />,
-                loader: ({ params }) => fetch(`http://localhost:5000/avaiable-pets/${params.id}`)
+                loader: ({ params }) => fetch(`https://per-house-server.vercel.app/avaiable-pets/${params.id}`)
             },
             {
                 path: "/adoption-detail/:id",
                 element: <AdoptionDetail />,
-                loader: ({ params }) => fetch(`http://localhost:5000/avaiable-pets/${params.id}`)
+                loader: ({ params }) => fetch(`https://per-house-server.vercel.app/avaiable-pets/${params.id}`)
             },
             //Have to work on it, it has to fetch from adopted collection
             {
@@ -55,7 +56,7 @@ export const router = createBrowserRouter([
                 element: <AdoptedDetail />,
                 loader: ({ params }) => {
                     console.log('Post ID:', params.id);
-                    return fetch(`http://localhost:5000/avaiable-pets/${params.id}`);
+                    return fetch(`https://per-house-server.vercel.app/avaiable-pets/${params.id}`);
                 }
             },
             {
@@ -68,25 +69,25 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/blogs",
-                element: <HomeLayout />,
+                element: <PrivateRoute><HomeLayout /></PrivateRoute>,
                 children: [
                     {
                         path: "/blogs",
-                        element: <Blogs />,
+                        element: <PrivateRoute><Blogs /></PrivateRoute>,
                     },
                     {
                         path: "/blogs/bookmarks",
-                        element: <Bookmarks />,
+                        element: <PrivateRoute><Bookmarks /></PrivateRoute>,
                     }
                 ]
             },
             {
                 path: "/consultation",
-                element: <Consultation />
+                element: <PrivateRoute><Consultation /></PrivateRoute>
             },
             {
                 path: "/bookmarks",
-                element: <Bookmarks />,
+                element: <PrivateRoute><Bookmarks /></PrivateRoute>,
             }
         ]
     },
